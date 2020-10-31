@@ -82,7 +82,7 @@ export default function RouterBreadcrumbs() {
                 </LinkRouter>
                 {pathnames.map((value, index) => {
                   const last = index === pathnames.length - 1;
-                  const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+                  const to = `/info${pathnames.slice(0, index + 1).join('/')}`;
 
                   return last ? (
                     <Typography color="textPrimary" key={to}>
