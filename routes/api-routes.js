@@ -27,7 +27,7 @@ module.exports = function (app) {
         })
     })
 
-    app.delete("/api/admin/:id", function (req, res) {
+    app.delete("/api/:id", function (req, res) {
         db.Products.destroy({
             where:{
                 id: req.params.id
