@@ -10,7 +10,7 @@ import ProductGrid from "./components/ProductGrid";
 import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
 import Gallery from "./pages/gallery"
-import About from "./pages/About"
+import About from "./pages/about"
 import Shop from "./pages/Shop"
 import Login from "./pages/Login"
 
