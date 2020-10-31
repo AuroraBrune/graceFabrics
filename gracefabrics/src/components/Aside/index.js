@@ -11,17 +11,19 @@ import Typography from '@material-ui/core/Typography';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import { Route, MemoryRouter } from 'react-router';
+import { Route } from 'react-router';
+// import { MemoryRouter } from "react-router-dom"
 import { Link as RouterLink } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from "react-router-dom"
 
 const breadcrumbNameMap = {
-  '/info': 'Info',
+  '/gallery': 'Gallery',
   '/categories/category1': 'category1',
   '/categories/category2': 'category2',
   '/categories/category3': 'category3',
-  '/requests': 'Requests',
-  '/contact': 'Contact',
-  '/events': 'Events',
+  '/shop': 'Shop',
+  '/about': 'About',
+  // '/events': 'Events',
 };
 
 function ListItemLink(props) {
@@ -69,7 +71,7 @@ export default function RouterBreadcrumbs() {
   };
 
   return (
-    <MemoryRouter initialEntries={['/info']} initialIndex={0}>
+    <Router initialEntries={['/gallery']} initialIndex={0}>
       <div className={classes.root}>
         <Route>
           {({ location }) => {
@@ -77,12 +79,12 @@ export default function RouterBreadcrumbs() {
 
             return (
               <Breadcrumbs aria-label="breadcrumb">
-                <LinkRouter color="inherit" to="/info">
+                <LinkRouter color="inherit" to="/gallery">
                   Home
                 </LinkRouter>
                 {pathnames.map((value, index) => {
                   const last = index === pathnames.length - 1;
-                  const to = `/info${pathnames.slice(0, index + 1).join('/')}`;
+                  const to = `/gallery${pathnames.slice(0, index + 1).join('/')}`;
 
                   return last ? (
                     <Typography color="textPrimary" key={to}>
@@ -100,7 +102,7 @@ export default function RouterBreadcrumbs() {
         </Route>
         <nav className={classes.lists} aria-label="mailbox folders">
           <List>
-            <ListItemLink to="/info" open={open} onClick={handleClick} />
+            <ListItemLink to="/gallery" open={open} onClick={handleClick} />
             <Collapse component="li" in={open} timeout="auto" unmountOnExit>
               <List disablePadding>
                 <ListItemLink to="/categories/category1" className={classes.nested} />
@@ -108,12 +110,12 @@ export default function RouterBreadcrumbs() {
                 <ListItemLink to="/categories/category3" className={classes.nested} />
               </List>
             </Collapse>
-            <ListItemLink to="/requests" />
-            <ListItemLink to="/contact" />
-            <ListItemLink to="/events" />
+            <ListItemLink to="/shop" />
+            <ListItemLink to="/about" />
+            {/* <ListItemLink to="/events" /> */}
           </List>
         </nav>
       </div>
-    </MemoryRouter>
+    </Router>
   );
 }
