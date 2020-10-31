@@ -102,7 +102,7 @@ export default function RouterBreadcrumbs() {
         </Route>
         <nav className={classes.lists} aria-label="mailbox folders">
           <List>
-            <ListItemLink to="/gallery" open={open} onClick={handleClick} />
+            <ListItemLink to="/shop" open={open} onClick={handleClick} />
             <Collapse component="li" in={open} timeout="auto" unmountOnExit>
               <List disablePadding>
                 <ListItemLink to="/categories/category1" className={classes.nested} />
@@ -110,7 +110,7 @@ export default function RouterBreadcrumbs() {
                 <ListItemLink to="/categories/category3" className={classes.nested} />
               </List>
             </Collapse>
-            <ListItemLink to="/shop" />
+            <ListItemLink to="/gallery" />
             <ListItemLink to="/about" />
             {/* <ListItemLink to="/events" /> */}
           </List>
