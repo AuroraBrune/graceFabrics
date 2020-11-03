@@ -10,8 +10,9 @@ import image from '../../assets/demo_img.jpg';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 180,
-    height: 400
+    minWidth: 150,
+    height: 400,
+    margin: 10,
   },
   bullet: {
     display: 'inline-block',

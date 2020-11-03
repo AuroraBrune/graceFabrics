@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textAlign:'center'
   },
 }));
 
@@ -26,13 +27,13 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
           Grace Fabrics
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">Cart</Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -18,7 +18,7 @@ const classes = makeStyles((theme) => ({
     flexGrow: 1,
   },
   control: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(5),
   },
 }));
 
@@ -27,8 +27,8 @@ function App() {
     <Router>
       <Navbar />
       <div className={classes.root}>
-      <Grid container spacing={1}>
-        <Grid item md={3}>
+      <Grid container padding={5}>
+        <Grid item md={2}>
           <Aside/>
         </Grid>
         <Grid item md={9}>
