@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Container } from 'react-materialize';
 
-
 function About () {
     return (
         <div>

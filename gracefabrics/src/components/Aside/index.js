@@ -19,84 +19,69 @@ const Aside = () => {
 
   return(
     <div className={classes.root}>
-    <ul className="nav">
-    <li>  
-    <Button href="#text-buttons" color="primary">
-      <Link href="#" onClick={preventDefault}>
-        Link
-      </Link>
-    </Button>
-   
-    </li>
-       <li className="nav-item">
-        <Button href="#text-buttons" color="primary">
-          <Link to="/about" className={ window.location.pathname === "/about" ? "nav-link active" : "nav-link" }>
-            About
-          </Link>
-        </Button>
-      </li>
+      <ul className="nav">
+        <li className="nav-item">
+          <Button href="#text-buttons" color="primary">
+            <Link to="/about" className={ window.location.pathname === "/about" ? "nav-link active" : "nav-link" }>
+              About
+            </Link>
+          </Button>
+        </li>
 
-      <li className="nav-item">
-        <Button href="#text-buttons" color="primary">
-          <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
-            Shop
-          </Link>
-        </Button>
-      </li>
+        <li className="nav-item">
+          <Button href="#text-buttons" color="primary">
+            <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
+              Shop
+            </Link>
+          </Button>
+        </li>
 
-      {/* Begin Sub-List */}
-        <ul>
-          <li> 
-            <Button href="#text-buttons" color="primary">
-              <Link to="/category1" className= { window.location.pathname === "/category1" ? "nav-link active" : "nav-link" }>
-                Category1
-              </Link>
-            </Button>
-          </li>
-          <li>
-            <Button href="#text-buttons" color="primary">
-              <Link to="/Category2" className={ window.location.pathname === "/Category2" ? "nav-link active" : "nav-link" }>
-                Category2
-              </Link>
-            </Button>
-          </li>
-          <li>
-            <Button href="#text-buttons" color="primary">
-              <Link to="/Category3" className={ window.location.pathname === "/Category3" ? "nav-link active" : "nav-link" }>
-                Category3
-              </Link>
-            </Button>
-          </li>
-        </ul>
-      {/* End Sub-List */}
+        {/* Begin Sub-List */}
+          <ul>
+            <li> 
+              <Button href="#text-buttons" color="primary">
+                <Link to="/category1" className= { window.location.pathname === "/category1" ? "nav-link active" : "nav-link" }>
+                  Category1
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button href="#text-buttons" color="primary">
+                <Link to="/Category2" className={ window.location.pathname === "/Category2" ? "nav-link active" : "nav-link" }>
+                  Category2
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button href="#text-buttons" color="primary">
+                <Link to="/Category3" className={ window.location.pathname === "/Category3" ? "nav-link active" : "nav-link" }>
+                  Category3
+                </Link>
+              </Button>
+            </li>
+          </ul>
+        {/* End Sub-List */}
 
-      <li className="nav-item">
-        <Button href="#text-buttons" color="primary">
-          <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
-            Gallery
-          </Link>
-        </Button>
-      </li>
-      <li className="nav-item">
-        <Button href="#text-buttons" color="primary">
-          <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>
-            Contact Info
-          </Link>
-        </Button>
-      </li>
-    </ul> 
+        <li className="nav-item">
+          <Button href="#text-buttons" color="primary">
+            <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
+              Gallery
+            </Link>
+          </Button>
+        </li>
+        <li className="nav-item">
+          <Button href="#text-buttons" color="primary">
+            <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>
+              Contact Info
+            </Link>
+          </Button>
+        </li>
+      </ul> 
     </div>
   )
 }
 
 export default Aside;
-
-
-
-
-
-
-
 
 
 // /* eslint-disable no-nested-ternary */
