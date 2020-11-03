@@ -1,52 +1,91 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import './style.css';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
 
 const Aside = () => {
+  const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault();
+
   return(
+    <div className={classes.root}>
     <ul className="nav">
+    <li>  
+    <Button href="#text-buttons" color="primary">
+      <Link href="#" onClick={preventDefault}>
+        Link
+      </Link>
+    </Button>
+   
+    </li>
        <li className="nav-item">
-        <Link to="/about" className={ window.location.pathname === "/about" ? "nav-link active" : "nav-link" }>
-          About
-        </Link>
+        <Button href="#text-buttons" color="primary">
+          <Link to="/about" className={ window.location.pathname === "/about" ? "nav-link active" : "nav-link" }>
+            About
+          </Link>
+        </Button>
       </li>
 
       <li className="nav-item">
-        <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
-          Shop
-        </Link>
+        <Button href="#text-buttons" color="primary">
+          <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
+            Shop
+          </Link>
+        </Button>
       </li>
 
       {/* Begin Sub-List */}
         <ul>
           <li> 
-            <Link to="/category1" className= { window.location.pathname === "/category1" ? "nav-link active" : "nav-link" }>
-              Category1
-            </Link>
+            <Button href="#text-buttons" color="primary">
+              <Link to="/category1" className= { window.location.pathname === "/category1" ? "nav-link active" : "nav-link" }>
+                Category1
+              </Link>
+            </Button>
           </li>
           <li>
-            <Link to="/Category2" className={ window.location.pathname === "/Category2" ? "nav-link active" : "nav-link" }>
-              Category2
-            </Link>
+            <Button href="#text-buttons" color="primary">
+              <Link to="/Category2" className={ window.location.pathname === "/Category2" ? "nav-link active" : "nav-link" }>
+                Category2
+              </Link>
+            </Button>
           </li>
           <li>
-            <Link to="/Category3" className={ window.location.pathname === "/Category3" ? "nav-link active" : "nav-link" }>
-              Category3
-            </Link>
+            <Button href="#text-buttons" color="primary">
+              <Link to="/Category3" className={ window.location.pathname === "/Category3" ? "nav-link active" : "nav-link" }>
+                Category3
+              </Link>
+            </Button>
           </li>
         </ul>
       {/* End Sub-List */}
 
       <li className="nav-item">
-        <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
-          Gallery
-        </Link>
+        <Button href="#text-buttons" color="primary">
+          <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
+            Gallery
+          </Link>
+        </Button>
       </li>
       <li className="nav-item">
-        <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>
-          Contact Info
-        </Link>
+        <Button href="#text-buttons" color="primary">
+          <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>
+            Contact Info
+          </Link>
+        </Button>
       </li>
     </ul> 
+    </div>
   )
 }
 
