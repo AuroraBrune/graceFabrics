@@ -10,6 +10,7 @@ import image from '../../assets/demo_img.jpg';
 
 const useStyles = makeStyles({
   root: {
+    background:'ivory',
     minWidth: 150,
     height: 400,
     margin: 10,
