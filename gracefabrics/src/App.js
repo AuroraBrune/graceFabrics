@@ -13,59 +13,36 @@ import About from "./pages/About"
 import Shop from "./pages/Shop"
 import Login from "./pages/Login"
 
-const useStyles = makeStyles((theme) => ({
+const classes = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  paper: {
-    height: 140,
-    width: 100,
   },
   control: {
     padding: theme.spacing(2),
   },
 }));
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Navbar/>
-//       <div class = "column">
-//             <Aside/>
-//       </div>
-//       <div class = "column">
-//       {/* <ProductGrid/> */}
-//         <div class = "row">
-//             <Product class="card"/>
-//             <Product class="card"/>
-//             <Product class="card"/>      
-//         </div>
-//       </div> 
-//     </div>
-//   );
-// }
-
 function App() {
   return(
     <Router>
-      <div className="app">
-        <Navbar />
-        <div className = "column">
-             <Aside/>
-        </div>
-          {/* <Switch> */}
-            {/* <Route exact path="/" component={Home}/> */}
-            <Route path="/gallery" component={Gallery}/>
-            <Route path="/about" component={About}/>
-            <Route path="/shop" component={Shop}/>
-            <Route path="/login" component={Login}/>
-            {/* <Route path="/" component={}/> */}
-{/* 
+      <Navbar />
+      <div className={classes.root}>
+      <Grid container spacing={1}>
+        <Grid item md={3}>
+          <Aside/>
+        </Grid>
+        <Grid item md={9}>
+          <Route path="/about" component={About}/>
+          <Route path="/shop" component={Shop}/>
+          <Route path="/gallery" component={Gallery}/>
+          <Route path="/login" component={Login}/>
+        </Grid> 
+            {/* 
             <RequireAuth>
                 <Route exact path="/admin" component={admin} />
             </RequireAuth> */}
-          {/* </Switch> */}
-      </div>
+     </Grid>
+     </div>
     </Router>
   );
 }
