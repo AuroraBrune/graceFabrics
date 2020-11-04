@@ -12,6 +12,8 @@ import Gallery from "./pages/gallery"
 import About from "./pages/About"
 import Shop from "./pages/Shop"
 import Login from "./pages/Login"
+import Banners from './pages/Banners';
+import Stoles from './pages/Stoles';
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -34,6 +36,8 @@ function App() {
         <Grid item md={9}>
           <Route path="/about" component={About}/>
           <Route path="/shop" component={Shop}/>
+          <Route path="/banners" component={Banners}/>
+          <Route path="/stoles" component={Stoles}/>
           <Route path="/gallery" component={Gallery}/>
           <Route path="/login" component={Login}/>
           <Route exact path="/" component={Shop}/>
