@@ -1,0 +1,10 @@
+ul {
+  list-style-type: none;
+}
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: rgb(77, 77, 233);
+}

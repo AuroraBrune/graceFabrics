@@ -1,12 +1,11 @@
 import React from "react";
 import { Row, Container } from 'react-materialize';
 
-
 function About () {
     return (
         <div>
-         
           <Container>
+
               <Row>Faith &amp; Fabrics</Row>
               <Row>
                   <p>paragraph of text here</p>
@@ -24,9 +23,9 @@ function About () {
                   <p>Text about </p>
               </Row>
             
-
           </Container>
         </div>
     )
 }
+
 export default About;
