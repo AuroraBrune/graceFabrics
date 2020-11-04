@@ -6,7 +6,7 @@ export default function Gallery(){
     return(
         <div>
             {Carousel}
-            This is the Gallery page
+            This is the Gallery page.
         </div>
     )
 }
