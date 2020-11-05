@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header-about {
+  font-family: Neucha,cursive;
+  font-size: 30px;
+  color: #4d4de9;
+}
+
+.header-feedback {
+  font-family: Neucha,cursive;
+  font-size: 20px;
+  color: #4d4de9;
+}
