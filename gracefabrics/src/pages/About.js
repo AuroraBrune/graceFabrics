@@ -5,14 +5,14 @@ function About() {
     return (
         <div>
             <Container>
-
-                <Row>Faith &amp; Fabrics</Row>
+            
+                <Row><h2 className="header-about mt-4 mb-4">Faith &amp; Fabrics</h2></Row>
                 <Row>
                     <p>paragraph of text here</p>
                 </Row>
-                <Row>Our Mission</Row>
+                <Row><h2 className="header-about mt-4 mb-4">The Mission of Grace Fabrics is...</h2></Row>
                 <Row>
-                    <p><ul>The Mission of Grace Fabrics is...
+                    <p><ul>
 
                     <li>· To create fiber art to enhance worship, utilizing a variety of media and surface design techniques.</li>
 
@@ -21,7 +21,7 @@ function About() {
                     <li>· To affirm and celebrate the diversity of humankind.</li>
                     </ul></p>
                 </Row>
-                <Row>About Our Artist</Row>
+                <Row><h2 className="header-about mt-4 mb-4">About Our Artist</h2></Row>
                 <Row>
                     <p>
                         Grace holds a bachelor of music in vocal performance from Wheaton College Conservatory of music and a
@@ -42,7 +42,7 @@ function About() {
                         In addition to her work with Grace Fabrics, Grace is also the Director of Music at Blue Ridge Presbyterian Church
                         in Raytown, Missouri and the Artist in Residence at Community Christian Church in Kansas City, Missouri.</p>
                 </Row>
-                <Row>"Community Feedback" </Row>
+                <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
                 <Row>
                     <p>Text about </p>
                 </Row>
