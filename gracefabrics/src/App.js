@@ -17,6 +17,7 @@ import Stoles from './pages/Stoles';
 import { useEffect } from 'react';
 import Admin from './pages/Admin';
 
+
 const classes = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -27,6 +28,12 @@ const classes = makeStyles((theme) => ({
 }));
 
 function App() {
+  useEffect(() =>{
+    fetch("/api/products").then(res => res.json()).then(productres => {
+
+      console.log(productres)
+    })
+  },[] )
   return(
     <Router>
       <Navbar />
