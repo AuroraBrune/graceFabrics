@@ -7,20 +7,20 @@ module.exports = function (app) {
         })
     })
 
-    app.get("/api/products/stoles", function (req, res) {
+    app.get("/api/products/rainbow", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "stoles"
+                type: "Rainbow-Stole"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
         })
     })
 
-    app.get("/api/products/alter", function (req, res) {
+    app.get("/api/products/easter", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "alter-cloth"
+                type: "Easter-Stole"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
