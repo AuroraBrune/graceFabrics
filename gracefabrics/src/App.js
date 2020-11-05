@@ -14,6 +14,7 @@ import Shop from "./pages/Shop"
 import Login from "./pages/Login"
 import Banners from './pages/Banners';
 import Stoles from './pages/Stoles';
+import { useEffect } from 'react';
 import Admin from './pages/Admin';
 
 const classes = makeStyles((theme) => ({
