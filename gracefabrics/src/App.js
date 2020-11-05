@@ -14,6 +14,7 @@ import Shop from "./pages/Shop"
 import Login from "./pages/Login"
 import Banners from './pages/Banners';
 import Stoles from './pages/Stoles';
+import {useEffect} from 'react'
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,12 @@ const classes = makeStyles((theme) => ({
 }));
 
 function App() {
+  useEffect(() =>{
+    fetch("/api/products").then(res => res.json()).then(productres => {
+
+      console.log(productres)
+    })
+  },[] )
   return(
     <Router>
       <Navbar />
