@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import './style.css';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -40,15 +41,16 @@ const Aside = () => {
           <ul>
             <li> 
               <Button href="#text-buttons" color="primary">
-                <Link to="/category1" className= { window.location.pathname === "/category1" ? "nav-link active" : "nav-link" }>
-                  Category1
+                <Link to="/banners" className= { window.location.pathname === "/banners" ? "nav-link active" : "nav-link" }>
+                  Banners
+
                 </Link>
               </Button>
             </li>
             <li>
               <Button href="#text-buttons" color="primary">
-                <Link to="/Category2" className={ window.location.pathname === "/Category2" ? "nav-link active" : "nav-link" }>
-                  Category2
+                <Link to="/stoles" className={ window.location.pathname === "/stoles" ? "nav-link active" : "nav-link" }>
+                  Stoles
                 </Link>
               </Button>
             </li>
