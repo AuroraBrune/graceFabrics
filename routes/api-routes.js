@@ -1,7 +1,8 @@
 let db = require("../models");
 
+
 module.exports = function (app) {
-    app.get("/api/products", function (req, res) {
+    app.get("/api/products", function (req, res) { 
         db.Products.findAll({}).then(function (dbProducts) {
             res.json(dbProducts)
         })
