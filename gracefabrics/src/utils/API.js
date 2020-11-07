@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default {
+const API = {
 
   login: function(credentials) {
     return axios.post('/api/login', credentials);
@@ -11,17 +11,18 @@ export default {
   getProducts: function() {
     return axios.get('/api/products');
   },
-  getProducts: function(id) {
+  getProductsById: function(id) {
     return axios.get('/api/' + id)
   },
-  getProducts: function() {
+  getAdmin: function() {
     return axios.get('/api/admin')
   },
-  getProducts: function() {
+  getAlters: function() {
     return axios.get('/api/products/alter')
   },
-  getProducts: function() {
+  getStoles: function() {
     return axios.get('/api/products/stoles')
   }
 
 }
+export default API;

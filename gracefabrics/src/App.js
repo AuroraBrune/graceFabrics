@@ -1,12 +1,8 @@
-import Product from './components/Product';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Button from "./components/Button";
 import Navbar from "./components/Navbar";
 import Aside from "./components/Aside";
-import ProductGrid from "./components/ProductGrid";
-import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import {BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import Gallery from "./pages/gallery"
 import About from "./pages/About"

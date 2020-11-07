@@ -12,14 +12,14 @@ function About() {
                 </Row>
                 <Row><h2 className="header-about mt-4 mb-4">The Mission of Grace Fabrics is...</h2></Row>
                 <Row>
-                    <p><ul>
+                    <ul>
 
                     <li>· To create fiber art to enhance worship, utilizing a variety of media and surface design techniques.</li>
 
                     <li>· To bring a sense of hope and holiness to worshipping congregations.</li>
 
                     <li>· To affirm and celebrate the diversity of humankind.</li>
-                    </ul></p>
+                    </ul>
                 </Row>
                 <Row><h2 className="header-about mt-4 mb-4">About Our Artist</h2></Row>
                 <Row>

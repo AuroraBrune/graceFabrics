@@ -4,7 +4,7 @@ var app = express();
 // config for  database
 var config = {
     username: 'root',
-    password: 'MyNewPass',
+    password: 'Lucadenby23$',
     server: 'localhost', 
     database: 'gracefabrics' 
 };
