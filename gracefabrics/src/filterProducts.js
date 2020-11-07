@@ -28,7 +28,7 @@ class FilterProducts extends Component {
             </div>
 
         )
-    }
+   }
 }
 
 export default FilterProducts;
