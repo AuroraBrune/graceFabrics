@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './style.css';
+import FilterProducts from "../../filterProducts";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Aside = () => {
+const Aside = ({onChange}) => {
   const classes = useStyles();
   // const preventDefault = (event) => event.preventDefault();
 
@@ -76,6 +77,7 @@ const Aside = () => {
               Contact Info
             </Link>
           </Button>
+          <FilterProducts onChange={onChange} />
         </li>
       </ul> 
     </div>
