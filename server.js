@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const filter = require('./src/filter.js')
+// const filter = require('./src/filter.js')
 
 // Requiring our models for syncing
 var db = require("./models");
