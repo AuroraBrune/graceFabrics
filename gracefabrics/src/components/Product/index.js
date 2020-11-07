@@ -32,9 +32,12 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Product(productInfo, {onChange}) {
+export default function Product(productinfo) {
   const classes = useStyles();
- 
+  const product = productinfo.productinfo;
+  console.log(productinfo);
+  console.log(product)
+  
   return (
     <Card className={classes.root} variant="outlined">
       {/* <FilterProducts onChange={onChange} /> */}
@@ -45,10 +48,13 @@ export default function Product(productInfo, {onChange}) {
       <CardContent>
         <a href='' ><img className={classes.image} src={image}/></a>
         <Typography className={classes.pos} color="textSecondary">
-          Product Description
+         
         </Typography>
         <Typography variant="body2" component="p">
-         Here are a few sentences about the product. Come on then, what are you waiting for? Buy it!
+         Description: {product.description}
+        </Typography>
+        <Typography variant="body2" component="p">
+         Price:{product.price}
         </Typography>
       </CardContent>
       <CardActions>

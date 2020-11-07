@@ -1,96 +1,40 @@
 import React , { useEffect, useState } from "react";
 import Product from '../components/Product';
 import { Grid } from '@material-ui/core/';
-// import API from '../utils/API';
+import API from '../utils/API';
 
 const Shop = () => {
-    // const [products, setProducts] = useState([]); // 'products' from this line will be used to map to components
+    const [productsList, setProducts] = useState({
+        products: []
+    }); 
 
-    // useEffect(() => {
-    //     API.getProducts().then(results => {
-    //         console.log(results);
-    //         setProducts({
-    //             ...products
+    useEffect(() => {
+        API.getProducts().then(results => {
+            // console.log(results);
+            setProducts({
+                ...productsList, 
+                products: results.data
+            });
+        });
+    }, []);
 
-    //         });
-    //     });
-    // }, []);
+    const productsToMap = productsList.products.map(product => {
+        console.log(product);
+        return(
+            <Product
+                productinfo={product}
+            />
+        )
+    })
 
     return(
 
         <Grid container>
             <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
-            </Grid>
-            <Grid item xs={9} sm={4} md={3}>
-                <Product />
+               {productsToMap}
             </Grid>
         </Grid>
     )
 }
-// import React, { useEffect, useState } from "react";
-// import Product from '../components/Product';
-// import { Grid } from '@material-ui/core/';
-// import API from '../';
-
-// const Shop = () => {
-//     const [products, setProducts] = useState([]); // 'products' from this line will be used to map to components
-
-//     function getProducts() {
-//         API.getProducts().then((res) => setProducts(res.data))
-//         .catch((e) => console.log(e))
-//     }
-
-//     useEffect(() => {
-//         getProducts();
-//     }, []);
-
-//     return(
-//         <Grid container>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//             <Grid item xs={9} sm={4} md={3}>
-//                 <Product />
-//             </Grid>
-//         </Grid>
-//     )
-// }
 
 export default Shop;
