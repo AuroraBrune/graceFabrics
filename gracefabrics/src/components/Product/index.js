@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import image from '../../assets/demo_img.jpg';
+// import FilterProducts from '../../filterProducts';
 
 const useStyles = makeStyles({
   root: {
@@ -31,11 +32,13 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Product(productInfo) {
+export default function Product(productInfo, {onChange}) {
   const classes = useStyles();
  
   return (
     <Card className={classes.root} variant="outlined">
+      {/* <FilterProducts onChange={onChange} /> */}
+
       <Typography className={classes.title} color="textSecondary" gutterBottom>
        Product Name
       </Typography>

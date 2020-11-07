@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Product from './components/Product'
 
-import products from './models/products.js'
+// import products from './models/products.js'
+
+// import Products from './models/products.js'
 
 class VisibleProducts extends Component {
   constructor() {
@@ -14,8 +16,8 @@ class VisibleProducts extends Component {
 
   componentWillMount() {
     this.setState({
-      products,
-      filteredProducts: products
+      // products: products,
+      // filteredProducts: products
     })
   }
 
@@ -30,7 +32,6 @@ class VisibleProducts extends Component {
           filteredProducts
       })
   }
-
 
   render() {
     return (
