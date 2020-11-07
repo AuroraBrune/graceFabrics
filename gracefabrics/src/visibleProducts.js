@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import Product from './components/Product'
 
-import Products from './models/products.js'
+import products from './models/products.js'
 
 class VisibleProducts extends Component {
   constructor() {
