@@ -27,7 +27,7 @@ function App() {
   useEffect(() =>{
     fetch("/api/products").then(res => res.json()).then(productres => {
 
-      console.log(productres)
+      // console.log(productres)
     })
   },[] )
   return(
