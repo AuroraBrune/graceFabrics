@@ -41,24 +41,19 @@ export default function Product(productinfo) {
   return (
     <Card className={classes.root} variant="outlined">
       {/* <FilterProducts onChange={onChange} /> */}
-
       <Typography className={classes.title} color="textSecondary" gutterBottom>
-       Product Name
+       {product.name}
       </Typography>
       <CardContent>
         <a href='' ><img className={classes.image} src={image}/></a>
-        <Typography className={classes.pos} color="textSecondary">
-         
+        <Typography className={classes.pos} color="textSecondary"> 
         </Typography>
         <Typography variant="body2" component="p">
          Description: {product.description}
         </Typography>
-        <Typography variant="body2" component="p">
-         Price:{product.price}
-        </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to cart</Button> <Button size="small">Buy now</Button>
+        <Button size="small">Add to cart</Button> <Button size="small">Buy now ({product.price})</Button>
       </CardActions>
     </Card>
   );
