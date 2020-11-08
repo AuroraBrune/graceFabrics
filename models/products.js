@@ -4,6 +4,10 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: true,
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         img1:{
             type: DataTypes.STRING,
             allowNull: false,
