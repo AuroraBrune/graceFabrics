@@ -12,7 +12,7 @@ import Banners from './pages/Banners';
 import Stoles from './pages/Stoles';
 import { useEffect } from 'react';
 import Admin from './pages/Admin';
-
+import Contact from './pages/contact';
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -47,6 +47,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route exact path="/" component={Shop}/>
           <Route path="/admin" component={Admin}/>
+          <Route path="/contact" component={Contact}/>
         </Grid> 
             {/* 
             <RequireAuth>

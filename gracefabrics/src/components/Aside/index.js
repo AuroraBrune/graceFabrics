@@ -73,7 +73,7 @@ const Aside = ({onChange}) => {
         </li>
         <li className="nav-item">
           <Button href="#text-buttons" color="primary">
-            <Link to="/contact" className={window.location.pathname === "/contact" ? "nav-link active" : "nav-link"}>
+            <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
               Contact Info
             </Link>
           </Button>
