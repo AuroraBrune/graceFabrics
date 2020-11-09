@@ -4,7 +4,7 @@ import { Row, Container } from 'react-materialize';
 function About() {
     return (
         <div>
-            <Container>
+            <Container className="about">
             
                 <Row><h2 className="header-about mt-4 mb-4">Faith &amp; Fabrics</h2></Row>
                 <Row>
