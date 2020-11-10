@@ -1,4 +1,6 @@
 const express = require("express");
+const session = require("express-session");
+const passport = require("./config/passport");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,6 +15,12 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Add routes
 require("./routes/api-routes.js")(app);
