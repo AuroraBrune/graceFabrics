@@ -1,27 +1,28 @@
 let db = require("../models");
-
+let passport = require('../config/passport')
 
 module.exports = function (app) {
-    app.get("/api/products", function (req, res) { 
+
+    app.get("/api/products", function (req, res) {
         db.Products.findAll({}).then(function (dbProducts) {
             res.json(dbProducts)
         })
     })
 
-    app.get("/api/products/rainbow", function (req, res) {
+    app.get("/api/products/stoles", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "Rainbow-Stole"
+                type: "stoles"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
         })
     })
 
-    app.get("/api/products/easter", function (req, res) {
+    app.get("/api/products/alter", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "Easter-Stole"
+                type: "alter-cloth"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
@@ -54,4 +55,11 @@ module.exports = function (app) {
             //update products
         })
     })
+
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {
+        console.log('almost there');
+        res.json({
+            username: req.body.email
+        });
+    });
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from '../InputField/InputField'
 import SubmitButton from '../SubmitButton/SubmitButton'
-import UserStore from '../../stores/UserStore'
+import { Redirect } from 'react-router-dom'
 
 class LoginForm extends React.Component {
 
@@ -10,13 +10,27 @@ class LoginForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      buttonDisabled: false
+      buttonDisabled: false,
+      redirect: false
     }
   }
-  
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect == true) {
+      console.log('returning admin')
+      return <Redirect to='/admin' />
+    }
+  }
+
   setInputValue(property, val) {
     val = val.trim();
-    if (val.length > 12) {
+    if (val.length > 18) {
       return;
     }
     this.setState({
@@ -32,12 +46,9 @@ class LoginForm extends React.Component {
     })
   }
 
-  async doLogin() {
+  async goLogin() {
 
-    if(!this.state.username) {
-      return;
-    }
-    if(!this.state.password) {
+    if(!this.state.username || !this.state.password) {
       return;
     }
     this.setState({
@@ -45,7 +56,7 @@ class LoginForm extends React.Component {
     })
 
       try{
-        let res = await fetch ('/login', {
+        let res = await fetch ('/api/login', {
           method: 'post', 
           headers: {
             'Accept': 'application/json',
@@ -56,18 +67,22 @@ class LoginForm extends React.Component {
         password:this.state.password
       })
     });
-
-    let result = await res.json();
-    if (result && result.success) {
-      UserStore.isLoggedIn = true;
-      UserStore.username = result.username;
+    console.log(res);
+    let result = await res;
+    if (result /*&& result.success*/) {
+      console.log('fetchin');
+      this.setRedirect();
+      console.log(this.state.redirect)
+      console.log('did the thing')
     }
-    else if (result && result.success === false) {
+    else if (!result /*&& result.success === false*/) {
+      console.log('hitting reset')
       this.resetForm();
-      alert(result.msg);
+      alert(/*result.msg*/ 'Whoopsies!');
     }
     }
     catch(e){
+      console.log('catching result on login attempt')
       console.log(e);
       this.resetForm();
     }
@@ -92,7 +107,7 @@ class LoginForm extends React.Component {
         <SubmitButton 
           text='Login'
           disabled={this.state.buttonDisabled}
-          onClick={ ()=> this.doLogin() }
+          onClick={ ()=> this.goLogin() }
         />
       </div>
     );
