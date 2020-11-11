@@ -47,6 +47,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route exact path="/" component={Shop}/>
           <Route path="/contact" component={Contact}/>
+          <Route path="/admin" component={Admin}/>
         </Grid> 
             {/* 
             <RequireAuth>
