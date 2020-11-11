@@ -1,5 +1,6 @@
 import React from "react";
 import { useInput } from './inputHook';
+import "./form.css"
 
 
 const Form = (props) => {
@@ -22,48 +23,72 @@ const Form = (props) => {
     return (
 
         <form onSubmit={handleSubmit}>
-            <table>
+            <table className="ordersForm">
 
-                <tr> 
-                    <label>
-                        First Name:
+                <tr>
+                    <td>
+                        <label>
+                            First Name:
+                        </label>
+                    </td>
+                    <td>
                         <input type="text" {...bindFirstName} />
-                    </label>
+                    </td>
                 </tr>
-                
+
                 <tr>
-                    <label>
-                        Last Name:
+                    <td>
+                        <label>
+                            Last Name:
+                        </label>
+                    </td>
+                    <td>
                         <input type="text" {...bindLastName} />
-                    </label>
+                    </td>
                 </tr>
 
                 <tr>
-                    <label>
-                        Description:
+                    <td>
+                        <label>
+                            Description:
+                        </label>
+                    </td>
+                    <td>
                         <input type="text" {...bindDescription} />
-                    </label>
+                    </td>
                 </tr>
 
                 <tr>
-                    <label>
-                        Price:
+                    <td>
+                        <label>
+                            Price:
+                        </label>
+                    </td>
+                    <td>
                         <input type="text" {...bindPrice} />
-                    </label>
+                    </td>
                 </tr>
 
                 <tr>
-                    <label>
-                        Image:
+                    <td>
+                        <label>
+                            Image:
+                            </label>
+                    </td>
+                    <td>
                         <input type="text" {...bindImage} />
-                    </label>
 
-                    <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
                 </tr>
 
             </table>
-        </form>
-       
+        </form >
+
     );
 }
 export default Form;

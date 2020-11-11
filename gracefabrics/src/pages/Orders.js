@@ -1,10 +1,10 @@
 import React from "react";
 import Form from "../components/Form";
 
-function Admin() {
+function Orders() {
     return (
         <div>
-            <div>This is the Admin page</div>
+            <div style={{color: "blue"}}>Customer Orders</div>
             <div>
                 <Form />
             </div>
@@ -12,4 +12,4 @@ function Admin() {
     )
 }
 
-export default Admin;
+export default Orders;
