@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
       this.resetForm();
     }
   }
-  render(){
+  render(){ //build a router here that redirects div below to admin page
     return (
       <div className="loginForm">
 

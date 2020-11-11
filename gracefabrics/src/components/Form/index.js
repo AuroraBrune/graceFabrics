@@ -20,34 +20,50 @@ const Form = (props) => {
         resetImage();
     }
     return (
+
         <form onSubmit={handleSubmit}>
-            <label>
-                First Name:
-          <input type="text" {...bindFirstName} />
-            </label>
+            <table>
 
-            <label>
-                Last Name:
-          <input type="text" {...bindLastName} />
-            </label>
+                <tr> 
+                    <label>
+                        First Name:
+                        <input type="text" {...bindFirstName} />
+                    </label>
+                </tr>
+                
+                <tr>
+                    <label>
+                        Last Name:
+                        <input type="text" {...bindLastName} />
+                    </label>
+                </tr>
 
-            <label>
-                Description:
-          <input type="text" {...bindDescription} />
-            </label>
+                <tr>
+                    <label>
+                        Description:
+                        <input type="text" {...bindDescription} />
+                    </label>
+                </tr>
 
-            <label>
-                Price:
-        <input type="text" {...bindPrice} />
-            </label>
+                <tr>
+                    <label>
+                        Price:
+                        <input type="text" {...bindPrice} />
+                    </label>
+                </tr>
 
-            <label>
-                Image:
-          <input type="text" {...bindImage} />
-            </label>
+                <tr>
+                    <label>
+                        Image:
+                        <input type="text" {...bindImage} />
+                    </label>
 
-            <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" />
+                </tr>
+
+            </table>
         </form>
+       
     );
 }
 export default Form;

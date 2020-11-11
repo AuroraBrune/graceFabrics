@@ -46,8 +46,8 @@ function App() {
           <Route path="/gallery" component={Gallery}/>
           <Route path="/login" component={Login}/>
           <Route exact path="/" component={Shop}/>
-          <Route path="/admin" component={Admin}/>
           <Route path="/contact" component={Contact}/>
+          <Route path="/admin" component={Admin}/>
         </Grid> 
             {/* 
             <RequireAuth>
