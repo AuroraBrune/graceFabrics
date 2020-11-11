@@ -4,7 +4,7 @@ import Form from "../components/Form";
 function Admin() {
     return (
         <div>
-            <div>This is the Admin page</div>
+            <div style={{color: "blue"}}>Customer Orders</div>
             <div>
                 <Form />
             </div>
