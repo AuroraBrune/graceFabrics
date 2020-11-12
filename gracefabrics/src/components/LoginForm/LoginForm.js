@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect == true) {
+    if (this.state.redirect === true) {
       console.log('returning admin')
       return <Redirect to='/admin' />
     }
@@ -61,28 +61,26 @@ class LoginForm extends React.Component {
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username:this.state.username,
-        password:this.state.password
-      })
-    });
-    console.log(res);
+          },
+          body: JSON.stringify({
+            username:this.state.username,
+            password:this.state.password
+          })
+        });
+
     let result = await res;
-    if (result /*&& result.success*/) {
-      console.log('fetchin');
-      this.setRedirect();
-      console.log(this.state.redirect)
-      console.log('did the thing')
+      console.log(result)
+    if (result && result.status === 200) {
+      console.log('hitting 200')
+      console.log('there is where I need my redirect');
     }
-    else if (!result /*&& result.success === false*/) {
-      console.log('hitting reset')
-      this.resetForm();
-      alert(/*result.msg*/ 'Whoopsies!');
-    }
+      else if (result.statusText === "Unauthorized") {
+        console.log('hitting unauth')
+        this.resetForm();
+      }
     }
     catch(e){
-      console.log('catching result on login attempt')
+      console.log('hitting error')
       console.log(e);
       this.resetForm();
     }
@@ -109,6 +107,7 @@ class LoginForm extends React.Component {
           disabled={this.state.buttonDisabled}
           onClick={ ()=> this.goLogin() }
         />
+        
       </div>
     );
   }
