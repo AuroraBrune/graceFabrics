@@ -10,8 +10,7 @@ import Shop from "./pages/Shop"
 import Login from "./pages/Login"
 import Banners from './pages/Banners';
 import Stoles from './pages/Stoles';
-import { useEffect } from 'react';
-import Orders from './pages/Orders';
+import Admin from './pages/Admin';
 import Contact from './pages/contact';
 
 const classes = makeStyles((theme) => ({
@@ -24,12 +23,7 @@ const classes = makeStyles((theme) => ({
 }));
 
 function App() {
-  useEffect(() =>{
-    fetch("/api/products").then(res => res.json()).then(productres => {
 
-      // console.log(productres)
-    })
-  },[] )
   return(
     <Router>
       <Navbar />
@@ -47,7 +41,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route exact path="/" component={Shop}/>
           <Route path="/contact" component={Contact}/>
-          <Route path="/orders" component={Orders}/>
+          <Route path="/admin" component={Admin}/>
         </Grid> 
             {/* 
             <RequireAuth>
