@@ -11,6 +11,7 @@ import Login from "./pages/Login"
 import Banners from './pages/Banners';
 import Stoles from './pages/Stoles';
 import Admin from './pages/Admin';
+import Orders from './pages/Orders';
 import Contact from './pages/contact';
 
 const classes = makeStyles((theme) => ({
@@ -42,6 +43,7 @@ function App() {
           <Route exact path="/" component={Shop}/>
           <Route path="/contact" component={Contact}/>
           <Route path="/admin" component={Admin}/>
+          <Route path="/orders" component={Orders}/>
         </Grid> 
             {/* 
             <RequireAuth>
