@@ -9,20 +9,30 @@ module.exports = function (app) {
         })
     })
 
-    app.get("/api/products/stoles", function (req, res) {
+    app.get("/api/products/rainbow-stoles", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "stoles"
+                type: "rainbow-stoles"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
         })
     })
 
-    app.get("/api/products/alter", function (req, res) {
+    app.get("/api/products/christmas-stoles", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "alter-cloth"
+                type: "christmas-stoles"
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
+    app.get("/api/products/easter-stoles", function (req, res) {
+        db.Products.findAll({
+            where: {
+                type: "easter-stoles"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
