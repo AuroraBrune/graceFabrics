@@ -30,6 +30,7 @@ const Aside = ({onChange}) => {
         </li>
 
         <li className="nav-item">
+            <FilterProducts onChange={onChange} />
           <Button href="#text-buttons" color="primary">
             <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
               Shop
@@ -43,21 +44,20 @@ const Aside = ({onChange}) => {
               <Button href="#text-buttons" color="primary">
                 <Link to="/banners" className= { window.location.pathname === "/banners" ? "nav-link active" : "nav-link" }>
                   Banners
-
                 </Link>
               </Button>
             </li>
             <li>
               <Button href="#text-buttons" color="primary">
-                <Link to="/stoles" className={ window.location.pathname === "/stoles" ? "nav-link active" : "nav-link" }>
-                  Stoles
+                <Link to="/christmas-stoles" className={ window.location.pathname === "/christmas-stoles" ? "nav-link active" : "nav-link" }>
+                  Christmas Stoles
                 </Link>
               </Button>
             </li>
             <li>
               <Button href="#text-buttons" color="primary">
-                <Link to="/Category3" className={ window.location.pathname === "/Category3" ? "nav-link active" : "nav-link" }>
-                  Category3
+                <Link to="/rainbow-stoles" className={ window.location.pathname === "/rainbow-stoles" ? "nav-link active" : "nav-link" }>
+                  Rainbow Stoles
                 </Link>
               </Button>
             </li>
@@ -77,7 +77,13 @@ const Aside = ({onChange}) => {
               Contact Info
             </Link>
           </Button>
-          <FilterProducts onChange={onChange} />
+        </li>
+        <li className="nav-item">
+          <Button href="#text-buttons" color="primary">
+            <Link to="/orders" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
+              Custom Orders
+            </Link>
+          </Button>
         </li>
       </ul> 
     </div>
