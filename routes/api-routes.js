@@ -10,8 +10,8 @@ module.exports = function (app) {
     app.get("/api/products/rainbow-stoles", function (req, res) {
         db.Products.findAll({
             where: {
-           
-                type: "rainbow-stoles"
+                type: "stole",
+                name: "rainbow stole"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
@@ -21,7 +21,8 @@ module.exports = function (app) {
     app.get("/api/products/christmas-stoles", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "christmas-stoles"
+                type: "stole",
+                name: "christmas stole"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
@@ -31,7 +32,18 @@ module.exports = function (app) {
     app.get("/api/products/easter-stoles", function (req, res) {
         db.Products.findAll({
             where: {
-                type: "easter-stoles"
+                type: "stole",
+                name: "easter stole"
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
+    app.get("/api/products/banners", function (req, res) {
+        db.Products.findAll({
+            where: {
+                type: "banner"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)

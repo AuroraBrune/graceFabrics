@@ -1,14 +1,38 @@
-import React from 'react';
-import Carousel from '../components/carousel';
-import FilterProducts from '../filterProducts';
+import React , { useEffect, useState } from "react";
+import Product from '../components/Product';
+import { Grid } from '@material-ui/core/';
+import API from '../utils/API';
 
-export default function Banners(){
+const Banners = () => {
+    const [bannersList, setBanners] = useState({
+        products: []
+    }); 
+
+    useEffect(() => {
+        API.getBanners().then(results => {
+            setBanners({
+                ...bannersList, 
+                products: results.data
+            });
+        });
+    }, []);
+
+    const productsToMap = bannersList.products.map(product => {
+        console.log(product);
+        return(
+            <Grid item xs={9} sm={4} md={3}>
+                <Product
+                    productinfo={product}
+                />
+            </Grid>
+        )
+    })
+
     return(
-        <div>
-            {Carousel}
-            This is the Banners page
-            (Will add filter for banners)
-            <FilterProducts />
-        </div>
+        <Grid container> 
+            {productsToMap}
+        </Grid>
     )
 }
+
+export default Banners;
