@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Navbar from "./components/Navbar";
 import Aside from "./components/Aside";
-import {BrowserRouter as Router, Route } from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css';
 import Gallery from "./pages/gallery"
 import About from "./pages/About"
@@ -23,33 +23,44 @@ const classes = makeStyles((theme) => ({
   },
 }));
 
+export const isAuthenticated = {
+  // SET TO TRUE TO SIMULATE LOGGED IN
+  signedIn: true
+};
+
+const RequireAuth = ({ children }) => {
+  if (!isAuthenticated.signedIn) {
+    return <Redirect to={Login} />;
+  }
+
+  return children;
+};
+
 function App() {
 
   return(
     <Router>
       <Navbar />
       <div className={classes.root}>
-      <Grid container padding={5}>
-        <Grid item md={2}>
-          <Aside/>
-        </Grid>
-        <Grid item md={9}>
-          <Route path="/about" component={About}/>
-          <Route path="/shop" component={Shop}/>
-          <Route path="/banners" component={Banners}/>
-          <Route path="/stoles" component={Stoles}/>
-          <Route path="/gallery" component={Gallery}/>
-          <Route path="/login" component={Login}/>
-          <Route exact path="/" component={Shop}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/admin" component={Admin}/>
-          <Route path="/orders" component={Orders}/>
-        </Grid> 
-            {/* 
+        <Grid container padding={5}>
+          <Grid item md={2}>
+            <Aside/>
+          </Grid>
+          <Grid item md={9}>
+            <Route path="/about" component={About}/>
+            <Route path="/shop" component={Shop}/>
+            <Route path="/banners" component={Banners}/>
+            <Route path={["/christmas-stoles", "/rainbow-stoles"]} component={Stoles}/>
+            <Route path="/gallery" component={Gallery}/>
+            <Route path="/login" component={Login}/>
+            <Route exact path="/" component={Shop}/>
+            <Route path="/contact" component={Contact}/>
             <RequireAuth>
-                <Route exact path="/admin" component={admin} />
-            </RequireAuth> */}
-     </Grid>
+              <Route exact path="/admin" component={Admin} />
+            </RequireAuth>
+            <Route path="/orders" component={Orders}/>
+          </Grid>  
+      </Grid>
      </div>
     </Router>
   );

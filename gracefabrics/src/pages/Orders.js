@@ -3,7 +3,7 @@ import Form from "../components/Form";
 
 function Orders() {
     return (
-        <div>
+        <div className="MuiGrid-grid-md-9">
             <div style={{color: "blue"}}>Customer Orders</div>
             <div>
                 <Form />

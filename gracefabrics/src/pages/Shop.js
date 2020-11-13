@@ -18,10 +18,10 @@ const Shop = () => {
     }, []);
 
     const productsToMap = productsList.products.map(product => {
-        console.log(product);
+
         return(
-            <Grid item xs={9} sm={4} md={3}>
-                <Product
+            <Grid item xs={9} sm={4} md={3} key = {product.id}>
+                <Product 
                     productinfo={product}
                 />
             </Grid>

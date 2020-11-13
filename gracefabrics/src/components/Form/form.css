@@ -1,5 +1,6 @@
 .ordersForm {
     color: blue;
-    
-
+    width: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
