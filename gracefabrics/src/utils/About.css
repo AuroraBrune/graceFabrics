@@ -1,0 +1,12 @@
+.about {
+    background-color: #e068a8 !important;
+    margin-left: 30px;
+    padding-left: 30px;
+    border: 30px;
+
+}
+
+p {
+   text-emphasis-position: left;
+   text-emphasis-position: right;
+}
