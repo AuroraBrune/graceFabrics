@@ -91,4 +91,3 @@ const Aside = ({onChange}) => {
 }
 
 export default Aside;
-
