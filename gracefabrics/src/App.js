@@ -50,7 +50,7 @@ function App() {
             <Route path="/about" component={About}/>
             <Route path="/shop" component={Shop}/>
             <Route path="/banners" component={Banners}/>
-            <Route path="/stoles" component={Stoles}/>
+            <Route path={["/christmas-stoles", "/rainbow-stoles"]} component={Stoles}/>
             <Route path="/gallery" component={Gallery}/>
             <Route path="/login" component={Login}/>
             <Route exact path="/" component={Shop}/>

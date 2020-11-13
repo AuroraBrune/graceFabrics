@@ -20,9 +20,14 @@ const API = {
   getAlters: function() {
     return axios.get('/api/products/alter')
   },
-  getStoles: function() {
-    return axios.get('/api/products/stoles')
+  getChristmasStoles: function() {
+    return axios.get('/api/products/christmas-stoles')
+  },
+  getRainbowStoles: function() {
+    return axios.get('/api/products/rainbow-stoles')
+  },
+  getBanners: function() {
+    return axios.get('/api/products/banners')
   }
-
 }
 export default API;
