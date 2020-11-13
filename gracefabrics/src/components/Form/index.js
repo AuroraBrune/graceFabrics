@@ -24,7 +24,7 @@ const Form = (props) => {
 
         <form onSubmit={handleSubmit}>
             <table className="ordersForm">
-
+            <tbody>
                 <tr>
                     <td>
                         <label>
@@ -85,7 +85,7 @@ const Form = (props) => {
                         <input type="submit" value="Submit" />
                     </td>
                 </tr>
-
+            </tbody>    
             </table>
         </form >
 

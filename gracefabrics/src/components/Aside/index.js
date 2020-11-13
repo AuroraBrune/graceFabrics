@@ -22,7 +22,7 @@ const Aside = ({onChange}) => {
     <div className={classes.root}>
       <ul className="nav">
         <li className="nav-item">
-          <Button href="#text-buttons" color="primary">
+          <Button color="primary">
             <Link to="/about" className={ window.location.pathname === "/about" ? "nav-link active" : "nav-link" }>
               About
             </Link>
@@ -31,7 +31,7 @@ const Aside = ({onChange}) => {
 
         <li className="nav-item">
             <FilterProducts onChange={onChange} />
-          <Button href="#text-buttons" color="primary">
+          <Button color="primary">
             <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
               Shop
             </Link>
@@ -41,21 +41,21 @@ const Aside = ({onChange}) => {
         {/* Begin Sub-List */}
           <ul>
             <li> 
-              <Button href="#text-buttons" color="primary">
+              <Button color="primary">
                 <Link to="/banners" className= { window.location.pathname === "/banners" ? "nav-link active" : "nav-link" }>
                   Banners
                 </Link>
               </Button>
             </li>
             <li>
-              <Button href="#text-buttons" color="primary">
+              <Button color="primary">
                 <Link to="/christmas-stoles" className={ window.location.pathname === "/christmas-stoles" ? "nav-link active" : "nav-link" }>
                   Christmas Stoles
                 </Link>
               </Button>
             </li>
             <li>
-              <Button href="#text-buttons" color="primary">
+              <Button color="primary">
                 <Link to="/rainbow-stoles" className={ window.location.pathname === "/rainbow-stoles" ? "nav-link active" : "nav-link" }>
                   Rainbow Stoles
                 </Link>
@@ -65,21 +65,21 @@ const Aside = ({onChange}) => {
         {/* End Sub-List */}
 
         <li className="nav-item">
-          <Button href="#text-buttons" color="primary">
+          <Button color="primary">
             <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
               Gallery
             </Link>
           </Button>
         </li>
         <li className="nav-item">
-          <Button href="#text-buttons" color="primary">
+          <Button color="primary">
             <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
               Contact Info
             </Link>
           </Button>
         </li>
         <li className="nav-item">
-          <Button href="#text-buttons" color="primary">
+          <Button color="primary">
             <Link to="/orders" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
               Custom Orders
             </Link>
