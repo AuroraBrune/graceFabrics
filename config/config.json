@@ -1,7 +1,11 @@
 {
     "development": {
       "username": "root",
+<<<<<<< HEAD
       "password":"jourdan",
+=======
+      "password":"Lucadenby23$",
+>>>>>>> af13594d33dced13671a4325afa34226519e350f
       "database": "gracefabrics",
       "host": "127.0.0.1",
       "port": 3306,
