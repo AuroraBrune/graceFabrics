@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React , { useEffect, useState } from "react";
 import Product from '../components/Product';
 import { Grid } from '@material-ui/core/';
@@ -28,11 +27,6 @@ const Banners = () => {
             </Grid>
         )
     })
-=======
-import React from 'react';
-import Carousel from '../components/carousel';
-import FilterProducts from '../filterProducts';
->>>>>>> af13594d33dced13671a4325afa34226519e350f
 
     return(
         <Grid container> 
