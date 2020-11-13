@@ -23,70 +23,64 @@ const Form = (props) => {
     return (
 
         <form onSubmit={handleSubmit}>
-            <table className="ordersForm">
-            <tbody>
-                <tr>
-                    <td>
+
+            <div className="ordersForm">
+                <div className="row">
+                    <div className="col md6 offset-md2">
+
                         <label>
                             First Name:
                         </label>
-                    </td>
-                    <td>
-                        <input type="text" {...bindFirstName} />
-                    </td>
-                </tr>
+                    </div>
 
-                <tr>
-                    <td>
+                    <div>
+                        <input type="text" {...bindFirstName} />
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <label>
                             Last Name:
                         </label>
-                    </td>
-                    <td>
+                    </div>
+                    <div>
                         <input type="text" {...bindLastName} />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <label>
-                            Description:
+                    </div>
+                </div>
+                <div>
+                <div>
+                    <label>
+                        Description:
                         </label>
-                    </td>
-                    <td>
-                        <input type="text" {...bindDescription} />
-                    </td>
-                </tr>
+                </div>
 
-                <tr>
-                    <td>
-                        <label>
-                            Price:
+                <div>
+                    <textarea {...bindDescription} />
+                </div>
+                </div>
+                <div>
+                    <label>
+                        Price:
                         </label>
-                    </td>
-                    <td>
-                        <input type="text" {...bindPrice} />
-                    </td>
-                </tr>
+                </div>
 
-                <tr>
-                    <td>
-                        <label>
-                            Image:
+                <div>
+                    <input type="text" {...bindPrice} />
+                </div>
+                <div>
+                    <label>
+                        Image:
                             </label>
-                    </td>
-                    <td>
-                        <input type="text" {...bindImage} />
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="Submit" />
-                    </td>
-                </tr>
-            </tbody>    
-            </table>
+                </div>
+                <div>
+                    <input type="text" {...bindImage} />
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </div>
+
         </form >
 
     );
