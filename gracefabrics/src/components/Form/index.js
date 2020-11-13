@@ -23,9 +23,11 @@ const Form = (props) => {
     return (
 
         <form onSubmit={handleSubmit}>
+
             <div className="ordersForm">
                 <div className="row">
                     <div className="col md6 offset-md2">
+
                         <label>
                             First Name:
                         </label>
@@ -69,6 +71,7 @@ const Form = (props) => {
                     <label>
                         Image:
                             </label>
+
                 </div>
                 <div>
                     <input type="text" {...bindImage} />
@@ -77,6 +80,7 @@ const Form = (props) => {
                     <input type="submit" value="Submit" />
                 </div>
             </div>
+
         </form >
 
     );
