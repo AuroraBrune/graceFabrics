@@ -17,9 +17,9 @@ const Stoles = () => {
         });
     }, []);
 
-    const [rainbowList, setRainbowList] = useState({
-        products: []
-    }); 
+    // const [rainbowList, setRainbowList] = useState({
+    //     products: []
+    // }); 
 
     // useEffect(() => {
     //     API.getRainbowStoles().then(results => {
