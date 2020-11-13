@@ -35,8 +35,6 @@ const useStyles = makeStyles({
 export default function Product(productinfo) {
   const classes = useStyles();
   const product = productinfo.productinfo;
-  console.log(productinfo);
-  console.log(product)
   
   return (
     <Card className={classes.root} variant="outlined">
@@ -45,7 +43,7 @@ export default function Product(productinfo) {
        {product.name}
       </Typography>
       <CardContent>
-        <a href='' ><img className={classes.image} src={image}/></a>
+        <img className={classes.image} src={image} alt='product'/>
         <Typography className={classes.pos} color="textSecondary"> 
         </Typography>
         <Typography variant="body2" component="p">
