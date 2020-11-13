@@ -5,8 +5,8 @@ import Carousel from '../components/carousel';
 export default function Gallery(){
     return(
         <div>
-            {Carousel}
-            This is the Gallery page.
+           {Carousel}
+            
         </div>
     )
 }
