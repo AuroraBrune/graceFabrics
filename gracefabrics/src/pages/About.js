@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Container } from 'react-materialize';
+import "../utils/About.css"
 
 function About() {
     return (
