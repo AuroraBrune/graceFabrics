@@ -19,3 +19,16 @@ INSERT INTO Products(name, type, img1, description, price, createdAt, updatedAt)
 INSERT INTO Products(name, type, img1, description, price, createdAt, updatedAt) VALUES ("Easter Stole", "Stole", "Image Link Here", "Easter stole done in tie-dye", 42.99, now(), now());
 INSERT INTO Products(name, type, img1, description, price, createdAt, updatedAt) VALUES ("Christmas Stole", "Stole", "Image Link Here", "Christmas stole done in tie-dye", 99.99, now(), now());
 INSERT INTO Products(name, type, img1, description, price, createdAt, updatedAt) VALUES ("Tie-dye Banner", "Banner", "Image Link Here", "Banner done in tie-dye", 99.99, now(), now());
+
+CREATE TABLE Users (
+id INTEGER NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+email VARCHAR(50) NOT NULL,
+password VARCHAR(300) NOT NULL,
+happiness DECIMAL,
+position VARCHAR(150),
+state VARCHAR(150),
+createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO Users(username, password,createdAt,updatedAt) VALUES ("user","$2a$10$BJgt.G7qtJ.4hOG7uIppPOvTMYHBFDVu8nWmnjgWGvQ.M7LGC/Nm.", now(), now());
