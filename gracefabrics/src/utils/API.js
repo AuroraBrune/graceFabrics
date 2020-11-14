@@ -20,11 +20,26 @@ const API = {
   getAlters: function() {
     return axios.get('/api/products/alter')
   },
+  getStoles: function() {
+    return axios.get('/api/products/stoles')
+  },
   getChristmasStoles: function() {
     return axios.get('/api/products/christmas-stoles')
   },
   getRainbowStoles: function() {
     return axios.get('/api/products/rainbow-stoles')
+  },
+  getEasterStoles: function() {
+    return axios.get('/api/products/easter-stoles')
+  },
+  getPentecostStoles: function() {
+    return axios.get('/api/products/pentecost-stoles')
+  },
+  getLentenStoles: function() {
+    return axios.get('/api/products/lenten-stoles')
+  },
+  getAdventStoles: function() {
+    return axios.get('/api/products/advent-stoles')
   },
   getBanners: function() {
     return axios.get('/api/products/banners')

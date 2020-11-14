@@ -7,6 +7,16 @@ module.exports = function (app) {
         })
     })
 
+    app.get("/api/products/stoles", function (req, res) {
+        db.Products.findAll({
+            where: {
+                type: "stole"
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
     app.get("/api/products/rainbow-stoles", function (req, res) {
         db.Products.findAll({
             where: {
@@ -34,6 +44,39 @@ module.exports = function (app) {
             where: {
                 type: "stole",
                 name: "easter stole"
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
+    app.get("/api/products/pentecost-stoles", function (req, res) {
+        db.Products.findAll({
+            where: {
+                type: "stole",
+                name: "pentecost stole"
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
+    app.get("/api/products/lenten-stoles", function (req, res) {
+        db.Products.findAll({
+            where: {
+                type: "stole",
+                name: "lenten stole"
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
+    app.get("/api/products/advent-stoles", function (req, res) {
+        db.Products.findAll({
+            where: {
+                type: "stole",
+                name: "advent stole"
             }
         }).then(function (dbProducts) {
             res.json(dbProducts)
