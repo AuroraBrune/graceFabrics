@@ -74,7 +74,6 @@ module.exports = function (app) {
         })
     })
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
-        console.log('almost there');
         res.json({
             username: req.body.email
         });
