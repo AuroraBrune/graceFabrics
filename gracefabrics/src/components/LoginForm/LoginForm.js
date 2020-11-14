@@ -2,6 +2,8 @@ import React from 'react';
 import InputField from '../InputField/InputField'
 import SubmitButton from '../SubmitButton/SubmitButton'
 import { Redirect } from 'react-router-dom'
+import App from '../../App'
+
 
 class LoginForm extends React.Component {
 
@@ -16,15 +18,17 @@ class LoginForm extends React.Component {
   }
 
   setRedirect = () => {
+    console.log('setRedirect fired')
     this.setState({
       redirect: true
     })
   }
 
   renderRedirect = () => {
+    console.log(this.state.redirect);
     if (this.state.redirect === true) {
-      console.log('returning admin')
-      return <Redirect to='/admin' />
+      console.log('renderRedirect firing')
+      this.render()
     }
   }
 
@@ -69,26 +73,25 @@ class LoginForm extends React.Component {
         });
 
     let result = await res;
-      console.log(result)
+     console.log(res);
     if (result && result.status === 200) {
-      console.log('hitting 200')
-      console.log('there is where I need my redirect');
+    
+      console.log('should be routing to admin')
+      // return(<Redirect to="/ProductManagement"/>)
     }
       else if (result.statusText === "Unauthorized") {
-        console.log('hitting unauth')
         this.resetForm();
       }
+      
     }
     catch(e){
-      console.log('hitting error')
       console.log(e);
       this.resetForm();
     }
   }
-  render(){ //build a router here that redirects div below to admin page
+  render(){ 
     return (
       <div className="loginForm">
-
         Log In
         <InputField
           type='text'
@@ -107,7 +110,6 @@ class LoginForm extends React.Component {
           disabled={this.state.buttonDisabled}
           onClick={ ()=> this.goLogin() }
         />
-        
       </div>
     );
   }

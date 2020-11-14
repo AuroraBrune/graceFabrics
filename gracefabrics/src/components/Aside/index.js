@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import './style.css';
 import FilterProducts from "../../filterProducts";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
