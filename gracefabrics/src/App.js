@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './Login.css';
 import ShopHub from "./pages/ShopHub"
 import Admin from "./pages/Admin"
+import Cart from "./components/CartModal"
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -16,6 +17,7 @@ const classes = makeStyles((theme) => ({
 function App() {
 
   return(
+    <div>
     <Router>
         <div className={classes.root}>
           <Route exact path="/" component={ShopHub} />
@@ -24,6 +26,8 @@ function App() {
           <Route path="/login" component={Admin} />
         </div>
     </Router>
+    {/* <Cart/> */}
+    </div>
   );
 }
 

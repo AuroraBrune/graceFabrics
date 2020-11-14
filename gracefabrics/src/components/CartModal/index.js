@@ -4,7 +4,13 @@ const CartModal = () => {
 
   let [cart, setCart] = useState([])
   
-  let localCart = (localStorage.getItem("cart"));
+  let localCart = (localStorage.getItem("cart") || JSON.stringify({
+     name:"testItem",
+     type:"stole",
+     img1:"testImg",
+     description:"test description",
+     price:"1.99"
+  }));
 
   const addItem = (item)  =>   {
     let cartState = [...cart]
@@ -53,40 +59,21 @@ const CartModal = () => {
 
   }, []) 
 
-  console.log(localCart)
-  localCart.addItem({
-    name:"testItem",
-    type:"stole",
-    img1:"testImg",
-    description:"test description",
-    price:"1.99"
-  })
- 
+  console.log(localCart) 
+
+  // const cartMap = localCart.map(item => {
+  //     return(
+  //        <li>
+  //          Item Name:{item.Name}
+  //        </li>   
+  //     )
+  //   })
 
   return (
-  <div>Here's the shopping cart</div>
+  <div>Here's the shopping cart
+  {/* <cartMap/> */}
+  </div>
   )
 }
 
 export default CartModal;
-
-
-// useEffect(() => {
-//   API.getProducts().then(results => {
-//       setProducts({
-//           ...productsList, 
-//           products: results.data
-//       });
-//   });
-// }, []);
-
-// const productsToMap = productsList.products.map(product => {
-
-//   return(
-//       <Grid item xs={9} sm={4} md={3} key = {product.id}>
-//           <Product 
-//               productinfo={product}
-//           />
-//       </Grid>
-//   )
-// })
