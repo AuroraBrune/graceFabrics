@@ -1,19 +1,22 @@
-import React from 'react';
-import '../Login.css';
-import LoginForm from '../components/LoginForm/LoginForm'
 
-class Login extends React.Component {
+import React from "react";
+import LoginForm from "../components/LoginForm/LoginForm";
+import '../App.css'
 
-  render(){
-    
-      return (
-        <div className="app">
-          <div className='container'>
-            <LoginForm/>
-          </div>
-        </div>
-      );
-   
-  }
+const inlineStyle = {
+  textAlign:'center',
+  display:'flex', 
+  justifyContent: 'center',
+  alignItems:'center',
+  marginTop:'80px'
 }
-export default (Login);
+
+function Login() {
+    return (
+        <div style={inlineStyle}>
+          <LoginForm />
+        </div>
+    )
+}
+
+export default Login;
