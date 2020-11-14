@@ -18,8 +18,10 @@ function App() {
   return(
     <Router>
         <div className={classes.root}>
-          <Route path="/shop" component={ShopHub}/>
-          <Route path="/admin" component={Admin}/>
+          <Route exact path="/" component={ShopHub} />
+          <Route path="/shop" component={ShopHub} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/login" component={Admin} />
         </div>
     </Router>
   );
