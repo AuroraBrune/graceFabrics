@@ -11,6 +11,8 @@ import image from '../../assets/demo_img.jpg';
 
 const useStyles = makeStyles({
   root: {
+    // boxShadow: "0 4 8 0 rgba(0, 0, 0, 0.2), 0 6 20 0 rgba(0, 0, 0, 0.19)",
+    boxShadow: "0 0 0.7em #000000",
     background:'ivory',
     minWidth: 150,
     height: 400,
@@ -22,12 +24,16 @@ const useStyles = makeStyles({
     transform: 'scale(0.8)',
   },
   title: {
+    marginTop: 20,
+    marginLeft: 20,
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
   },
   image: {
+    justifyContent:'center',
+    display:'flex',
     height:200,
   }
 });
