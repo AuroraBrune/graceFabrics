@@ -118,27 +118,27 @@ class Admin extends React.Component {
         return(
     
           <div style ={inlineStyle}>
-                           <div className="loginForm">
-                               Sign In
-                               <InputField
-                                   type='text'
-                                   placeholder='Username'
-                                   value={this.state.username ? this.state.username : ''}
-                                   onChange={ (val) => this.setInputValue('username', val)}
-                               />
-                               <InputField
-                                   type='password'
-                                   placeholder='Password'
-                                   value={this.state.username ? this.state.password : ''}
-                                   onChange={ (val) => this.setInputValue('password', val)}
-                               />
-                               <SubmitButton 
-                                   text='Login'
-                                   disabled={this.state.buttonDisabled}
-                                   onClick={ ()=> this.goLogin() }
-                               />
-                           </div>
-                       </div>
+            <div className="loginForm">
+                Sign In
+                <InputField
+                    type='text'
+                    placeholder='Username'
+                    value={this.state.username ? this.state.username : ''}
+                    onChange={ (val) => this.setInputValue('username', val)}
+                />
+                <InputField
+                    type='password'
+                    placeholder='Password'
+                    value={this.state.username ? this.state.password : ''}
+                    onChange={ (val) => this.setInputValue('password', val)}
+                />
+                <SubmitButton 
+                    text='Login'
+                    disabled={this.state.buttonDisabled}
+                    onClick={ ()=> this.goLogin() }
+                />
+            </div>
+        </div>
 
          )
 

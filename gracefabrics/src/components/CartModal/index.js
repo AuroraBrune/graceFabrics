@@ -1,66 +1,82 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: 'absolute',
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
-
+import React , { useEffect, useState } from "react";
 
 const CartModal = () => {
 
-  const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+  let [cart, setCart] = useState([])
+  
+  let localCart = (localStorage.getItem("cart"));
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const addItem = (item)  =>   {
+    let cartState = [...cart]
+    let{ID} = item;
+    let existingItem = cartState.find(cartItem => cartItem.ID == ID);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    if(existingItem) {
+      existingItem.quantity += item.quantity
+    } else {
+      cartState.push(item)
+    }
+    setCart(cartState)
+    let stringCart = JSON.stringify(cartState);
+    localStorage.setItem("cart", stringCart)
+  }
 
-  return(
-     <div style={modalStyle} className={classes.paper}>
+  const updateItem = (itemID, amount) => {
+    let cartState = [...cart]
+    let exItem = cartState.find(item => item.ID == itemID);
+    
+    if(!exItem) return
 
-    <button type="button" onClick={handleOpen}>
-      Open Modal
-    </button>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
-    >
-      {/* {body} */}
-    </Modal>
+    exItem.quantity += amount;
 
-    </div>
+    if(exItem.quantity <= 0) {
+      cartState = cartState.filter(item => item.ID != itemID)
+    }
+    setCart(cartState);
+    let cartString = JSON.stringify(cartState);
+    localStorage.setItem('cart', cartString);
+
+  }
+  const removeItem = (itemID) => {
+    let cartState = [...cart]
+
+    cartState = cartState.filter(item => itemID != itemID);
+    setCart(cartState);
+
+    let cartString = JSON.stringify(cartState)
+    localStorage.setItem('cart', cartString)
+  }
+  
+  useEffect(() => {
+    localCart = JSON.parse(localCart);
+    if (localCart) setCart(localCart)
+
+  }, []) 
+
+  return (
+  <div>Here's the shopping cart</div>
   )
 }
 
 export default CartModal;
+
+
+// useEffect(() => {
+//   API.getProducts().then(results => {
+//       setProducts({
+//           ...productsList, 
+//           products: results.data
+//       });
+//   });
+// }, []);
+
+// const productsToMap = productsList.products.map(product => {
+
+//   return(
+//       <Grid item xs={9} sm={4} md={3} key = {product.id}>
+//           <Product 
+//               productinfo={product}
+//           />
+//       </Grid>
+//   )
+// })
