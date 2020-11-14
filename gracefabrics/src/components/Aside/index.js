@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './style.css';
-import FilterProducts from "../../filterProducts";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Aside = ({onChange}) => {
+const Aside = () => {
   const classes = useStyles();
   // const preventDefault = (event) => event.preventDefault();
 
@@ -30,7 +28,6 @@ const Aside = ({onChange}) => {
         </li>
 
         <li className="nav-item">
-            <FilterProducts onChange={onChange} />
           <Button color="primary">
             <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
               Shop
