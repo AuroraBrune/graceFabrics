@@ -53,6 +53,16 @@ const CartModal = () => {
 
   }, []) 
 
+  console.log(localCart)
+  localCart.addItem({
+    name:"testItem",
+    type:"stole",
+    img1:"testImg",
+    description:"test description",
+    price:"1.99"
+  })
+ 
+
   return (
   <div>Here's the shopping cart</div>
   )
