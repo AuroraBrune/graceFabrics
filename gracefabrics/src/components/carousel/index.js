@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-export default function Carousel(){
+const Carousel = ()=> {
     <Carousel
   carouselId="Carousel-2"
   images={[
@@ -25,3 +24,4 @@ export default function Carousel(){
 />
 
 }
+export default Carousel;

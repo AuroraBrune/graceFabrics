@@ -18,7 +18,6 @@ const Stoles = () => {
     }, []);
 
     const productsToMap = stoles.products.map(product => {
-        console.log(product);
         return(
             <Grid item xs={9} sm={4} md={3}>
                 <Product

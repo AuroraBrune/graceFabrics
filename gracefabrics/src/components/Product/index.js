@@ -57,7 +57,7 @@ export default function Product(productinfo) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to cart</Button> <Button size="small">Buy now ({product.price})</Button>
+        <Button size="small" >Add to cart</Button> <Button size="small">Buy now ({product.price})</Button>
       </CardActions>
     </Card>
   );

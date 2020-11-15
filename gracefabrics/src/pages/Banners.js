@@ -18,7 +18,7 @@ const Banners = () => {
     }, []);
 
     const productsToMap = bannersList.products.map(product => {
-        console.log(product);
+        // console.log(product);
         return(
             <Grid item xs={9} sm={4} md={3}>
                 <Product
