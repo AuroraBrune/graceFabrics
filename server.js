@@ -3,20 +3,9 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-const mysql = require("mysql");
-const connection;
+const PORT = process.env.PORT || 3000;
 
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'lm4d4g5khk0xcw63',
-    database: '0ot6rpxbpe5587z'
-  })
-}
+
 // Requiring our models for syncing
 var db = require("./models");
 
