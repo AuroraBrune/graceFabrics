@@ -121,4 +121,73 @@ module.exports = function (app) {
             username: req.body.email
         });
     });
+
+    app.get("/api/getAllOrders", function (req, res) {
+        db.Orders.findAll({
+            where: {
+                active: 1
+            }
+        })
+        .then(function (dbOrders) {
+            res.json(dbOrders)
+        })
+    })
+
+    app.get("/api/getOrder/:id", function (req, res) {
+        const id = req.params.id;
+        db.Orders.find({
+           where: { id: id }
+        })
+        .then(order => {
+            res.json(order)
+        })
+    })
+
+    app.post("/api/addOrder", function(req, res){
+        const firstName = req.body.firstName;
+        const lastName = req.body.lastName;
+        const orderDescr = req.body.orderDescr;
+        const orderPrice = req.body.orderPrice;
+    
+        db.Orders.create({
+            firstName: firstName,
+            lastName: lastName,
+            orderDescr: orderDescr,
+            orderPrice: orderPrice
+        })
+        .then(newOrder => {
+            res.json(newOrder)
+        })
+    })
+
+    app.patch("/api/updateOrder/:id", function(req, res){
+        const id = req.params.id;
+        const updates = req.body.updates;
+        db.Orders.find({
+            where: { id: id }
+        })
+        .then(order => {
+            return order.updateAttributes(updates)
+          })
+          .then(updatedOrder => {
+            res.json(updatedOrder);
+          });
+    })
+
+    app.patch("/api/removeOrder/:id", function(req, res){
+        //remove order does not delete... it marks the active attribute as false
+        const id = req.params.id;
+        const updates = req.body.updates;
+        db.Orders.find({
+            where: { id: id }
+        })
+        .then(order => {
+            return order.updateAttributes(updates)
+          })
+          .then(updatedOrder => {
+            res.json(updatedOrder);
+          });
+    })
+}
+
 }
