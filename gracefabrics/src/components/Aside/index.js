@@ -46,8 +46,8 @@ const Aside = () => {
             </li>
             <li>
               <Button color="primary">
-                <Link to="/christmas-stoles" className={ window.location.pathname === "/christmas-stoles" ? "nav-link active" : "nav-link" }>
-                  Christmas Stoles
+                <Link to="/stoles" className={ window.location.pathname === "/stoles" ? "nav-link active" : "nav-link" }>
+                  All Stoles
                 </Link>
               </Button>
             </li>
@@ -55,6 +55,41 @@ const Aside = () => {
               <Button color="primary">
                 <Link to="/rainbow-stoles" className={ window.location.pathname === "/rainbow-stoles" ? "nav-link active" : "nav-link" }>
                   Rainbow Stoles
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button color="primary">
+                <Link to="/christmas-stoles" className={ window.location.pathname === "/christmas-stoles" ? "nav-link active" : "nav-link" }>
+                  Christmas Stoles
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button color="primary">
+                <Link to="/easter-stoles" className={ window.location.pathname === "/easter-stoles" ? "nav-link active" : "nav-link" }>
+                  Easter Stoles
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button color="primary">
+                <Link to="/pentecost-stoles" className={ window.location.pathname === "/pentecost-stoles" ? "nav-link active" : "nav-link" }>
+                  Pentecost Stoles
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button color="primary">
+                <Link to="/lenten-stoles" className={ window.location.pathname === "/lenten-stoles" ? "nav-link active" : "nav-link" }>
+                  Lenten Stoles
+                </Link>
+              </Button>
+            </li>
+            <li>
+              <Button color="primary">
+                <Link to="/advent-stoles" className={ window.location.pathname === "/advent-stoles" ? "nav-link active" : "nav-link" }>
+                  Advent Stoles
                 </Link>
               </Button>
             </li>

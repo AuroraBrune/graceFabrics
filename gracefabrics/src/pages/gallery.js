@@ -2,8 +2,7 @@ import React from 'react';
 import Carousel from '../components/carousel';
 // import { Grid } from '@material-ui/core/Grid';
 
-
-export default function Gallery(){
+const Gallery = ()=> {
     return(
         <div>
             {Carousel}
@@ -11,4 +10,6 @@ export default function Gallery(){
         </div>
     )
 }
+
+export default Gallery;
 

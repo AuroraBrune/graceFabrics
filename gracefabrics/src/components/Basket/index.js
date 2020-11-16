@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class Basket extends Component {
 
   render() {
-
-    const { shoppingList } = this.props;
-
+    console.log(this.props.props)
+    const shoppingList = this.props.props;
+    console.log( shoppingList)
     return(
       <div>
         {shoppingList.length === 0 ? ("Your cart is empty") : (
@@ -23,7 +23,6 @@ class Basket extends Component {
                     <button>
                       X
                     </button>
-                    {/* {item.count} X {util.formatCurrency(item.price)} */}
                     </li>
                   ) 
                 )}

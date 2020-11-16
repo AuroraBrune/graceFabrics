@@ -3,21 +3,21 @@ import Product from '../components/Product';
 import { Grid } from '@material-ui/core/';
 import API from '../utils/API';
 
-const Stoles = () => {
-    const [stoles, setStoles] = useState({
+const RainbowStoles = () => {
+    const [rainbowList, setrainbowList] = useState({
         products: []
     }); 
-
     useEffect(() => {
-        API.getStoles().then(results => {
-            setStoles({
-                ...stoles, 
+        API.getRainbowStoles().then(results => {
+            setrainbowList({
+                ...rainbowList, 
                 products: results.data
             });
         });
     }, []);
 
-    const productsToMap = stoles.products.map(product => {
+    const productsToMap = rainbowList.products.map(product => {
+        console.log(product);
         return(
             <Grid item xs={9} sm={4} md={3}>
                 <Product
@@ -34,4 +34,4 @@ const Stoles = () => {
     )
 }
 
-export default Stoles;
+export default RainbowStoles;

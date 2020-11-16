@@ -11,13 +11,13 @@ export const isAuthenticated = {
   signedIn: false
 };
 
-const RequireAuth = ({ children }) => {
-  if (!isAuthenticated.signedIn) {
-    console.log('hitting admin path')
-  }
+// const RequireAuth = ({ children }) => {
+//   if (!isAuthenticated.signedIn) {
+//     console.log('hitting admin path')
+//   }
 
-  return children;
-};
+//   return children;
+// };
 
 const inlineStyle = {
     textAlign:'center',
@@ -80,16 +80,16 @@ class Admin extends React.Component {
             });
     
         let result = await res;
-         console.log(res);
+        //  console.log(res);
         if (result && result.status === 200) {
-            console.log('before setting ' + isAuthenticated.signedIn)
+            // console.log('before setting ' + isAuthenticated.signedIn)
             isAuthenticated.signedIn = true;
-            console.log('after setting ' + isAuthenticated.signedIn)
+            // console.log('after setting ' + isAuthenticated.signedIn)
             this.setState({ redirect:"/ProductManagement"})
            
         }
           else if (result.statusText === "Unauthorized") {
-            console.log('form reset')
+            // console.log('form reset')
             this.resetForm();
           }
           
@@ -118,75 +118,30 @@ class Admin extends React.Component {
         return(
     
           <div style ={inlineStyle}>
-                           <div className="loginForm">
-                               Sign In
-                               <InputField
-                                   type='text'
-                                   placeholder='Username'
-                                   value={this.state.username ? this.state.username : ''}
-                                   onChange={ (val) => this.setInputValue('username', val)}
-                               />
-                               <InputField
-                                   type='password'
-                                   placeholder='Password'
-                                   value={this.state.username ? this.state.password : ''}
-                                   onChange={ (val) => this.setInputValue('password', val)}
-                               />
-                               <SubmitButton 
-                                   text='Login'
-                                   disabled={this.state.buttonDisabled}
-                                   onClick={ ()=> this.goLogin() }
-                               />
-                           </div>
-                       </div>
+            <div className="loginForm">
+                Sign In
+                <InputField
+                    type='text'
+                    placeholder='Username'
+                    value={this.state.username ? this.state.username : ''}
+                    onChange={ (val) => this.setInputValue('username', val)}
+                />
+                <InputField
+                    type='password'
+                    placeholder='Password'
+                    value={this.state.username ? this.state.password : ''}
+                    onChange={ (val) => this.setInputValue('password', val)}
+                />
+                <SubmitButton 
+                    text='Login'
+                    disabled={this.state.buttonDisabled}
+                    onClick={ ()=> this.goLogin() }
+                />
+            </div>
+        </div>
 
          )
-
       }
-    
-    
-    //     if(this.state.redirect){
-    //         return <Redirect to='/ProductManagement'/>
-    //     }
-    //     // else if(isAuthenticated.signedIn === true)  {
-    //     //     return(
-    //     //         <div>
-    //     //         <Router>
-    //     //             {/* <RequireAuth> */}
-    //     //                 <Route path="/ProductManagement" component={ProductManagement}/>
-    //     //             {/* </RequireAuth> */}
-    //     //         </Router>
-    //     //         </div>
-    //     //     )
-    //     // }
-    //      else {
-    //         return (
-
-    //             <div style ={inlineStyle}>
-    //                 <div className="loginForm">
-    //                     Sign In
-    //                     <InputField
-    //                         type='text'
-    //                         placeholder='Username'
-    //                         value={this.state.username ? this.state.username : ''}
-    //                         onChange={ (val) => this.setInputValue('username', val)}
-    //                     />
-    //                     <InputField
-    //                         type='password'
-    //                         placeholder='Password'
-    //                         value={this.state.username ? this.state.password : ''}
-    //                         onChange={ (val) => this.setInputValue('password', val)}
-    //                     />
-    //                     <SubmitButton 
-    //                         text='Login'
-    //                         disabled={this.state.buttonDisabled}
-    //                         onClick={ ()=> this.goLogin() }
-    //                     />
-    //                 </div>
-    //             </div>
-
-    //         );
-    //     }   
     }
 }
 
