@@ -1,19 +1,14 @@
-{
-  "name": "update-delete",
+{ "name": "update-delete",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {
-    "node": "10.15.3",
-    "npm": "6.4.1"
-  },
   "scripts": {
     "watch": "nodemon server.js",
     "seed": "node scripts/seeds.js",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'gracefabrics/*'\" \"npm run client\"",
-    "client": "node server.js && cd gracefabrics && npm run start",
+    "client": "cd gracefabrics && npm run start",
     "install": "cd gracefabrics && npm install",
     "build": "cd gracefabrics && npm run build"
   },
