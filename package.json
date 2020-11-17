@@ -1,4 +1,5 @@
-{ "name": "update-delete",
+{
+  "name": "update-delete",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
