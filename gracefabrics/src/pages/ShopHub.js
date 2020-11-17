@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Aside from "../components/Aside";
 import Navbar from "../components/Navbar";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Gallery from "./gallery"
+import Gallery from "./Gallery"
 import About from "./About"
 import Shop from "./Shop"
 import Banners from './Banners';
