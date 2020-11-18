@@ -3,7 +3,7 @@ const session = require("express-session");
 const passport = require("./config/passport");
 const db = require("./models")
 const app = express();
-const path = require('path');
+const path = require('path')
 const PORT = process.env.PORT || 3001;
 
 const mysql = require("mysql");
@@ -23,12 +23,14 @@ if (process.env.JAWSDB_URL) {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Static directory
-if (
-  process.env.NODE_ENV === "production"
-){
-  app.use(express.static('gracefabrics/build'))
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, './gracefabrics/build')));
+
+  app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, './gracefabrics/build', 'index.html'));
+  });
 }
+
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -40,8 +42,8 @@ app.use(passport.session());
 require("./routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
-db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
   });
+});
