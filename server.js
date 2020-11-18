@@ -6,6 +6,19 @@ const app = express();
 const path = require('path')
 const PORT = process.env.PORT || 3001;
 
+const mysql = require("mysql");
+let connection;
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'lm4d4g5khk0xcw63',
+    database: '0ot6rpxbpe5587z'
+  })
+}
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,8 +31,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// Static directory
-app.use(express.static("public"));
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
