@@ -18,6 +18,7 @@ import Orders from './Orders';
 import Contact from './contact';
 import Basket from '../components/Basket'
 import React , { useEffect, useState } from "react";
+import Admin from "./Admin";
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -86,6 +87,9 @@ const ShopHub = () => {
             <Aside/>
           </Grid>
           <Grid item md={8}>
+          <Route exact path="/" component={Shop} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/login" component={Admin} />
             <Route path="/about" component={About}/>
             <Route path="/shop" component={Shop}/>
             <Route path="/banners" component={Banners}/>
