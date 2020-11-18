@@ -5,6 +5,24 @@ const db = require("./models")
 const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3001;
+<<<<<<< Updated upstream
+=======
+const mysql = require("mysql");
+let connection;
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'lm4d4g5khk0xcw63',
+    database: '0ot6rpxbpe5587z'
+  })
+}
+// Requiring our models for syncing
+var db = require("./models");
+>>>>>>> Stashed changes
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));

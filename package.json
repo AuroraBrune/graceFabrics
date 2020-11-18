@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+<<<<<<< Updated upstream
+=======
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
+>>>>>>> Stashed changes
   "scripts": {
     "watch": "nodemon server.js",
     "seed": "node scripts/seeds.js",
