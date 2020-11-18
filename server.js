@@ -1,31 +1,21 @@
 const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport");
-
+const db = require("./models")
 const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 3001;
-const mysql = require("mysql");
-const connection;
-
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'lm4d4g5khk0xcw63',
-    database: '0ot6rpxbpe5587z'
-  })
-}
-// Requiring our models for syncing
-var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
