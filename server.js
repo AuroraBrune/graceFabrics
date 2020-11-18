@@ -19,9 +19,6 @@ if (process.env.JAWSDB_URL) {
     database: '0ot6rpxbpe5587z'
   })
 }
-// Requiring our models for syncing
-// var db = require("./models");
-
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,11 +29,6 @@ if (
 ){
   app.use(express.static('gracefabrics/build'))
 }
-// app.use(express.static(path.join(__dirname, 'build')));
-
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
 
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
