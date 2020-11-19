@@ -1,27 +1,29 @@
-import React from 'react'
+import React from 'react';
+import Carousel from 'react-material-ui-carousel';
+import Item from 'react-material-ui-carousel'
 
-const Carousel = ()=> {
-    <Carousel
-  carouselId="Carousel-2"
-  images={[
-    'https://picsum.photos/200/300?image=0',
-    'https://picsum.photos/200/300?image=1',
-    'https://picsum.photos/200/300?image=2',
-    'https://picsum.photos/200/300?image=3',
-    'https://picsum.photos/200/300?image=4'
-  ]}
-  options={{
-    dist: -100,
-    duration: 200,
-    fullWidth: false,
-    indicators: false,
-    noWrap: false,
-    numVisible: 5,
-    onCycleTo: null,
-    padding: 0,
-    shift: 0
-  }}
-/>
 
+ export default function Example()
+{
+    var items = [
+        {
+            name: "Random Name #1",
+            description: "Probably the most random thing you have ever seen!"
+        },
+        {
+            name: "Random Name #2",
+            description: "Hello World!"
+        }
+    ]
+
+    return (
+      <div>
+        carousel
+        <Carousel>
+            {
+                items.map( (item, i) => <Item key={i} item={item} /> )
+            }
+        </Carousel>
+      </div>
+    )
 }
-export default Carousel;

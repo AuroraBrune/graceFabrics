@@ -89,7 +89,7 @@ const ShopHub = () => {
           <Grid item md={8}>
           <Route exact path="/" component={Shop} />
           <Route path="/admin" component={Admin} />
-          <Route path="/#/login" component={Admin} />
+          <Route path="/login" component={Admin} />
             <Route path="/about" component={About}/>
             <Route path="/shop" component={Shop}/>
             <Route path="/banners" component={Banners}/>

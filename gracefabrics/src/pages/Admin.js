@@ -3,7 +3,6 @@ import '../Login.css';
 import InputField from '../components/InputField/InputField'
 import SubmitButton from '../components/SubmitButton/SubmitButton'
 import ProductManagement from '../pages/ProductManagement'
-import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import LoginForm from '../components/LoginForm/LoginForm';
 
 export const isAuthenticated = {
