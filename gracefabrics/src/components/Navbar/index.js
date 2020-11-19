@@ -33,7 +33,6 @@ export default function Navbar() {
           <Typography variant="h6" className={classes.title}>
           Grace Fabrics
           </Typography>
-          <Button color="inherit">Cart</Button>
         </Toolbar>
       </AppBar>
     </div>

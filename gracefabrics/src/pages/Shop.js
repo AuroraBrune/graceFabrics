@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core/';
 import API from '../utils/API';
 
 const Shop = () => {
+
     const [productsList, setProducts] = useState({
         products: []
     }); 

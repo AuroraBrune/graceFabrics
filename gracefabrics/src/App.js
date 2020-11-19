@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './Login.css';
 import ShopHub from "./pages/ShopHub"
 import Admin from "./pages/Admin"
+import { CartProvider } from './utils/CartContext'
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -17,15 +18,16 @@ function App() {
 
   return(
     <div>
-    <Router>
-        <div className={classes.root}>
-          <Route exact path="/" component={ShopHub} />
-          <Route path="/shop" component={ShopHub} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/login" component={Admin} />
-          {/* <Route path="*" component={ShopHub}/> */}
-        </div>
-    </Router>
+      <CartProvider>
+      <Router>
+          <div className={classes.root}>
+            <Route exact path="/" component={ShopHub} />
+            <Route path="/shop" component={ShopHub} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/login" component={Admin} />
+          </div>
+      </Router>
+      </CartProvider>
     </div>
   );
 }
