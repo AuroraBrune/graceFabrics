@@ -11,9 +11,9 @@ class ContactForm extends React.Component {
     this.state = {
       name: '',
       email: '',
-      subject: '',
-      message: ''
+      message: '',
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -21,17 +21,17 @@ class ContactForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { name, email, subject, message } = this.state;
+    const { name, email, message } = this.state;
+    const ourName = "Grace Fabrics";
     const data = {
       service_id: 'service_2j7t01m',
       template_id: 'template_hz588ig',
       user_id: 'user_RRLMrFKCJPv8XqiyFRHKM',
       templateParams: {
+        message: message,
         from_name: name,
         from_email: email,
-        to_name: 'grace fabrics',
-        subject,
-        message_html: message,
+        to_name: ourName,      
       }
     }
    emailjs.send(
@@ -47,7 +47,6 @@ class ContactForm extends React.Component {
     this.setState({
       name: '',
       email: '',
-      subject: '',
       message: '',
     });
   }
@@ -57,7 +56,7 @@ class ContactForm extends React.Component {
 
   }
   render() {
-    const { name, email, subject, message, sentMessage } = this.state;
+    const { name, email, message, sentMessage } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <Paper>
@@ -69,21 +68,16 @@ class ContactForm extends React.Component {
               <TextField name="name"
                 type="text"
                 placeholder="Your first and last name"
-                value={name}
+                value={this.state.name}
                 onChange={this.handleChange} />
               <TextField name="email"
                 type="email"
                 placeholder="email@gmail.com"
-                value={email}
-                onChange={this.handleChange} />
-              <TextField name="subject"
-                type="text"
-                placeholder="What is the subject?"
-                value={subject}
+                value={this.state.email}
                 onChange={this.handleChange} />
               <TextField name="message"
                 placeholder="Tell me more about..."
-                value={message}
+                value={this.state.message}
                 onChange={this.handleChange} />
               <Button type="submit" variant="outlined" color="primary">Send</Button>
             </FormControl>
