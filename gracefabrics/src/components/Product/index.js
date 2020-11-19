@@ -5,13 +5,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import image from '../../assets/demo_img.jpg';
-// import FilterProducts from '../../filterProducts';
+import {CartProvider, useCartContext} from '../../utils/CartContext'
+// import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   root: {
-    // boxShadow: "0 4 8 0 rgba(0, 0, 0, 0.2), 0 6 20 0 rgba(0, 0, 0, 0.19)",
     boxShadow: "0 0 0.7em #000000",
     background:'ivory',
     minWidth: 150,
@@ -26,7 +25,7 @@ const useStyles = makeStyles({
   title: {
     marginTop: 20,
     marginLeft: 20,
-    fontSize: 14,
+    fontSize: 16,
   },
   pos: {
     marginBottom: 12,
@@ -35,30 +34,40 @@ const useStyles = makeStyles({
     justifyContent:'center',
     display:'flex',
     height:200,
+  },
+  priceTag: {
+    marginLeft: 12,
+    fontSize: 13
+  },
+  addToCart:{
+    background: "#97E7FE"
   }
 });
 
 export default function Product(productinfo) {
   const classes = useStyles();
   const product = productinfo.productinfo;
+  const [state, dispatch] = useCartContext();
   
   return (
-    <Card className={classes.root} variant="outlined">
-      {/* <FilterProducts onChange={onChange} /> */}
-      <Typography className={classes.title} color="textSecondary" gutterBottom>
-       {product.name}
-      </Typography>
-      <CardContent>
-        <img className={classes.image} src={image} alt='product'/>
-        <Typography className={classes.pos} color="textSecondary"> 
+    <CartProvider>
+      <Card className={classes.root} variant="outlined">
+        <Typography className={classes.title} color="textPrimary" gutterBottom>
+        {product.name}
         </Typography>
-        <Typography variant="body2" component="p">
-         Description: {product.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" >Add to cart</Button> <Button size="small">Buy now ({product.price})</Button>
-      </CardActions>
-    </Card>
+        <CardContent>
+          <img className={classes.image} src={image} alt='product'/>
+          <Typography className={classes.pos} color="textSecondary"> 
+          </Typography>
+          <Typography variant="body2" component="p">
+          Description: {product.description}
+          </Typography>
+        </CardContent>
+          <div className={classes.priceTag}><strong>Price: ${product.price}</strong></div>
+        <CardActions>
+          <Button className={classes.addToCart} onClick={() => dispatch({type:'addItem', product:product})} size="small" ><strong>Add to cart</strong></Button><br/> 
+        </CardActions>
+      </Card>
+    </CartProvider>
   );
 }
