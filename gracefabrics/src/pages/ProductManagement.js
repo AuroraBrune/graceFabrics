@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Product from '../components/Product';
 import { Grid } from '@material-ui/core/';
 import API from '../utils/API';
-import { Card } from 'react-materialize'
+import Button from '@material-ui/core/Button';
+
 const ProductManagement = () => {
     const [productsList, setProducts] = useState({
         products: []
@@ -17,23 +18,25 @@ const ProductManagement = () => {
     }, []);
     const productsToMap = productsList.products.map(product => {
         return (
-      
-                    <Card>
-                        <h3>{product.name}</h3>
-                        <img src={product.img1}></img>
-                        <p>{product.description}</p>
 
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </Card>
-           
+            <Grid item xs={9} sm={4} md={3} key={product.id}>
+                <Product
+                    productinfo={product}
+                />
+                <Button>Edit</Button>
+                <Button>Delete</Button>
+            </Grid>
+
+
         )
     })
     return (
-        <Grid container>
-            {productsToMap}
+        <div>
             <button>Create New Item</button>
-        </Grid>
+            <Grid container>
+                {productsToMap}
+            </Grid>
+        </div>
     )
 }
 export default ProductManagement;

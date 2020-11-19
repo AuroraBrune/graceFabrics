@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import './Login.css';
 import ShopHub from "./pages/ShopHub"
-
+import { CartProvider } from './utils/CartContext'
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -16,7 +16,9 @@ function App() {
 
   return (
     <div>
-      <ShopHub />
+      <CartProvider>
+      <ShopHub/>
+      </CartProvider>
     </div>
   );
 }
