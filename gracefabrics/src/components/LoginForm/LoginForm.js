@@ -92,6 +92,7 @@ class LoginForm extends React.Component {
   render(){ 
     return (
       <div className="loginForm">
+  
         Log In
         <InputField
           type='text'

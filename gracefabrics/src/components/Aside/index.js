@@ -96,13 +96,13 @@ const Aside = () => {
           </ul>
         {/* End Sub-List */}
 
-        <li className="nav-item">
+       {/* <li className="nav-item">
           <Button color="primary">
             <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
               Gallery
             </Link>
           </Button>
-        </li>
+           </li>*/}
         <li className="nav-item">
           <Button color="primary">
             <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
@@ -114,6 +114,13 @@ const Aside = () => {
           <Button color="primary">
             <Link to="/orders" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
               Custom Orders
+            </Link>
+          </Button>
+        </li>
+        <li className="nav-item">
+          <Button color="primary">
+            <Link to="/login" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
+              (Admin)
             </Link>
           </Button>
         </li>
