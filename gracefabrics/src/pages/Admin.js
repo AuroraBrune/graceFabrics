@@ -118,6 +118,9 @@ class Admin extends React.Component {
     
           <div style ={inlineStyle}>
             <div className="loginForm">
+            <h3>This page is for Administrative purposes...</h3>
+        <p>If you are a shopper please use the side bar to return to the store :)</p>
+        <br></br>
                 Sign In
                 <InputField
                     type='text'

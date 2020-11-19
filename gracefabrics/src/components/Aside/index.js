@@ -117,6 +117,13 @@ const Aside = () => {
             </Link>
           </Button>
         </li>
+        <li className="nav-item">
+          <Button color="primary">
+            <Link to="/login" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
+              (Admin)
+            </Link>
+          </Button>
+        </li>
       </ul> 
     </div>
   )
