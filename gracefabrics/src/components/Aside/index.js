@@ -106,17 +106,17 @@ const Aside = () => {
         <li className="nav-item">
           <Button color="primary">
             <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
-              Contact Us
+            Custom Orders
             </Link>
           </Button>
         </li>
-        <li className="nav-item">
+        {/*<li className="nav-item">
           <Button color="primary">
             <Link to="/orders" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
-              Custom Orders
+              Customer Orders
             </Link>
           </Button>
-        </li>
+          </li>*/}
         <li className="nav-item">
           <Button color="primary">
             <Link to="/login" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
