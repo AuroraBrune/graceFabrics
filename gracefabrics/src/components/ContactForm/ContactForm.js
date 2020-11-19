@@ -67,16 +67,16 @@ class ContactForm extends React.Component {
             <FormControl noValidate autoComplete="off">
               <TextField name="name"
                 type="text"
-                placeholder="Your first and last name"
+                placeholder="  Your first and last name"
                 value={this.state.name}
                 onChange={this.handleChange} />
               <TextField name="email"
                 type="email"
-                placeholder="email@gmail.com"
+                placeholder="  Your email"
                 value={this.state.email}
                 onChange={this.handleChange} />
               <TextField name="message"
-                placeholder="Tell me more about..."
+                placeholder="  Your message here..."
                 value={this.state.message}
                 onChange={this.handleChange} />
               <Button type="submit" variant="outlined" color="primary">Send</Button>
