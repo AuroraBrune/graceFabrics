@@ -106,7 +106,7 @@ const Aside = () => {
         <li className="nav-item">
           <Button color="primary">
             <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
-              Contact Info
+              Contact Us
             </Link>
           </Button>
         </li>

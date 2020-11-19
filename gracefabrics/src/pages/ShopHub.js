@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Aside from "../components/Aside";
 import Navbar from "../components/Navbar";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Gallery from "./Gallery"
+import Gallery from "./gallery"
 import About from "./About"
 import Shop from "./Shop"
 import Banners from './Banners';
@@ -18,7 +18,11 @@ import Orders from './Orders';
 import Contact from './contact';
 import Basket from '../components/Basket'
 import React , { useEffect, useState } from "react";
+<<<<<<< HEAD
 import Product from '../components/Product' //importing child
+=======
+import Admin from "./Admin";
+>>>>>>> main
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -89,6 +93,9 @@ const ShopHub = () => {
             <Aside/>
           </Grid>
           <Grid item md={8}>
+          <Route exact path="/" component={Shop} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/login" component={Admin} />
             <Route path="/about" component={About}/>
             
             <Route

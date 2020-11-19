@@ -1,6 +1,7 @@
 import React from "react";
 import { useInput } from './inputHook';
 import "./form.css"
+import { Paper } from '@material-ui/core'
 
 
 const Form = (props) => {
@@ -21,67 +22,68 @@ const Form = (props) => {
         resetImage();
     }
     return (
+        <Paper>
+            <form onSubmit={handleSubmit}>
 
-        <form onSubmit={handleSubmit}>
+                <div className="ordersForm">
+                    <div className="row">
+                        <div className="col md6 offset-md2">
 
-            <div className="ordersForm">
-                <div className="row">
-                    <div className="col md6 offset-md2">
+                            <label>
+                                First Name:
+                        </label>
+                        </div>
 
+                        <div>
+                            <input type="text" {...bindFirstName} />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>
+                                Last Name:
+                        </label>
+                        </div>
+                        <div>
+                            <input type="text" {...bindLastName} />
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>
+                                Description:
+                        </label>
+                        </div>
+
+                        <div>
+                            <textarea {...bindDescription} />
+                        </div>
+                    </div>
+                    <div>
                         <label>
-                            First Name:
+                            Price:
                         </label>
                     </div>
 
                     <div>
-                        <input type="text" {...bindFirstName} />
+                        <input type="text" {...bindPrice} />
                     </div>
-                </div>
-                <div>
                     <div>
                         <label>
-                            Last Name:
-                        </label>
-                    </div>
-                    <div>
-                        <input type="text" {...bindLastName} />
-                    </div>
-                </div>
-                <div>
-                <div>
-                    <label>
-                        Description:
-                        </label>
-                </div>
-
-                <div>
-                    <textarea {...bindDescription} />
-                </div>
-                </div>
-                <div>
-                    <label>
-                        Price:
-                        </label>
-                </div>
-
-                <div>
-                    <input type="text" {...bindPrice} />
-                </div>
-                <div>
-                    <label>
-                        Image:
+                            Image:
                             </label>
 
+                    </div>
+                    <div>
+                        <input type="text" {...bindImage} />
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit" />
+                    </div>
                 </div>
-                <div>
-                    <input type="text" {...bindImage} />
-                </div>
-                <div>
-                    <input type="submit" value="Submit" />
-                </div>
-            </div>
 
-        </form >
+            </form >
+        </Paper>
 
     );
 }

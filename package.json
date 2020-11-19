@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines":{
-    "node":"10.15.3",
-    "npm":"6.4.1"
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "scripts": {
     "watch": "nodemon server.js",
@@ -31,6 +31,7 @@
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "react-router-dom": "^5.2.0",
     "sequelize": "^4.41.2"
   }

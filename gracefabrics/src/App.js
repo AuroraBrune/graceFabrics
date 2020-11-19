@@ -1,9 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './Login.css';
 import ShopHub from "./pages/ShopHub"
+<<<<<<< HEAD
 import Admin from "./pages/Admin"
 import { CartProvider } from './utils/CartContext'
+=======
+
+>>>>>>> main
 
 const classes = makeStyles((theme) => ({
   root: {
@@ -16,8 +19,9 @@ const classes = makeStyles((theme) => ({
 
 function App() {
 
-  return(
+  return (
     <div>
+<<<<<<< HEAD
       <CartProvider>
       <Router>
           <div className={classes.root}>
@@ -28,6 +32,9 @@ function App() {
           </div>
       </Router>
       </CartProvider>
+=======
+      <ShopHub />
+>>>>>>> main
     </div>
   );
 }
