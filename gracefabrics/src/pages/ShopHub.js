@@ -18,11 +18,7 @@ import Orders from './Orders';
 import Contact from './contact';
 import Basket from '../components/Basket'
 import React , { useEffect, useState } from "react";
-<<<<<<< HEAD
 import Product from '../components/Product' //importing child
-=======
-import Admin from "./Admin";
->>>>>>> main
 
 const classes = makeStyles((theme) => ({
   root: {
