@@ -1,6 +1,6 @@
 {
   "name": "gracefabrics",
-  "proxy":"http://localhost:3001",
+  "proxy": "http://localhost:3001",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "mobx-react": "^7.0.0",
     "mysql": "^2.18.1",
     "react": "^17.0.1",
+    "react-crud-table": "0.0.8",
     "react-dom": "^17.0.1",
     "react-materialize": "^3.9.3",
     "react-router": "^5.2.0",
