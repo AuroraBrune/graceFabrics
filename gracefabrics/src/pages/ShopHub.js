@@ -18,6 +18,7 @@ import Orders from './Orders';
 import Contact from './contact';
 import Basket from '../components/Basket'
 import React , { useEffect, useState } from "react";
+import Admin from '../pages/Admin'
 import Product from '../components/Product' //importing child
 
 const classes = makeStyles((theme) => ({
@@ -89,19 +90,10 @@ const ShopHub = () => {
             <Aside/>
           </Grid>
           <Grid item md={8}>
-          <Route exact path="/" component={Shop} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/login" component={Admin} />
+            <Route exact path="/" path="/shop" component={Shop} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/login" component={Admin} />
             <Route path="/about" component={About}/>
-            
-            <Route
-             path="/shop"  
-             path="/">
-              <cartContext.Provider value = {cart}>
-                <Shop props={addItem, removeItem}/>
-              </cartContext.Provider>
-           
-            </Route> 
             <Route path="/banners" component={Banners}/>
             <Route exact path="/stoles" component={Stoles}/>
             <Route  path="/rainbow-stoles" component={RainbowStoles}/>

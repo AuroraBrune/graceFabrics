@@ -3,6 +3,7 @@ import './Login.css';
 import ShopHub from "./pages/ShopHub"
 import Admin from "./pages/Admin"
 import { CartProvider } from './utils/CartContext'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const classes = makeStyles((theme) => ({
   root: {
