@@ -9,7 +9,7 @@ function About() {
             
                 <Row><h2 className="header-about mt-4 mb-4">Faith &amp; Fabrics</h2></Row>
                 <Row>
-                    <p>paragraph of text here</p>
+                    <p></p>
                 </Row>
                 <Row><h2 className="header-about mt-4 mb-4">The Mission of Grace Fabrics is...</h2></Row>
                 <Row>
@@ -43,9 +43,9 @@ function About() {
                         In addition to her work with Grace Fabrics, Grace is also the Director of Music at Blue Ridge Presbyterian Church
                         in Raytown, Missouri and the Artist in Residence at Community Christian Church in Kansas City, Missouri.</p>
                 </Row>
-                <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
+                <Row><h2 className="header-feedback mt-4 mb-4"></h2></Row>
                 <Row>
-                    <p>Text about </p>
+                    <p></p>
                 </Row>
 
             </Container>
