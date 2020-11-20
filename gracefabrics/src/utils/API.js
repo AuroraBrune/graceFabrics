@@ -43,6 +43,13 @@ const API = {
   },
   getBanners: function() {
     return axios.get('/api/products/banners')
-  }
+  },
+  deleteProduct: function(event){
+    const id = event.currentTarget.dataset.pid
+    return axios.delete(`/api/products/${id}`)
+  },
+  // deleteAll: function(){
+  //   return axios.delete('')
+  // }
 }
 export default API;

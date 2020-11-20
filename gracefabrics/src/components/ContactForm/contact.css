@@ -9,6 +9,7 @@
 
   .MuiInputBase-root{
     width: 28em;
+    padding-left: 15px;
   }
 
   .contact-paper-hdr {
