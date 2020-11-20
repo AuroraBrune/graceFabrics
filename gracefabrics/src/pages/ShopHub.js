@@ -31,6 +31,10 @@ const classes = makeStyles((theme) => ({
 
 const ShopHub = () => {
 
+  const cartContext = React.createContext({
+    cart:[]
+  })
+
   let [cart, setCart] = useState({
     products:[]
   })
@@ -75,8 +79,6 @@ const ShopHub = () => {
     let cartString = JSON.stringify(cartState)
     localStorage.setItem('cart', cartString)
   }
-  
-  console.log(cart) 
 
   return(
     <Router>
@@ -87,8 +89,10 @@ const ShopHub = () => {
             <PersistentDrawerLeft/>
           </Grid>
           <Grid item md={8}>
+            <Route exact path="/" path="/shop" component={Shop} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/login" component={Admin} />
             <Route path="/about" component={About}/>
-            <Route path="/shop" component={Shop}/>
             <Route path="/banners" component={Banners}/>
             <Route exact path="/stoles" component={Stoles}/>
             <Route  path="/rainbow-stoles" component={RainbowStoles}/>
@@ -98,12 +102,11 @@ const ShopHub = () => {
             <Route  path="/pentecost-stoles" component={PentecostStoles}/>
             <Route  path="/advent-stoles" component={AdventStoles}/>
             <Route path="/gallery" component={Gallery}/>
-            <Route exact path="/" component={Shop}/>
             <Route path="/contact" component={Contact}/>
             <Route path="/orders" component={Orders}/>
           </Grid>  
           <Grid item md={2}>
-            <Basket props={cart.products}/>
+            <Basket />
           </Grid>
         </Grid>
        

@@ -1,10 +1,47 @@
 let db = require("../models");
 let passport = require('../config/passport')
 module.exports = function (app) {
-    app.get("/api/products", function (req, res) {
-        db.Products.findAll({}).then(function (dbProducts) {
-            res.json(dbProducts)
-        })
+
+    app.get("/api/products", async function (req, res) {
+       let dbUser = await db.User.findAll({})
+
+            if(dbUser[0] === undefined){
+                db.User.create({
+                    username: "user",
+                    password: "$2a$10$BJgt.G7qtJ.4hOG7uIppPOvTMYHBFDVu8nWmnjgWGvQ.M7LGC/Nm."
+                  })
+
+        await   db.Products.create({
+                    name:"Rainbow Stole",
+                    description: "Rainbow stole done in tie-dye",
+                    price: 56.99,
+                    img1: "stole picture",
+                    type: "Stole",
+                })
+          await db.Products.create({
+                    name:"Easter Stole",
+                    description: "Easter stole done in tie-dye",
+                    price: 42.99,
+                    img1: "stole picture",
+                    type: "Stole",
+                })
+           await db.Products.create({
+                    name:"Christmas Stole",
+                    description: "Christmas stole done in tie-dye",
+                    price: 99.99,
+                    img1: "stole picture",
+                    type: "Stole",
+                })
+               
+                db.Products.findAll({}).then(function (dbProducts) {
+                    res.json(dbProducts)
+                })      
+            }
+            else{ db.Products.findAll({}).then(function (dbProducts) {
+                res.json(dbProducts)
+            }) }
+           
+        
     })
 
     app.get("/api/products/stoles", function (req, res) {
@@ -121,6 +158,7 @@ module.exports = function (app) {
     })
 
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
+        console.log(req.body.email)
         res.json({
             username: req.body.email
         });

@@ -3,7 +3,6 @@ import '../Login.css';
 import InputField from '../components/InputField/InputField'
 import SubmitButton from '../components/SubmitButton/SubmitButton'
 import ProductManagement from '../pages/ProductManagement'
-import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import LoginForm from '../components/LoginForm/LoginForm';
 
 export const isAuthenticated = {
@@ -119,6 +118,9 @@ class Admin extends React.Component {
     
           <div style ={inlineStyle}>
             <div className="loginForm">
+            <h3>This page is for Administrative purposes...</h3>
+        <p>If you are a shopper please use the side bar to return to the store :)</p>
+        <br></br>
                 Sign In
                 <InputField
                     type='text'

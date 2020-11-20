@@ -1,15 +1,16 @@
-import React from "react";
-import Form from "../components/Form";
+// import React from "react";
+// // import Form from "../components/Form";
+// import OrderTable from "../components/OrderTable";
 
-function Orders() {
-    return (
-        <div className="MuiGrid-grid-md-9">
-            <div style={{color: "blue"}}>Customer Orders</div>
-            <div>
-                <Form />
-            </div>
-        </div>
-    )
-}
+// function Orders() {
+//     return (
+//         <div>
+//             <div className="custorder" style={{color: "blue"}}>Customer Orders</div>
+   
+//                 <OrderTable />
+           
+//         </div>
+//     )
+// }
 
-export default Orders;
+// export default Orders;

@@ -46,7 +46,7 @@ function About() {
                 </div>
                 <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
                 <Row>
-                    <p>Text about </p>
+                    <p></p>
                 </Row>
 
             </Container>
