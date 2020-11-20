@@ -56,7 +56,7 @@ export default function Product(productinfo) {
         {product.name}
         </Typography>
         <CardContent>
-          <img className={classes.image} src={image} alt='product'/>
+          <img className={classes.image} src={product.img1} alt='product'/>
           <Typography className={classes.pos} color="textSecondary"> 
           </Typography>
           <Typography variant="body2" component="p">
