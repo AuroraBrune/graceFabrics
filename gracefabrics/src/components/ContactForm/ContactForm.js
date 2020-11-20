@@ -2,7 +2,7 @@ import React from "react";
 import { Paper, TextField, FormControl, FormGroup, Button } from '@material-ui/core'
 import "./contact.css";
 import * as emailjs from 'emailjs-com';
-import{ init } from 'emailjs-com';
+import { init } from 'emailjs-com';
 init("user_RRLMrFKCJPv8XqiyFRHKM");
 
 class ContactForm extends React.Component {
@@ -12,6 +12,7 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
+      price: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,26 +22,27 @@ class ContactForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { name, email, message } = this.state;
+    const { name, email, message, price } = this.state;
     const ourName = "Grace Fabrics";
+    const totalmessage = message + " Price range: " + price;
     const data = {
       service_id: 'service_2j7t01m',
       template_id: 'template_hz588ig',
       user_id: 'user_RRLMrFKCJPv8XqiyFRHKM',
       templateParams: {
-        message: message,
+        message: totalmessage,
         from_name: name,
         from_email: email,
-        to_name: ourName,      
+        to_name: ourName,
       }
     }
-   emailjs.send(
-     data.service_id, 
-     data.template_id,
-     data.templateParams,
-     data.user_id
-   )
-   this.resetForm();
+    emailjs.send(
+      data.service_id,
+      data.template_id,
+      data.templateParams,
+      data.user_id
+    )
+    this.resetForm();
   };
 
   resetForm() {
@@ -48,6 +50,7 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
+      price: '',
     });
   }
 
@@ -61,7 +64,7 @@ class ContactForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <Paper>
           <div className="contact-paper-hdr">
-            <h3>Contact Us</h3>
+            <h3>Custom Order</h3>
           </div>
           <FormGroup>
             <FormControl noValidate autoComplete="off">
@@ -76,8 +79,13 @@ class ContactForm extends React.Component {
                 value={this.state.email}
                 onChange={this.handleChange} />
               <TextField name="message"
-                placeholder="  Your message here..."
+                placeholder="  Description of desired commission..."
                 value={this.state.message}
+                onChange={this.handleChange} />
+              <TextField name="price"
+                type="text"
+                placeholder="  Your desired price range..."
+                value={this.state.price}
                 onChange={this.handleChange} />
               <Button type="submit" variant="outlined" color="primary">Send</Button>
             </FormControl>
