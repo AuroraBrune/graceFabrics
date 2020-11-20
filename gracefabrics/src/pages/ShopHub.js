@@ -39,6 +39,7 @@ const ShopHub = () => {
           <Grid item md={2}>
             <PersistentDrawerLeft/>
           </Grid>
+<<<<<<< HEAD
             <Grid item md={8}>
               <Route exact path="/" path="/shop" component={Shop} />
               <Route path="/admin" component={Admin} />
@@ -56,6 +57,26 @@ const ShopHub = () => {
               <Route path="/contact" component={Contact}/>
               <Route path="/orders" component={Orders}/>
             </Grid>  
+=======
+          <Grid item md={8}>
+            <Route exact path="/" component={Shop} />
+            <Route path="/shop" component={Shop}/>
+            <Route path="/admin" component={Admin} />
+            <Route path="/login" component={Admin} />
+            <Route path="/about" component={About}/>
+            <Route path="/banners" component={Banners}/>
+            <Route exact path="/stoles" component={Stoles}/>
+            <Route  path="/rainbow-stoles" component={RainbowStoles}/>
+            <Route  path="/easter-stoles" component={EasterStoles}/>
+            <Route  path="/christmas-stoles" component={ChristmasStoles}/>
+            <Route  path="/lenten-stoles" component={LentenStoles}/>
+            <Route  path="/pentecost-stoles" component={PentecostStoles}/>
+            <Route  path="/advent-stoles" component={AdventStoles}/>
+            <Route path="/gallery" component={Gallery}/>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/orders" component={Orders}/>
+          </Grid>  
+>>>>>>> main
           <Grid item md={2}>
             <Basket />
           </Grid>

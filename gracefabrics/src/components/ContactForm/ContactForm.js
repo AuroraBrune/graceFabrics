@@ -5,6 +5,7 @@ import * as emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 init("user_RRLMrFKCJPv8XqiyFRHKM");
 
+
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
@@ -56,6 +57,7 @@ class ContactForm extends React.Component {
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+
 
   }
   render() {
