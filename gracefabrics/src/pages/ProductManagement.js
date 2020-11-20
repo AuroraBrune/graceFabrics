@@ -25,11 +25,11 @@ const ProductManagement = () => {
                 <ProductTemplate
                     productinfo={product}
                 />
-                 <hr/>
-                <Button><strong>Edit</strong></Button> 
+                <Button><strong>Update</strong></Button> 
                 {/* //onclick=api.update */}
                 <Button><strong>Delete</strong></Button> 
                 {/* //onclick=api.delete */}
+                <hr/>
             </Grid>
         )
     })
