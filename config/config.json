@@ -1,7 +1,11 @@
 {
     "development": {
       "username": "root",
+<<<<<<< HEAD
+      "password":"jourdan",
+=======
       "password": "MyNewPass",
+>>>>>>> main
       "database": "gracefabrics",
       "host": "127.0.0.1",
       "port": 3306,
@@ -15,12 +19,11 @@
       "dialect": "mysql"
     },
     "production": {
-      "use_env_variable": "JAWSDB_URL",
       "username": "root",
-      "dialect": "mysql",
-      "password": "3571Yellow01$",
+      "password": "MyNewPass",
       "database": "database_production",
-      "host": "127.0.0.1"
+      "host": "127.0.0.1",
+      "dialect": "mysql"
     }
   }
   
