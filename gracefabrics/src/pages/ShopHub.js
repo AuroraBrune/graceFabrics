@@ -1,7 +1,7 @@
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Navbar from "../components/Navbar";
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Gallery from "./gallery"
 import About from "./About"
 import Shop from "./Shop"
@@ -16,7 +16,7 @@ import AdventStoles from './AdventStoles';
 import Orders from './Orders';
 import Contact from './contact';
 import Basket from '../components/Basket'
-import React , { useEffect, useState } from "react";
+import React from "react";
 import PersistentDrawerLeft from '../components/Aside';
 import Admin from './Admin'
 
