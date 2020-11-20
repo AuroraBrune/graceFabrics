@@ -15,9 +15,9 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": "MyNewPass",
-      "database": "database_production",
+      "username": "uitdt33k5fawqhom",
+      "password": "sey9cy5nr0kszxab",
+      "database": "mjttwjb3bte9uxqa",
       "host": "127.0.0.1",
       "dialect": "mysql"
     }
