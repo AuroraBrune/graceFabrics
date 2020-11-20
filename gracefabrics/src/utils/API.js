@@ -43,6 +43,10 @@ const API = {
   },
   getBanners: function() {
     return axios.get('/api/products/banners')
+  },
+  updateItem: function(event) {
+    console.log(event)
+    return axios.post('/api/admin')
   }
 }
 export default API;

@@ -164,15 +164,16 @@ module.exports = function (app) {
         })
     })
 
-    app.post("/api/admin", function (req, res) {
-        db.Products.create({
-            // description:
-            // price:
-            // img1:
-            // type:
-            // img2:
-            // img3:
-        })
+    app.post("/api/admin", function (event) {
+        console.log(event)
+        // db.Products.create({
+            
+        //     // price:
+        //     // img1:
+        //     // type:
+        //     // img2:
+        //     // img3:
+        // })
     })
 
     app.put("/api/admin", function (req, res) {
