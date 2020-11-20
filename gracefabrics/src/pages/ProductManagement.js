@@ -27,7 +27,7 @@ const ProductManagement = () => {
                 />
                 <Button><strong>Update</strong></Button> 
                 {/* //onclick=api.update */}
-                <Button><strong>Delete</strong></Button> 
+                <Button onClick={API.deleteProduct} data-pid={product.id}><strong>Delete</strong></Button> 
                 {/* //onclick=api.delete */}
                 <hr/>
             </Grid>
