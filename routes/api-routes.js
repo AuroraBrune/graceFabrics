@@ -68,6 +68,17 @@ module.exports = function (app) {
         
     })
 
+    app.delete("/api/products/:id", function (req, res) {
+        const id = req.params.id;
+        db.Products.destroy({
+            where: {
+                id: id
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
+        })
+    })
+
     app.get("/api/products/stoles", function (req, res) {
         db.Products.findAll({
             where: {
@@ -173,8 +184,7 @@ module.exports = function (app) {
         //     // type:
         //     // img2:
         //     // img3:
-        // })
-    })
+        })
 
     app.put("/api/admin", function (req, res) {
         db.Products.update({
