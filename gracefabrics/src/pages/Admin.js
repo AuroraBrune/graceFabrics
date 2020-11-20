@@ -106,7 +106,9 @@ class Admin extends React.Component {
       return(
     
        <div>
-       ProductManagement
+       <h1>
+         Product Management
+         </h1>
          <ProductManagement/>
        </div>
 
