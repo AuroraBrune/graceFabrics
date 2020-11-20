@@ -17,7 +17,7 @@ function App() {
   return (
     <div>
       <CartProvider>
-      <ShopHub/>
+        <ShopHub/>
       </CartProvider>
     </div>
   );

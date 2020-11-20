@@ -44,6 +44,10 @@ const API = {
   getBanners: function() {
     return axios.get('/api/products/banners')
   },
+  updateItem: function(event) {
+    console.log(event)
+    return axios.post('/api/admin')
+  },
   deleteProduct: function(event){
     const id = event.currentTarget.dataset.pid
     return axios.delete(`/api/products/${id}`)
