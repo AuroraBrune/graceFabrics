@@ -10,6 +10,7 @@ const ProductManagement = () => {
     const [productsList, setProducts] = useState({
         products: []
     });
+
     useEffect(() => {
         API.getProducts().then(results => {
             setProducts({
@@ -18,16 +19,20 @@ const ProductManagement = () => {
             });
         });
     }, []);
+
     const productsToMap = productsList.products.map(product => {
         return (
-
             <Grid item xs={12} sm={12} md={12} key={product.id}>
                 <ProductTemplate
                     productinfo={product}
                 />
-                <Button><strong>Update</strong></Button> 
+                <Button onClick={API.updateItem}><strong>Update</strong></Button> 
                 {/* //onclick=api.update */}
+<<<<<<< HEAD
+                <Button ><strong>Delete</strong></Button> 
+=======
                 <Button onClick={API.deleteProduct} data-pid={product.id}><strong>Delete</strong></Button> 
+>>>>>>> main
                 {/* //onclick=api.delete */}
                 <hr/>
             </Grid>

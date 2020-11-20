@@ -165,16 +165,26 @@ module.exports = function (app) {
         })
     })
 
-    app.post("/api/admin", function (req, res) {
-        db.Products.create({
-            // description:
-            // price:
-            // img1:
-            // type:
-            // img2:
-            // img3:
+    app.delete("/api/:id", function (req, res) {
+        db.Products.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (dbProducts) {
+            res.json(dbProducts)
         })
     })
+
+    app.post("/api/admin", function (event) {
+        console.log(event)
+        // db.Products.create({
+            
+        //     // price:
+        //     // img1:
+        //     // type:
+        //     // img2:
+        //     // img3:
+        })
 
     app.put("/api/admin", function (req, res) {
         db.Products.update({
