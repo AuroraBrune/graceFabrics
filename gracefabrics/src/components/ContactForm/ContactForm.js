@@ -5,7 +5,6 @@ import * as emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 init("user_RRLMrFKCJPv8XqiyFRHKM");
 
-
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,13 +24,14 @@ class ContactForm extends React.Component {
     event.preventDefault();
     const { name, email, message, price } = this.state;
     const ourName = "Grace Fabrics";
-    const totalmessage = message + " Price range: " + price;
+    const totalmessage = message + " Price range: " + price + " You can contact the customer at " + email;
     const data = {
       service_id: 'service_2j7t01m',
       template_id: 'template_hz588ig',
       user_id: 'user_RRLMrFKCJPv8XqiyFRHKM',
       templateParams: {
         message: totalmessage,
+        email: email,
         from_name: name,
         from_email: email,
         to_name: ourName,
@@ -57,7 +57,6 @@ class ContactForm extends React.Component {
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-
 
   }
   render() {
