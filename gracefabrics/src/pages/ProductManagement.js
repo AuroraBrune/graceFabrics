@@ -20,16 +20,35 @@ const ProductManagement = () => {
         });
     }, []);
 
+// const [newName, setName] = useState();
+// const [newType, setType] = useState();
+// const [newPrice, setPrice] = useState();
+// const [newDescription, setDescription] = useState();
+// const [newImage, setImage] = useState();
+
+// function getUpdatedProduct(){
+//     console.log('newName' + newName)
+//     console.log(newType)
+//     console.log(newPrice)
+//     console.log(newDescription)
+//     console.log(newImage)
+//     return(JSON.stringify({
+//         "name":newName,
+//         "type":newType,
+//         "price":newPrice,
+//         "description":newDescription,
+//         "img1":newImage
+//     }))
+// }
+   
+
     const productsToMap = productsList.products.map(product => {
+        console.log(product)
         return (
             <Grid item xs={12} sm={12} md={12} key={product.id}>
                 <ProductTemplate
                     productinfo={product}
                 />
-                <Button onClick={API.updateItem}><strong>Update</strong></Button>
-                {/* //onclick=api.update */}
-                <Button onClick={API.deleteProduct} data-pid={product.id}><strong>Delete</strong></Button>
-                {/* //onclick=api.delete */}
                 <hr />
             </Grid>
         )
