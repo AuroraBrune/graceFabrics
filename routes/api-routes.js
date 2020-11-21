@@ -7,27 +7,27 @@ module.exports = function (app) {
 
             if(dbProduct[0] === undefined){
 
-        await   db.Products.create({
-                    name:"Rainbow Stole",
-                    description: "Rainbow stole done in tie-dye",
-                    price: 56.99,
-                    img1: "https://lh3.googleusercontent.com/8PTtnOVa26FktHKM5BvVrqYevljxcnbV0TAPKG5qrEAz5DKOHfI6ZQim8yF5__QroaWgm2U40p-z68pqBvb7Rj6nqyLHi8I-dIjpFzIVqmxEtggvfrL-5wviS8LMAs8UoiYEKkc0tVAuw-dacIOYvGHn01vmoRjzrYLql7GBSovZ2aX21gCgfHjTKeLyFtJ6A81Nrch3o9_Xai9G8HPjxlcRD0__Vmikt4JccCycOizxyspaYyF16CxbMK6FeXtqk7nbmL4JQODKOZb4J_I0i3Sa5VvFIDTD2rh1Jc7uZE3b7DEDNhAs9B_zNogrBP71YvTfXRZg0DQLfvAhbJ-suYP5BEvTb8cHuCTHqQHCXNU0PouptkL_0RsFCkRfGyHpTISFjXzv1nuMPMpQLLrnbZ3l5Tsh0cR_5OJ_6Nqdp5mUjBGK1JkXbYIgca0lK3xx1uuj97AhHgcMtUo14KvlR4qskW7XkaDDFyuW0OWU8ETodNGKOpx5DV2VBriR9YdmGQ-GSDUP3e1gBlfr7DmEbroZJGgs9aDZrtlZWoe_zjrycQgmEV543u51ZUhnGpHe4LtnuNEz2bCARU-gN8UlBdSAERFqaOJZIrxkvSZQMSY3QKLjuuy0MNUhDgXGUo07YB2KzTHknZCVQkXsUlwv5cc7lu7_hiJDDgp-p7bPTH_Kt_D8trEktWsKBMs=w220-h640-no?authuser=0",
-                    type: "Stole",
-                })
-          await db.Products.create({
-                    name:"Easter Stole",
-                    description: "Easter stole done in tie-dye",
-                    price: 42.99,
-                    img1: "https://lh3.googleusercontent.com/_RkEJpLZE92C9uQsQMPiwn5IUTwPiaKly9XiL3vsU2lpHAIKOtbNh-rogrBmlFaL6vxbmnBpfDBYSp1xrupfMDoVJ987qQ8YioNG8wYDYIjIEeqiJqDagE8YkOyXA9xJiqu9jaFNf_WPrmpymQojRb2_WRlihdBeDH7Bu0LOLt4kS19Hm8eE6BQEC9w786N8wuflOLfidARfLMWkbmd4Ue8icTe7rSIflIjrVkp-7ECd1jCgrJSVVjn3cLP7kluqfinuYGSmBvbVBW0TnCFHP-VUR65V4tT1xYjlh2ajVakO7ViDgYw3dkOKsex8nlYTrmep1xDXjof2RjTom0DrdfJmCu4SS6opi2V1oxIGjguaJLe6ruXgIYZHMbvpIvblb0esr0u-SK70ucmeTODDC7p1vjIJ3LFl3Yftf4C6tssNEWkm9XEuveijwl_jJNB2ysoem-Bicuq0_IyHM_bX3alRx4Xh2cbRXE5a2YoGIII3fm95jPHEZmxbMeXvAsALdwR7bqEW4wHck3iKKUfB_XJt9sbp7hEsI_r9nXzQS8K1hEP7WlsQyxobNF5am9806s6ZO_1OhiF5IUNBawcetSCpT3wwKnOIaxNKMSme6ml3Ml9SOFwBH6ioBGvSecPplFuYTOvORLh36EBZv8wXyrE_7aZMZ-7baj6TbVqvqzzyebmavKSICGMycJQ=w324-h500-no?authuser=0",
-                    type: "Stole",
-                })
-           await db.Products.create({
-                    name:"Christmas Stole",
-                    description: "Christmas stole done in tie-dye",
-                    price: 99.99,
-                    img1: "https://lh3.googleusercontent.com/fAt0YtCn1Tzs6R60HaBokv4tjfOn_Mste8_wopxYYG9w5RdbNKEH2maDEFaspelMujbnhWD1wC3vtlUFCuSpwoMRFuFt0GFK1gZgLLj2q3stzWGsGouPCJKkoKJagD91JPHWEtbPMImPL8VJ9PTWTao28S2di4ptZsOj9jSbOCmqN_H-QdC8NamaxqGIcR58m_oS3FXTi4aJ5poaZV2Yl_SShv5eY0Ls8IPZjtYVhaLz__vVpERZRWCRRDOxoQzi4ftO-iR9wGqkCvUpXQdEedKL1v8rTYH5OwLFHmQT0aOI1dxaXYT72ifDA_kRoCpMQhNkRNYmul4rBKTbO0wCg_8DVEjiG0GpH8EsWGA_BgxlyvRJ-dCKuYFciKYabnLihY5IdUbEMiVT8dyk3sTGuDAzf_RE2KndaJoAw25M_otcn1ItwOkZ_yrP9dmkhmJ_I1HtlNbyf9gmg4dQ5Ge9FWKJ58OkpG8N3Jh80hIKhROpqoXVTX42i4Ydf_0p4C5ezAsXpMipFAGJmn4QjHe0BXeqigY4eKJb4U8woo1t4o9xGPrZ08dNggmFPk5tXhjbdx3QZ6CuZ5drHzuAXRRxBRAp3RK6_pX1jGK-hiWKRnF0QxN7eX57vKMWLxKv7f8mU0J3Txod6EZ2y8INytbWFZ4OIeZAFbIAuqIT-3QBP6ysTw7REi8KPcvy8PY=w324-h504-no?authuser=0",
-                    type: "Stole",
-                })
+                await   db.Products.create({
+                            name:"Rainbow Stole",
+                            description: "Rainbow stole done in tie-dye",
+                            price: 56.99,
+                            img1: "https://lh3.googleusercontent.com/8PTtnOVa26FktHKM5BvVrqYevljxcnbV0TAPKG5qrEAz5DKOHfI6ZQim8yF5__QroaWgm2U40p-z68pqBvb7Rj6nqyLHi8I-dIjpFzIVqmxEtggvfrL-5wviS8LMAs8UoiYEKkc0tVAuw-dacIOYvGHn01vmoRjzrYLql7GBSovZ2aX21gCgfHjTKeLyFtJ6A81Nrch3o9_Xai9G8HPjxlcRD0__Vmikt4JccCycOizxyspaYyF16CxbMK6FeXtqk7nbmL4JQODKOZb4J_I0i3Sa5VvFIDTD2rh1Jc7uZE3b7DEDNhAs9B_zNogrBP71YvTfXRZg0DQLfvAhbJ-suYP5BEvTb8cHuCTHqQHCXNU0PouptkL_0RsFCkRfGyHpTISFjXzv1nuMPMpQLLrnbZ3l5Tsh0cR_5OJ_6Nqdp5mUjBGK1JkXbYIgca0lK3xx1uuj97AhHgcMtUo14KvlR4qskW7XkaDDFyuW0OWU8ETodNGKOpx5DV2VBriR9YdmGQ-GSDUP3e1gBlfr7DmEbroZJGgs9aDZrtlZWoe_zjrycQgmEV543u51ZUhnGpHe4LtnuNEz2bCARU-gN8UlBdSAERFqaOJZIrxkvSZQMSY3QKLjuuy0MNUhDgXGUo07YB2KzTHknZCVQkXsUlwv5cc7lu7_hiJDDgp-p7bPTH_Kt_D8trEktWsKBMs=w220-h640-no?authuser=0",
+                            type: "Stole",
+                        })
+                await db.Products.create({
+                            name:"Easter Stole",
+                            description: "Easter stole done in tie-dye",
+                            price: 42.99,
+                            img1: "https://lh3.googleusercontent.com/_RkEJpLZE92C9uQsQMPiwn5IUTwPiaKly9XiL3vsU2lpHAIKOtbNh-rogrBmlFaL6vxbmnBpfDBYSp1xrupfMDoVJ987qQ8YioNG8wYDYIjIEeqiJqDagE8YkOyXA9xJiqu9jaFNf_WPrmpymQojRb2_WRlihdBeDH7Bu0LOLt4kS19Hm8eE6BQEC9w786N8wuflOLfidARfLMWkbmd4Ue8icTe7rSIflIjrVkp-7ECd1jCgrJSVVjn3cLP7kluqfinuYGSmBvbVBW0TnCFHP-VUR65V4tT1xYjlh2ajVakO7ViDgYw3dkOKsex8nlYTrmep1xDXjof2RjTom0DrdfJmCu4SS6opi2V1oxIGjguaJLe6ruXgIYZHMbvpIvblb0esr0u-SK70ucmeTODDC7p1vjIJ3LFl3Yftf4C6tssNEWkm9XEuveijwl_jJNB2ysoem-Bicuq0_IyHM_bX3alRx4Xh2cbRXE5a2YoGIII3fm95jPHEZmxbMeXvAsALdwR7bqEW4wHck3iKKUfB_XJt9sbp7hEsI_r9nXzQS8K1hEP7WlsQyxobNF5am9806s6ZO_1OhiF5IUNBawcetSCpT3wwKnOIaxNKMSme6ml3Ml9SOFwBH6ioBGvSecPplFuYTOvORLh36EBZv8wXyrE_7aZMZ-7baj6TbVqvqzzyebmavKSICGMycJQ=w324-h500-no?authuser=0",
+                            type: "Stole",
+                        })
+                await db.Products.create({
+                            name:"Christmas Stole",
+                            description: "Christmas stole done in tie-dye",
+                            price: 99.99,
+                            img1: "https://lh3.googleusercontent.com/fAt0YtCn1Tzs6R60HaBokv4tjfOn_Mste8_wopxYYG9w5RdbNKEH2maDEFaspelMujbnhWD1wC3vtlUFCuSpwoMRFuFt0GFK1gZgLLj2q3stzWGsGouPCJKkoKJagD91JPHWEtbPMImPL8VJ9PTWTao28S2di4ptZsOj9jSbOCmqN_H-QdC8NamaxqGIcR58m_oS3FXTi4aJ5poaZV2Yl_SShv5eY0Ls8IPZjtYVhaLz__vVpERZRWCRRDOxoQzi4ftO-iR9wGqkCvUpXQdEedKL1v8rTYH5OwLFHmQT0aOI1dxaXYT72ifDA_kRoCpMQhNkRNYmul4rBKTbO0wCg_8DVEjiG0GpH8EsWGA_BgxlyvRJ-dCKuYFciKYabnLihY5IdUbEMiVT8dyk3sTGuDAzf_RE2KndaJoAw25M_otcn1ItwOkZ_yrP9dmkhmJ_I1HtlNbyf9gmg4dQ5Ge9FWKJ58OkpG8N3Jh80hIKhROpqoXVTX42i4Ydf_0p4C5ezAsXpMipFAGJmn4QjHe0BXeqigY4eKJb4U8woo1t4o9xGPrZ08dNggmFPk5tXhjbdx3QZ6CuZ5drHzuAXRRxBRAp3RK6_pX1jGK-hiWKRnF0QxN7eX57vKMWLxKv7f8mU0J3Txod6EZ2y8INytbWFZ4OIeZAFbIAuqIT-3QBP6ysTw7REi8KPcvy8PY=w324-h504-no?authuser=0",
+                            type: "Stole",
+                        })
                 await db.Products.create({
                     name:"Lenten Stole",
                     description: "",
@@ -175,22 +175,12 @@ module.exports = function (app) {
         })
     })
 
-    app.post("/api/admin", function (event) {
-        console.log(event)
-        // db.Products.create({
-            
-        //     // price:
-        //     // img1:
-        //     // type:
-        //     // img2:
-        //     // img3:
-        })
+    // app.post("/api/admin/", function (req, res) {
 
-    app.put("/api/admin", function (req, res) {
-        db.Products.update({
-            //update products
-        })
-    })
+    //     db.Products.create({
+           
+    //     })
+    // })
 
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
         console.log(req.body.email)
@@ -265,4 +255,20 @@ module.exports = function (app) {
                 res.json(updatedOrder);
             });
     })
+
+    app.put("/api/admin/products", function (req, res) {
+        const product = JSON.parse(req.body.product)
+        // console.log(product)
+        // console.log(product.id)
+        // console.log(req.body.product)
+       
+       db.Products.update(product,
+        {
+            where:{
+                id:product.id
+            }
+        }
+        )
+    })
+    
 }

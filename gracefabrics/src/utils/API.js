@@ -45,12 +45,14 @@ const API = {
     return axios.get('/api/products/banners')
   },
   updateItem: function(event) {
-    console.log(event)
-    return axios.post('/api/admin')
+    console.log(event.currentTarget.value)
+    const product = event.currentTarget.value
+    console.log((event.currentTarget.value))
+    return axios.put(`/api/admin/products`, {product})
   },
   deleteProduct: function(event){
     const id = event.currentTarget.dataset.pid
-    return axios.delete(`/api/products/${id}`)
+    return axios.delete(`/api/products/${id}/`)
   },
   // deleteAll: function(){
   //   return axios.delete('')
