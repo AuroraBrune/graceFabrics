@@ -25,7 +25,7 @@ class ContactForm extends React.Component {
     event.preventDefault();
     const { name, email, message, price } = this.state;
     const ourName = "Grace Fabrics";
-    const totalmessage = message + " Price range: " + price;
+    const totalmessage = message + " Price range: " + price + " You can contact the customer at " + email;
     const data = {
       service_id: 'service_2j7t01m',
       template_id: 'template_hz588ig',

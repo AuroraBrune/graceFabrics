@@ -44,10 +44,10 @@ function About() {
                         in Raytown, Missouri and the Artist in Residence at Community Christian Church in Kansas City, Missouri.</p>
                 </Row>
                 </div>
-                <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
+               {/*} <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
                 <Row>
                     <p></p>
-                </Row>
+    </Row>*/}
 
             </Container>
         </div>

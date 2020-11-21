@@ -175,15 +175,24 @@ module.exports = function (app) {
         })
     })
 
-    app.post("/api/admin", function (event) {
-        console.log(event)
-        // db.Products.create({
-            
-        //     // price:
-        //     // img1:
-        //     // type:
-        //     // img2:
-        //     // img3:
+    app.post("/api/admin", function (req, res) {
+        console.log(req.body.price)
+        const newPrice = req.body.price;
+        const newImg1 = req.body.img1;
+        const newType = req.body.type;
+        const newName = req.body.name;
+        const newDescription = req.body.description;
+
+        db.Products.create({
+            price: newPrice,
+            img1: newImg1,
+            type: newType,
+            name: newName,
+            description: newDescription
+        })
+            .then(newProduct => {
+                res.json(newProduct)
+            })
         })
 
     app.put("/api/admin", function (req, res) {

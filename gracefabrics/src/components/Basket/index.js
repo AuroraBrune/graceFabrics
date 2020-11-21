@@ -22,7 +22,8 @@ const Basket = ()=> {
               <ul>
                 {state.cart.map((product) => (
                     <li key={product.id}>
-                      <b>this will become the image tag</b>
+                     
+                      <img src={product.img1}></img>
                       <div>{product.name}, Price: {product.price}</div>
                     
                       <button onClick={() => dispatch({type:'removeItem', product:product})}>
