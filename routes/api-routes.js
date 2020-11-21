@@ -176,7 +176,7 @@ module.exports = function (app) {
     })
 
     app.post("/api/admin", function (req, res) {
-        console.log(req.body.price)
+        console.log(req.body)
         const newPrice = req.body.price;
         const newImg1 = req.body.img1;
         const newType = req.body.type;
