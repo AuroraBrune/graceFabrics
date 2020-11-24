@@ -20,6 +20,27 @@ const ProductManagement = () => {
         });
     }, []);
 
+    function renderProducts(){
+        API.getProducts().then(results => {
+            setProducts({
+                ...productsList,
+                products: results.data
+            });
+        });
+    }
+
+    function createRender(event){
+        document.getElementById("Name").value = ""      
+        document.getElementById("Type").value = ""
+        document.getElementById("Price").value = ""
+        document.getElementById("Description").value = ""
+        document.getElementById("Image").value = ""
+        
+        alert("New Product Created --Scroll to the bottom to see :)")
+        API.createProduct(event).then( () => {
+            renderProducts()
+        }) 
+    }
 // const [newName, setName] = useState();
 // const [newType, setType] = useState();
 // const [newPrice, setPrice] = useState();
@@ -120,7 +141,7 @@ const ProductManagement = () => {
                         </tr>
                         <tr>
                             <td><TextField id="Image" label="URL to Image" variant="outlined" onChange={defineImg} /></td>
-                            <td><Button id="CreateButton" onClick={API.createProduct} value={JSON.stringify(Products)}>Create New Item</Button></td>
+                            <td><Button id="CreateButton" onClick={createRender} value={JSON.stringify(Products)}>Create New Item</Button></td>
                             {/* //onclick=api,create/submitform */}
                         </tr>
                     </tbody>
