@@ -11,9 +11,8 @@
     background-color: #fff;
 }
 
+
 p {
-  color: black;
-  font-weight: 500;
    text-emphasis-position: left;
    text-emphasis-position: right;
 }
@@ -42,5 +41,4 @@ main{
     border: 30px;
     border-radius: 45px;
     margin-top: 10px;
-    opacity: 70%;
   }

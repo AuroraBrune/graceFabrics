@@ -1,5 +1,6 @@
 import React, { Component, useContext } from "react";
 import {CartProvider, useCartContext} from '../../utils/CartContext'
+import './basket.css'
 
 const Basket = ()=> {
   const [state, dispatch] = useCartContext();
@@ -22,7 +23,8 @@ const Basket = ()=> {
               <ul>
                 {state.cart.map((product) => (
                     <li key={product.id}>
-                      <b>this will become the image tag</b>
+                     
+                      <img id="basketImg" src={product.img1}></img>
                       <div>{product.name}, Price: {product.price}</div>
                     
                       <button onClick={() => dispatch({type:'removeItem', product:product})}>

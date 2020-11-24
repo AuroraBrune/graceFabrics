@@ -69,7 +69,7 @@ const ProductTemplate = (productinfo)=> {
             <td> Current Description: {product.description} </td><td> <input onChange={defineDescription} label="nDescription" id="nDescription" placeholder="Updated Description"/> </td>
           </tr>
           <tr>
-            <td> Current Image:{product.img1} </td><td> <input onChange={defineImage} label="nImage" id="nImage" placeholder="Updated Image URL"/></td>
+            <td> <img src={product.img1}></img> </td><td> <input label="nImage" placeholder="Updated Image URL"/></td>
           </tr>
         </tbody>
        </table>

@@ -54,6 +54,11 @@ const API = {
     const id = event.currentTarget.dataset.pid
     return axios.delete(`/api/products/${id}/`)
   },
+  createProduct: function(event) {
+    let products = event.currentTarget.value
+    console.log(JSON.parse(products))
+    return axios.post('/api/admin', JSON.parse(products))
+  },
   // deleteAll: function(){
   //   return axios.delete('')
   // }

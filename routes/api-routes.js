@@ -175,7 +175,25 @@ module.exports = function (app) {
         })
     })
 
-    // app.post("/api/admin/", function (req, res) {
+    app.post("/api/admin", function (req, res) {
+        console.log(req.body)
+        const newPrice = req.body.price;
+        const newImg1 = req.body.img1;
+        const newType = req.body.type;
+        const newName = req.body.name;
+        const newDescription = req.body.description;
+
+        db.Products.create({
+            price: newPrice,
+            img1: newImg1,
+            type: newType,
+            name: newName,
+            description: newDescription
+        })
+            .then(newProduct => {
+                res.json(newProduct)
+            })
+        })
 
     //     db.Products.create({
            

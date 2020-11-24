@@ -49,43 +49,84 @@ const ProductManagement = () => {
                 <ProductTemplate
                     productinfo={product}
                 />
-                <hr/>
+                <hr />
             </Grid>
         )
     })
 
     const useStyles = makeStyles((theme) => ({
         root: {
-          '& > *': {
-            margin: theme.spacing(1),
-            width: '25ch',
-          },
+            '& > *': {
+                margin: theme.spacing(1),
+                width: '25ch',
+            },
         },
-      }));
+    }));
 
     const classes = useStyles();
+    let Products = {
+        name: "",
+        type: "",
+        price: "",
+        description: "",
+        img1: ""
+    }
+    function defineName() {
+        let newName = document.getElementById("Name").value
+        Products.name = newName
+        let button = document.getElementById("CreateButton")
+        button.value = JSON.stringify(Products)
+    }
+    function defineType() {
+        let newType = document.getElementById("Type").value
+        Products.type = newType
+        let button = document.getElementById("CreateButton")
+        button.value = JSON.stringify(Products)
+
+    }
+    function definePrice() {
+        let newPrice = document.getElementById("Price").value
+        Products.price = newPrice
+        let button = document.getElementById("CreateButton")
+        button.value = JSON.stringify(Products)
+
+    }
+    function defineDescription() {
+        let newDescription = document.getElementById("Description").value
+        Products.description = newDescription
+        let button = document.getElementById("CreateButton")
+        button.value = JSON.stringify(Products)
+    }
+    function defineImg() {
+        let newImg = document.getElementById("Image").value
+        Products.img1 = newImg
+        let button = document.getElementById("CreateButton")
+        button.value = JSON.stringify(Products)
+        console.log(button.value)
+    }
+
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
                 <table>
                     <tbody>
                         <tr>
-                            <td><TextField id="Name" label="Name" variant="outlined"  /> </td>
-                            <td><TextField id="Type" label="Category" variant="outlined" />  </td>
+                            <td><TextField id="Name" label="Name" variant="outlined" onChange={defineName} /></td>
+                            <td><TextField id="Type" label="Category" variant="outlined" onChange={defineType} /></td>
                         </tr>
                         <tr>
-                            <td><TextField id="Price" label="Price" variant="outlined" /></td>
-                            <td><TextField id="Description" label="Description" variant="outlined" /></td>
+                            <td><TextField id="Price" label="Price" variant="outlined" onChange={definePrice} /></td>
+                            <td><TextField id="Description" label="Description" variant="outlined" onChange={defineDescription} /></td>
                         </tr>
                         <tr>
-                        <td><TextField id="Image" label="URL to Image" variant="outlined" /></td>
-                        <td><Button >Create New Item</Button></td>
+                            <td><TextField id="Image" label="URL to Image" variant="outlined" onChange={defineImg} /></td>
+                            <td><Button id="CreateButton" onClick={API.createProduct} value={JSON.stringify(Products)}>Create New Item</Button></td>
                             {/* //onclick=api,create/submitform */}
                         </tr>
                     </tbody>
-            </table>
-        </form>
-        <hr/>
+                </table>
+            </form>
+            <hr />
             <Grid container>
                 {productsToMap}
             </Grid>
