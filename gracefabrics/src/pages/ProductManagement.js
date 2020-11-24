@@ -30,7 +30,7 @@ const ProductManagement = () => {
     }
 
     function createRender(event){
-        document.getElementById("Name").value = ""    
+        document.getElementById("Name").value = "" 
         document.getElementById("Type").value = ""
         document.getElementById("Price").value = ""
         document.getElementById("Description").value = ""
