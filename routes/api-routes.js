@@ -195,11 +195,6 @@ module.exports = function (app) {
             })
         })
 
-    //     db.Products.create({
-           
-    //     })
-    // })
-
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
         console.log(req.body.email)
         res.json({
@@ -275,7 +270,7 @@ module.exports = function (app) {
     })
 
     app.put("/api/admin/products", function (req, res) {
-        const product = JSON.parse(req.body.product)
+        let product = JSON.parse(req.body.product)
         // console.log(product)
         // console.log(product.id)
         // console.log(req.body.product)
