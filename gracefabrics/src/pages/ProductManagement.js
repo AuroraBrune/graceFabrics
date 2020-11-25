@@ -42,26 +42,6 @@ const ProductManagement = () => {
             productsList.renderProducts()
         }) 
     }
-// const [newName, setName] = useState();
-// const [newType, setType] = useState();
-// const [newPrice, setPrice] = useState();
-// const [newDescription, setDescription] = useState();
-// const [newImage, setImage] = useState();
-
-// function getUpdatedProduct(){
-//     console.log('newName' + newName)
-//     console.log(newType)
-//     console.log(newPrice)
-//     console.log(newDescription)
-//     console.log(newImage)
-//     return(JSON.stringify({
-//         "name":newName,
-//         "type":newType,
-//         "price":newPrice,
-//         "description":newDescription,
-//         "img1":newImage
-//     }))
-// }
 
     const productsToMap = productsList.products.map(product => {
         console.log(product)
@@ -86,6 +66,7 @@ const ProductManagement = () => {
     }));
 
     const classes = useStyles();
+
     let Products = {
         name: "",
         type: "",

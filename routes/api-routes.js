@@ -270,18 +270,16 @@ module.exports = function (app) {
     })
 
     app.put("/api/admin/products", function (req, res) {
-        let product = JSON.parse(req.body.product)
-        // console.log(product)
-        // console.log(product.id)
-        // console.log(req.body.product)
-       
+        let product = req.body
        db.Products.update(product,
         {
             where:{
                 id:product.id
             }
         }
-        )
+        ).then(function (updatedProduct) {
+            res.json(updatedProduct)
+        })
     })
     
 }
