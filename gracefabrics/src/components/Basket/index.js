@@ -1,39 +1,49 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
+import {CartProvider, useCartContext} from '../../utils/CartContext'
+import './basket.css'
 
-class Basket extends Component {
+const Basket = ()=> {
+  const [state, dispatch] = useCartContext();
 
-  render() {
-    console.log(this.props.props)
-    const shoppingList = this.props.props;
-    console.log( shoppingList)
-    return(
+  const shoppingList = [];
+  return(
+    <CartProvider>
+    <div> 
+    {console.log(state)}    
+    
       <div>
-        {shoppingList.length === 0 ? ("Your cart is empty") : (
+        { state.cart.length === 0 ? ("Your cart is empty") : (
           <div>
-            There are { shoppingList.length } items in your cart. 
+            There are { state.cart.length } items in your cart. 
           </div>
         )}
         {
-          shoppingList.length > 0 && (
+          state.cart.length > 0 && (
             <div>
               <ul>
-                {shoppingList.map((item) => (
-                    <li key={item.id}>
-                    <b>{item.name}</b>
-                    <button>
-                      X
-                    </button>
+                {state.cart.map((product) => (
+                    <li key={product.id}>
+                     
+                      <img id="basketImg" src={product.img1}></img>
+                      <div>{product.name}, Price: {product.price}</div>
+                    
+                      <button onClick={() => dispatch({type:'removeItem', product:product})}>
+                        X
+                      </button>
                     </li>
                   ) 
                 )}
-               
+              
               </ul>
             </div>
           )
         }
       </div>
-    );
-  }
+
+    </div>
+    </CartProvider>
+  );
 }
+
 
 export default Basket;

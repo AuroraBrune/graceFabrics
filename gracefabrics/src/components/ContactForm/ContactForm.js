@@ -1,54 +1,101 @@
 import React from "react";
-import "./contact.css"
+import { Paper, TextField, FormControl, FormGroup, Button } from '@material-ui/core'
+import "./contact.css";
+import * as emailjs from 'emailjs-com';
+import { init } from 'emailjs-com';
+init("user_RRLMrFKCJPv8XqiyFRHKM");
 
 class ContactForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        name: '',
-        email: '',
-        message: ''
-      }
-    }
-  
-    render() {
-         return(
-        <div className="contacForm">
-          <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
-            <div className="form-group">
-                <h4>Contact Us</h4>
-              <input type="text" className="form-control" placeholder="Full Name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
-            </div>
-            <div className="form-group">
-              <input type="email" className="form-control" placeholder="e-Mail Address" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea className="form-control" placeholder="Add your message here" rows="5" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
-            </div>
-            <div className="form-group">
-            <button type="submit" className="btn form-control">Submit</button>
-            </div>
-          </form>
-        </div>
-      );
-    }
-  
-    onNameChange(event) {
-      this.setState({name: event.target.value})
-    }
-  
-    onEmailChange(event) {
-      this.setState({email: event.target.value})
-    }
-  
-    onMessageChange(event) {
-      this.setState({message: event.target.value})
-    }
-  
-    handleSubmit(event) {
-      event.preventDefault();
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      message: '',
+      price: '',
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetForm = this.resetForm.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  export default ContactForm;
+  handleSubmit(event) {
+    event.preventDefault();
+    const { name, email, message, price } = this.state;
+    const ourName = "Grace Fabrics";
+    const totalmessage = message + " Price range: " + price + " You can contact the customer at " + email;
+    const data = {
+      service_id: 'service_2j7t01m',
+      template_id: 'template_hz588ig',
+      user_id: 'user_RRLMrFKCJPv8XqiyFRHKM',
+      templateParams: {
+        message: totalmessage,
+        email: email,
+        from_name: name,
+        from_email: email,
+        to_name: ourName,
+      }
+    }
+    emailjs.send(
+      data.service_id,
+      data.template_id,
+      data.templateParams,
+      data.user_id
+    )
+    this.resetForm();
+  };
+
+  resetForm() {
+    this.setState({
+      name: '',
+      email: '',
+      message: '',
+      price: '',
+    });
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+
+  }
+  render() {
+    const { name, email, message, sentMessage } = this.state;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <Paper>
+          <div className="contact-paper-hdr">
+            <h3>Custom Order</h3>
+          </div>
+          <FormGroup>
+            <FormControl noValidate autoComplete="off">
+              <TextField name="name"
+                type="text"
+                placeholder="  Your first and last name"
+                value={this.state.name}
+                onChange={this.handleChange} />
+              <TextField name="email"
+                type="email"
+                placeholder="  Your email"
+                value={this.state.email}
+                onChange={this.handleChange} />
+              <TextField name="message"
+                placeholder="  Description of desired commission..."
+                value={this.state.message}
+                onChange={this.handleChange} />
+              <TextField name="price"
+                type="text"
+                placeholder="  Your desired price range..."
+                value={this.state.price}
+                onChange={this.handleChange} />
+              <Button type="submit" variant="outlined" color="primary">Send</Button>
+            </FormControl>
+          </FormGroup>
+        </Paper>
+      </form>
+    );
+  }
+
+}
+
+export default ContactForm;

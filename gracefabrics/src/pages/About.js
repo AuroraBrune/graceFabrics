@@ -1,27 +1,27 @@
 import React from "react";
 import { Row, Container } from 'react-materialize';
-import "../utils/About.css"
+import "./About.css";
 
 function About() {
     return (
         <div>
             <Container className="about">
             
-                <Row><h2 className="header-about mt-4 mb-4">Faith &amp; Fabrics</h2></Row>
-                <Row>
-                    <p>paragraph of text here</p>
-                </Row>
-                <Row><h2 className="header-about mt-4 mb-4">The Mission of Grace Fabrics is...</h2></Row>
-                <Row>
-                    <ul>
+                <Row><h1 className="main mt-4 mb-4">Faith &amp; Fabrics</h1></Row>
+                <div className="blurb">
+                    <Row><h2 className="header-about mt-4 mb-4">Our Mission</h2></Row>
+                    <Row>
+                        <ul>
 
-                    <li>· To create fiber art to enhance worship, utilizing a variety of media and surface design techniques.</li>
+                        <li>· To create fiber art to enhance worship, utilizing a variety of media and surface design techniques.</li>
 
-                    <li>· To bring a sense of hope and holiness to worshipping congregations.</li>
+                        <li>· To bring a sense of hope and holiness to worshipping congregations.</li>
 
-                    <li>· To affirm and celebrate the diversity of humankind.</li>
-                    </ul>
-                </Row>
+                        <li>· To affirm and celebrate the diversity of humankind.</li>
+                        </ul>
+                    </Row>
+                </div>
+                <div className="blurb">
                 <Row><h2 className="header-about mt-4 mb-4">About Our Artist</h2></Row>
                 <Row>
                     <p>
@@ -43,10 +43,11 @@ function About() {
                         In addition to her work with Grace Fabrics, Grace is also the Director of Music at Blue Ridge Presbyterian Church
                         in Raytown, Missouri and the Artist in Residence at Community Christian Church in Kansas City, Missouri.</p>
                 </Row>
-                <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
+                </div>
+               {/*} <Row><h2 className="header-feedback mt-4 mb-4">Community Feedback</h2></Row>
                 <Row>
-                    <p>Text about </p>
-                </Row>
+                    <p></p>
+    </Row>*/}
 
             </Container>
         </div>

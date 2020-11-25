@@ -18,16 +18,16 @@ class LoginForm extends React.Component {
   }
 
   setRedirect = () => {
-    console.log('setRedirect fired')
+    // console.log('setRedirect fired')
     this.setState({
       redirect: true
     })
   }
 
   renderRedirect = () => {
-    console.log(this.state.redirect);
+    // console.log(this.state.redirect);
     if (this.state.redirect === true) {
-      console.log('renderRedirect firing')
+      // console.log('renderRedirect firing')
       this.render()
     }
   }
@@ -73,10 +73,10 @@ class LoginForm extends React.Component {
         });
 
     let result = await res;
-     console.log(res);
+    //  console.log(res);
     if (result && result.status === 200) {
     
-      console.log('should be routing to admin')
+      // console.log('should be routing to admin')
       // return(<Redirect to="/ProductManagement"/>)
     }
       else if (result.statusText === "Unauthorized") {
@@ -92,6 +92,7 @@ class LoginForm extends React.Component {
   render(){ 
     return (
       <div className="loginForm">
+  
         Log In
         <InputField
           type='text'

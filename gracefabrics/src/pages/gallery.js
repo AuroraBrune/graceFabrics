@@ -1,11 +1,11 @@
 import React from 'react';
-import Carousel from '../components/carousel';
+import Example from '../components/carousel';
 // import { Grid } from '@material-ui/core/Grid';
 
 const Gallery = ()=> {
     return(
         <div>
-            {Carousel}
+            {Example}
             This is the Gallery page.
         </div>
     )

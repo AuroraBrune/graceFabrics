@@ -43,6 +43,22 @@ const API = {
   },
   getBanners: function() {
     return axios.get('/api/products/banners')
-  }
+  },
+  updateItem: function(event) {
+    console.log(event.currentTarget.value)
+    let product = event.currentTarget.value
+    console.log((event.currentTarget.value))
+    return axios.put(`/api/admin/products`, JSON.parse(product))
+  },
+  deleteProduct: function(event){
+    const id = event.currentTarget.dataset.pid
+    return axios.delete(`/api/products/${id}/`)
+  },
+  createProduct: function(event) {
+    console.log(event.currentTarget.value)
+    let products = event.currentTarget.value
+    console.log(JSON.parse(products))
+    return axios.post('/api/admin', JSON.parse(products))
+  },
 }
 export default API;

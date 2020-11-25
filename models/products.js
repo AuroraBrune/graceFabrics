@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes){
             allowNull: true,
         },
         img1:{
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(5000),
             allowNull: false,
         },
         img2:{
@@ -29,5 +29,32 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
         }
     })
+        if(Products === null || undefined){
+        Products.create({
+            name:"Rainbow Stole",
+            type: "Stole",
+            description: "Rainbow stole done in tie-dye",
+            price: 56.99,
+            img1: "stole picture",
+        })
+    
+        Products.create({
+            name:"Easter Stole",
+            description: "easter stole done in tie-dye",
+            price: 40,
+            img1: "stole picture",
+            type: "Easter-Stole",
+        })
+        
+        Products.create({
+            name:"Christmas Stole",
+            description: "christmas stole done in tie-dye",
+            price: 40,
+            img1: "stole picture",
+            type: "Christmas-Stole",
+        })
+    }
+    
+   
     return Products
 }
