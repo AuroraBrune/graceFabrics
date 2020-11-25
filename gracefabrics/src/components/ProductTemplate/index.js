@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from '@material-ui/core/Button';
 import API from '../../utils/API';
 
+
+
 let updatedProduct = {
   id:"",
   name:"",
@@ -48,9 +50,15 @@ function defineImage(){
   updateBtn.value = JSON.stringify(updatedProduct)
 }
 
-const ProductTemplate = (productinfo)=> {
+const ProductTemplate = (props)=> {
+  function deleteRender(event){
+    alert("The Product has been deleted")
+    API.deleteProduct(event).then( () => {
+        props.renderProducts()
+    }) 
+  }
 
-  const product = productinfo.productinfo;
+  const product = props.productinfo;
     console.log(parseInt(product.id))
   return (
      <div id="productId" value={product.id}>
@@ -77,7 +85,7 @@ const ProductTemplate = (productinfo)=> {
         <Button id="updateBtn" number={product.id} onClick={API.updateItem}>
           <strong>Update</strong>
         </Button> 
-        <Button onClick={API.deleteProduct} data-pid={product.id}>
+        <Button onClick={deleteRender} data-pid={product.id}>
           <strong>Delete</strong>
         </Button>
       </div>

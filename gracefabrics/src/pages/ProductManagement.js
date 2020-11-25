@@ -8,7 +8,15 @@ import TextField from '@material-ui/core/TextField';
 
 const ProductManagement = () => {
     const [productsList, setProducts] = useState({
-        products: []
+        products: [],
+        renderProducts: () => {
+            API.getProducts().then(results => {
+                setProducts({
+                    ...productsList,
+                    products: results.data
+                });
+            });
+        }
     });
 
     useEffect(() => {
@@ -20,25 +28,18 @@ const ProductManagement = () => {
         });
     }, []);
 
-    function renderProducts(){
-        API.getProducts().then(results => {
-            setProducts({
-                ...productsList,
-                products: results.data
-            });
-        });
-    }
+
 
     function createRender(event){
-        document.getElementById("Name").value = "" 
-        document.getElementById("Type").value = ""
-        document.getElementById("Price").value = ""
-        document.getElementById("Description").value = ""
-        document.getElementById("Image").value = ""
         
-        alert("New Product Created --Scroll to the bottom to see :)")
         API.createProduct(event).then( () => {
-            renderProducts()
+            document.getElementById("Name").value = "" 
+            document.getElementById("Type").value = ""
+            document.getElementById("Price").value = ""
+            document.getElementById("Description").value = ""
+            document.getElementById("Image").value = ""
+            alert("New Product Created --Scroll to the bottom to see :)")
+            productsList.renderProducts()
         }) 
     }
 // const [newName, setName] = useState();
@@ -61,13 +62,13 @@ const ProductManagement = () => {
 //         "img1":newImage
 //     }))
 // }
-   
 
     const productsToMap = productsList.products.map(product => {
         console.log(product)
         return (
             <Grid item xs={12} sm={12} md={12} key={product.id}>
                 <ProductTemplate
+                    renderProducts={productsList.renderProducts}
                     productinfo={product}
                 />
                 <hr />
