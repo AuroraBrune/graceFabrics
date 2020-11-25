@@ -46,21 +46,19 @@ const API = {
   },
   updateItem: function(event) {
     console.log(event.currentTarget.value)
-    const product = event.currentTarget.value
+    let product = event.currentTarget.value
     console.log((event.currentTarget.value))
-    return axios.put(`/api/admin/products`, {product})
+    return axios.put(`/api/admin/products`, JSON.parse(product))
   },
   deleteProduct: function(event){
     const id = event.currentTarget.dataset.pid
     return axios.delete(`/api/products/${id}/`)
   },
   createProduct: function(event) {
+    console.log(event.currentTarget.value)
     let products = event.currentTarget.value
     console.log(JSON.parse(products))
     return axios.post('/api/admin', JSON.parse(products))
   },
-  // deleteAll: function(){
-  //   return axios.delete('')
-  // }
 }
 export default API;
