@@ -11,12 +11,13 @@
   - [License](#License)
 
 The deployed app can be seen here: https://gracefabrics.herokuapp.com/
+
+![Screen Shot 2020-11-25 at 3 10 47 PM](https://user-images.githubusercontent.com/64037800/100282300-f6c56780-2f30-11eb-873d-5420768aaa1f.png)
 ![Screen Shot 2020-11-25 at 3 08 57 PM](https://user-images.githubusercontent.com/64037800/100282294-f62cd100-2f30-11eb-8474-808b369825cd.png)
 ![Screen Shot 2020-11-25 at 3 09 17 PM](https://user-images.githubusercontent.com/64037800/100282295-f62cd100-2f30-11eb-8a22-8967b0e580ad.png)
 ![Screen Shot 2020-11-25 at 3 09 24 PM](https://user-images.githubusercontent.com/64037800/100282296-f6c56780-2f30-11eb-8653-5a9000c6d2ca.png)
 ![Screen Shot 2020-11-25 at 3 09 32 PM](https://user-images.githubusercontent.com/64037800/100282297-f6c56780-2f30-11eb-9c1f-de44833f874f.png)
 ![Screen Shot 2020-11-25 at 3 09 53 PM](https://user-images.githubusercontent.com/64037800/100282298-f6c56780-2f30-11eb-9b2d-99e37d250e95.png)
-![Screen Shot 2020-11-25 at 3 10 47 PM](https://user-images.githubusercontent.com/64037800/100282300-f6c56780-2f30-11eb-873d-5420768aaa1f.png)
 ![Screen Shot 2020-11-25 at 3 12 52 PM](https://user-images.githubusercontent.com/64037800/100282301-f75dfe00-2f30-11eb-8046-42d6f732c5ab.png)
 
   ## Description
