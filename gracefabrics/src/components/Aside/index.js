@@ -15,9 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ShopHub from "../../pages/ShopHub";
+import API from '../../utils/API'
 
 const drawerWidth = 240;
 
@@ -90,6 +88,13 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const renderSortedNav = (event) => {
+    API.getSortedStoles(event).then( function(res){
+      console.log("it worked!")
+      console.log(res)
+    })
+  }
 
   return (
     <div className={classes.root}>
@@ -164,10 +169,8 @@ export default function PersistentDrawerLeft() {
               </Button>
             </li>
             <li>
-              <Button color="primary">
-                <Link to="/rainbow-stoles" className={ window.location.pathname === "/rainbow-stoles" ? "nav-link active" : "nav-link" }>
+              <Button  value="rainbow-stoles" color="primary" onClick={renderSortedNav}>
                   Rainbow Stoles
-                </Link>
               </Button>
             </li>
             <li>

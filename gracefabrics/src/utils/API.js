@@ -26,8 +26,10 @@ const API = {
   getChristmasStoles: function() {
     return axios.get('/api/products/christmas-stoles')
   },
-  getRainbowStoles: function() {
-    return axios.get('/api/products/rainbow-stoles')
+  getSortedStoles: function(event) {
+     let stoleName = event.currentTarget.value
+     console.log(stoleName)
+    return axios.get(`/api/products/${stoleName}`)
   },
   getEasterStoles: function() {
     return axios.get('/api/products/easter-stoles')

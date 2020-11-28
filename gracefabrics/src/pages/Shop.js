@@ -6,7 +6,15 @@ import API from '../utils/API';
 const Shop = () => {
 
     const [productsList, setProducts] = useState({
-        products: []
+        products: [],
+        renderProducts: () => {
+            API.getSorte().then(results => {
+                setProducts({
+                    ...productsList,
+                    products: results.data
+                });
+            });
+        }
     }); 
 
     useEffect(() => {
