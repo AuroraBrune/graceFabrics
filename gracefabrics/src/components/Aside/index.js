@@ -16,6 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import API from '../../utils/API'
+import Shop from '../../pages/Shop'
 
 const drawerWidth = 240;
 
@@ -77,6 +78,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+  // const [productsList, setProducts] = useState({
+  //   products: []
+  // });
+
+  // useEffect(() => {
+  //   API.getProducts().then(results => {
+  //     setProducts({
+  //       ...productsList,
+  //       products: results.data
+  //     });
+  //   });
+  // }, []);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -89,12 +102,16 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  const renderSortedNav = (event) => {
-    API.getSortedStoles(event).then( function(res){
-      console.log("it worked!")
-      console.log(res)
-    })
-  }
+  // const renderSortedNav = (event) => {
+  //   API.getSortedStoles(event).then(function (res) {
+  //     console.log("it worked!")
+  //     setProducts({
+  //       ...productsList,
+  //       products: res.data
+  //     })
+     
+  //   })
+  // }
 
   return (
     <div className={classes.root}>
@@ -136,109 +153,50 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-        <li className="nav-item">
-          <Button color="primary">
-            <Link to="/about" className={ window.location.pathname === "/about" ? "nav-link active" : "nav-link" }>
-              About
+          <li className="nav-item">
+            <Button color="primary">
+              <Link to="/about" className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}>
+                About
             </Link>
-          </Button>
-        </li>
+            </Button>
+          </li>
 
-        <li className="nav-item">
-        <Button color="primary">
-            <Link to="/shop" className={ window.location.pathname === "/shop" ? "nav-link active" : "nav-link" }>
-              Shop
+          <li className="nav-item">
+            <Button color="primary">
+              <Link to="/shop" className={window.location.pathname === "/shop" ? "nav-link active" : "nav-link"}>
+                Shop
             </Link>
-          </Button>
-        </li>
+            </Button>
+          </li>
 
-        {/* Begin Sub-List */}
-          <ul>
-            <li> 
-              <Button color="primary">
-                <Link to="/banners" className= { window.location.pathname === "/banners" ? "nav-link active" : "nav-link" }>
-                  Banners
-                </Link>
-              </Button>
-            </li>
-            <li>
-              <Button color="primary">
-                <Link to="/stoles" className={ window.location.pathname === "/stoles" ? "nav-link active" : "nav-link" }>
-                  All Stoles
-                </Link>
-              </Button>
-            </li>
-            <li>
-              <Button  value="rainbow-stoles" color="primary" onClick={renderSortedNav}>
-                  Rainbow Stoles
-              </Button>
-            </li>
-            <li>
-              <Button color="primary">
-                <Link to="/christmas-stoles" className={ window.location.pathname === "/christmas-stoles" ? "nav-link active" : "nav-link" }>
-                  Christmas Stoles
-                </Link>
-              </Button>
-            </li>
-            <li>
-              <Button color="primary">
-                <Link to="/easter-stoles" className={ window.location.pathname === "/easter-stoles" ? "nav-link active" : "nav-link" }>
-                  Easter Stoles
-                </Link>
-              </Button>
-            </li>
-            <li>
-              <Button color="primary">
-                <Link to="/pentecost-stoles" className={ window.location.pathname === "/pentecost-stoles" ? "nav-link active" : "nav-link" }>
-                  Pentecost Stoles
-                </Link>
-              </Button>
-            </li>
-            <li>
-              <Button color="primary">
-                <Link to="/lenten-stoles" className={ window.location.pathname === "/lenten-stoles" ? "nav-link active" : "nav-link" }>
-                  Lenten Stoles
-                </Link>
-              </Button>
-            </li>
-            <li>
-              <Button color="primary">
-                <Link to="/advent-stoles" className={ window.location.pathname === "/advent-stoles" ? "nav-link active" : "nav-link" }>
-                  Advent Stoles
-                </Link>
-              </Button>
-            </li>
-          </ul>
-        {/* End Sub-List */}
-
-       {/* <li className="nav-item">
+          {/* <li className="nav-item">
           <Button color="primary">
             <Link to="/gallery" className={window.location.pathname === "/gallery" ? "nav-link active" : "nav-link"}>
               Gallery
             </Link>
           </Button>
            </li>*/}
-        <li className="nav-item">
-          <Button color="primary">
-            <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
-            Custom Orders
+          <li className="nav-item">
+            <Button color="primary">
+              <Link to="/contact" className={window.location.pathname === "/contact.js" ? "nav-link active" : "nav-link"}>
+                Custom Orders
             </Link>
-          </Button>
-        </li>
-        {/*<li className="nav-item">
+            </Button>
+          </li>
+          {/*<li className="nav-item">
           <Button color="primary">
             <Link to="/orders" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
               Customer Orders
             </Link>
           </Button>
           </li>*/}
-        <li className="nav-item">
-          <Button color="primary">
-            <Link to="/login" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
-              (Admin)
+          <li className="nav-item">
+            <Button color="primary">
+              <Link to="/login" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
+                (Admin)
             </Link>
-          </Button>
-        </li>
+            </Button>
+          </li>
         </List>
       </Drawer>
       <main
@@ -251,6 +209,7 @@ export default function PersistentDrawerLeft() {
         </div>
       </main>
     </div>
+
   );
 }
 
