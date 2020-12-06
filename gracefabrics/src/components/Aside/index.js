@@ -78,18 +78,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PersistentDrawerLeft() {
-  // const [productsList, setProducts] = useState({
-  //   products: []
-  // });
 
-  // useEffect(() => {
-  //   API.getProducts().then(results => {
-  //     setProducts({
-  //       ...productsList,
-  //       products: results.data
-  //     });
-  //   });
-  // }, []);
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -102,16 +91,6 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  // const renderSortedNav = (event) => {
-  //   API.getSortedStoles(event).then(function (res) {
-  //     console.log("it worked!")
-  //     setProducts({
-  //       ...productsList,
-  //       products: res.data
-  //     })
-     
-  //   })
-  // }
 
   return (
     <div className={classes.root}>
@@ -135,6 +114,7 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap>
             Grace Fabrics
           </Typography>
+
         </Toolbar>
       </AppBar>
       <Drawer

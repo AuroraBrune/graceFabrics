@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Product from '../components/Product';
-import { Grid } from '@material-ui/core/';
+import { Grid, AppBar, Toolbar } from '@material-ui/core/';
 import API from '../utils/API';
 import Button from '@material-ui/core/Button';
 
@@ -45,54 +45,19 @@ const Shop = () => {
 
     return (
         <Grid container>
-            <ul>
-                <li>
-                    <Button color="primary" onClick={renderSortedNav}>
-                        All Products
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="banners" onClick={renderSortedNav}>
-                        Banners
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="stoles" onClick={renderSortedNav}>
-                        Stoles
-              </Button>
-                </li>
-                <li>
-                    <Button value="rainbow-stoles" color="primary" onClick={renderSortedNav}>
-                        Rainbow Stoles
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="christmas-stoles" onClick={renderSortedNav}>
-                        Chirstmas Stoles
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="easter-stoles" onClick={renderSortedNav}>
-                        Eater Stoles
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="pentecost-stoles" onClick={renderSortedNav}>
-                        Pentecost Stoles
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="lenten-stoles" onClick={renderSortedNav}>
-                        Lenten Stoles
-              </Button>
-                </li>
-                <li>
-                    <Button color="primary" value="advent-stoles" onClick={renderSortedNav}>
-                        Advent Stoles
-              </Button>
-                </li>
-            </ul>
-
+            <AppBar position="static">
+                <Toolbar>
+                    <Button color="inherit" onClick={renderSortedNav}>All Products</Button>
+                    <Button color="inherit" value="banners" onClick={renderSortedNav}>Banners</Button>
+                    <Button color="inherit" value="stoles" onClick={renderSortedNav}>Stoles</Button>
+                    <Button value="rainbow-stoles" color="inherit" onClick={renderSortedNav}>Rainbow</Button>
+                    <Button color="inherit" value="christmas-stoles" onClick={renderSortedNav}>Chirstmas</Button>
+                    <Button color="inherit" value="easter-stoles" onClick={renderSortedNav}>Eater</Button>
+                    <Button color="inherit" value="pentecost-stoles" onClick={renderSortedNav}>Pentecost</Button>
+                    <Button color="inherit" value="lenten-stoles" onClick={renderSortedNav}>Lenten</Button>
+                    <Button color="inherit" value="advent-stoles" onClick={renderSortedNav}>Advent</Button>
+                </Toolbar>
+            </AppBar>
 
             {productsMaped}
         </Grid>
