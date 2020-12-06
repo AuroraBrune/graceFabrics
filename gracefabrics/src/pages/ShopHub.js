@@ -42,6 +42,7 @@ const ShopHub = (props) => {
             <Route path="/about" component={About}/>
             <Route path="/gallery" component={Gallery}/>
             <Route path="/contact" component={Contact}/>
+            {/* <Route path="/basket" component={Basket}/> */}
             {/* <Route path="/orders" component={Orders}/> */}
           </Grid>  
           <Grid item md={2}>
