@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Navbar from "../components/Navbar";
@@ -27,7 +27,7 @@ const ShopHub = (props) => {
   
 
   return(
-    <Router>
+    <HashRouter>
       <div className={classes.root}>
         <Navbar />
         <Grid container padding={5}>
@@ -42,15 +42,12 @@ const ShopHub = (props) => {
             <Route path="/about" component={About}/>
             <Route path="/gallery" component={Gallery}/>
             <Route path="/contact" component={Contact}/>
-            {/* <Route path="/basket" component={Basket}/> */}
+            <Route path="/cart" component={Basket}/>
             {/* <Route path="/orders" component={Orders}/> */}
           </Grid>  
-          <Grid item md={2}>
-            <Basket />
-          </Grid>
         </Grid>
      </div>
-    </Router>
+    </HashRouter>
   )
 }
 export default ShopHub;

@@ -15,8 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import API from '../../utils/API'
-import Shop from '../../pages/Shop'
+
 
 const drawerWidth = 240;
 
@@ -114,7 +113,11 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap>
             Grace Fabrics
           </Typography>
-
+              <Link to="/cart"  className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}>
+          <Button color="dark">
+                View Cart
+            </Button>
+            </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -170,13 +173,6 @@ export default function PersistentDrawerLeft() {
             </Link>
           </Button>
           </li>*/}
-          <li className="nav-item">
-            <Button color="primary">
-              <Link to="/login" className={window.location.pathname === "/Orders.js" ? "nav-link active" : "nav-link"}>
-                (Admin)
-            </Link>
-            </Button>
-          </li>
         </List>
       </Drawer>
       <main
