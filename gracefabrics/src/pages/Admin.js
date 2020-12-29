@@ -4,6 +4,7 @@ import InputField from '../components/InputField/InputField'
 import SubmitButton from '../components/SubmitButton/SubmitButton'
 import ProductManagement from '../pages/ProductManagement'
 import LoginForm from '../components/LoginForm/LoginForm';
+import './Admin.css'
 
 export const isAuthenticated = {
   // SET TO TRUE TO SIMULATE LOGGED IN

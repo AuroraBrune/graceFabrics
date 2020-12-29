@@ -3,6 +3,7 @@ import Product from '../components/Product';
 import { Grid, AppBar, Toolbar } from '@material-ui/core/';
 import API from '../utils/API';
 import Button from '@material-ui/core/Button';
+import './Shop.css'
 
 const Shop = () => {
     let [productsList, setProducts] = useState({
@@ -45,7 +46,7 @@ const Shop = () => {
 
     return (
         <Grid container>
-            <AppBar position="static">
+            <AppBar id="ShopNav" position="static" >
                 <Toolbar>
                     <Button color="inherit" onClick={renderSortedNav}>All Products</Button>
                     <Button color="inherit" value="banners" onClick={renderSortedNav}>Banners</Button>
