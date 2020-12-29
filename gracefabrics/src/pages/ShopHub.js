@@ -1,7 +1,6 @@
 import { HashRouter, Route } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Navbar from "../components/Navbar";
 import Gallery from "./gallery"
 import About from "./About"
 import Shop from "./Shop"
@@ -29,7 +28,7 @@ const ShopHub = (props) => {
   return(
     <HashRouter>
       <div >
-        <Navbar />
+     
         <Grid container padding={5}>
           <Grid item md={2}>
             <PersistentDrawerLeft/>

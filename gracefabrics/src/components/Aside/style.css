@@ -12,3 +12,15 @@ a:visited {
   background: #251738;
   border-radius: 20px;
 } */
+#cartBtn{
+  color: white;
+  text-align:left;
+}
+#title{
+  text-align:center;
+  margin-left: 50px;
+}
+#toolbar{
+  background-color: rgb(164, 132, 194);
+  border:none;
+}

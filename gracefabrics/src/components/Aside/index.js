@@ -99,8 +99,9 @@ export default function PersistentDrawerLeft() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+       
       >
-        <Toolbar>
+        <Toolbar id="toolbar">
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -110,14 +111,15 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Grace Fabrics
-          </Typography>
-              <Link to="/cart"  className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}>
-          <Button color="dark">
+          <Link to="/cart"  className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}>
+          <Button id="cartBtn">
                 View Cart
             </Button>
             </Link>
+          <Typography variant="h6" id="title" >
+            Grace Fabrics
+          </Typography>
+             
         </Toolbar>
       </AppBar>
       <Drawer
