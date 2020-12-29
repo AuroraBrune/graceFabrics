@@ -14,21 +14,21 @@ import Admin from './Admin'
 import Aside from '../components/Aside'
 import { AdbOutlined } from '@material-ui/icons';
 
-const classes = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  control: {
-    padding: theme.spacing(5),
-  },
-}));
+// const classes = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1,
+//   },
+//   control: {
+//     padding: theme.spacing(5),
+//   },
+// }));
 
 const ShopHub = (props) => {
   
 
   return(
     <HashRouter>
-      <div className={classes.root}>
+      <div >
         <Navbar />
         <Grid container padding={5}>
           <Grid item md={2}>
