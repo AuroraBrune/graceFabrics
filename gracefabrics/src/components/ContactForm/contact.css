@@ -1,23 +1,28 @@
   .contactContainer {
       height: 100%;
       display: flex;
-      padding-top: 80px;
+      padding-top: 30px;
       align-items: center;
       justify-content: center;
-      box-sizing: border-box;
+      box-sizing: border-box;   
   }
 
   .MuiInputBase-root{
-    width: 28em;
+    width:40em;
     padding-left: 15px;
+
   }
 
   .contact-paper-hdr {
       text-align: center;
-      color: rgba(128, 0, 128, 0.746);
   }
 
   .MuiPaper-root {
-    border: solid 2px #1189de;
+    border-radius: 8px;
+  }
+
+  #contactForm{
+    background-color: rgba(91, 53, 122, 0.815);
+    color: rgb(215, 181, 238);
   }
 

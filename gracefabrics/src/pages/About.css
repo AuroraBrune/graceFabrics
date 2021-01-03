@@ -10,6 +10,8 @@
   color: rgb(215, 181, 238);
   font-weight: 700;
   font-family: 'Merriweather', serif;
+  align-items: center;
+  justify-content: center;
 }
 .header-about{
   text-align:center;

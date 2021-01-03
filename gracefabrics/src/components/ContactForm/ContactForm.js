@@ -62,8 +62,8 @@ class ContactForm extends React.Component {
   render() {
     const { name, email, message, sentMessage } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Paper>
+      <form id="contactForm" onSubmit={this.handleSubmit}>
+        
           <div className="contact-paper-hdr">
             <h3>Custom Order</h3>
           </div>
@@ -88,10 +88,10 @@ class ContactForm extends React.Component {
                 placeholder="  Your desired price range..."
                 value={this.state.price}
                 onChange={this.handleChange} />
-              <Button type="submit" variant="outlined" color="primary">Send</Button>
+              <Button type="submit" variant="outlined">Send</Button>
             </FormControl>
           </FormGroup>
-        </Paper>
+       
       </form>
     );
   }
