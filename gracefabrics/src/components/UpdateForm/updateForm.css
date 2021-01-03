@@ -1,3 +1,7 @@
 .updateForm{
     display:none
 }
+button{
+    color: rgb(215, 181, 238);
+    font-size:22px;
+}

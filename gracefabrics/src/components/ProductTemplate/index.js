@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import API from '../../utils/API';
 import UpdateForm from '../UpdateForm'
+import './productTemplate.css'
 
 const ProductTemplate = (props) => {
   function deleteRender(event) {
@@ -28,26 +29,26 @@ const ProductTemplate = (props) => {
             <td><strong> Current Name: {product.name} </strong></td>
           </tr>
           <tr>
+            <td> <img src={product.img1}></img> </td>
+          </tr>
+          <tr>
             <td> Current Price: ${product.price} </td>
           </tr>
           <tr>
             <td> Current Category: {product.type} </td>
           </tr>
           <tr>
-            <td> Current Description: {product.description} </td>
-          </tr>
-          <tr>
-            <td> <img src={product.img1}></img> </td>
+            <td> Current Description: {product.description} </td> 
           </tr>
         </tbody>
-      </table>
-      {/* <Button onClick={API.updateItem} value={ JSON.stringify({product}) }> */}
       <Button value={product.id} onClick={updateForm}>
         <strong>Update</strong>
       </Button>
       <Button onClick={deleteRender} data-pid={product.id}>
         <strong>Delete</strong>
       </Button>
+      </table>
+      {/* <Button onClick={API.updateItem} value={ JSON.stringify({product}) }> */}
       <UpdateForm
         id={product.id}
         renderProducts={props.renderProducts} />

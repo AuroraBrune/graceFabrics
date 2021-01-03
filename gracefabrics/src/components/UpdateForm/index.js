@@ -68,9 +68,9 @@ export default function UpdateForm(props) {
                     <tr><td> <TextField onChange={updateDescription} label="Description" id={props.id + "Description"} placeholder="Updated Description" /> </td></tr>
                     <tr><td> <TextField onChange={updateImage} label="Image" id={props.id + "Image"} placeholder="Updated Image URL" /></td></tr>
                 </tbody>
-            </table>
             <Button id={props.id + "updateBtn"} value={JSON.stringify(updatedProduct)} onClick={updateRender}>Sumbit Update</Button>
             <Button value={props.id} onClick={nevermind}>Nevermind</Button>
+            </table>
         </form>
     )
 }

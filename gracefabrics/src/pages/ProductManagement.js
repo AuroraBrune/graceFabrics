@@ -51,7 +51,7 @@ const ProductManagement = () => {
                     renderProducts={productsList.renderProducts}
                     productinfo={product}
                 />
-                <hr />
+                <br></br>
             </Grid>
         )
     })
