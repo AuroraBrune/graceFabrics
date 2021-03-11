@@ -36,20 +36,6 @@ const Shop = (props) => {
 
     return (
         <Grid container>
-            {/* <AppBar id="ShopNav" position="static" >
-                <Toolbar>
-                    <Button color="inherit" onClick={renderSortedNav}>All Products</Button>
-                    <Button color="inherit" value="banners" onClick={renderSortedNav}>Banners</Button>
-                    <Button color="inherit" value="stoles" onClick={renderSortedNav}>Stoles</Button>
-                    <Button value="rainbow-stoles" color="inherit" onClick={renderSortedNav}>Rainbow</Button>
-                    <Button color="inherit" value="christmas-stoles" onClick={renderSortedNav}>Chirstmas</Button>
-                    <Button color="inherit" value="easter-stoles" onClick={renderSortedNav}>Easter</Button>
-                    <Button color="inherit" value="pentecost-stoles" onClick={renderSortedNav}>Pentecost</Button>
-                    <Button color="inherit" value="lenten-stoles" onClick={renderSortedNav}>Lenten</Button>
-                    <Button color="inherit" value="advent-stoles" onClick={renderSortedNav}>Advent</Button>
-                </Toolbar>
-            </AppBar> */}
-
             {productsMaped}
         </Grid>
     )
