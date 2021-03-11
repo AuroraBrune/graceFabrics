@@ -1,5 +1,5 @@
 import React from 'react';
-import InputField from '../InputField/InputField'
+import InputField from '../InputField'
 import SubmitButton from '../SubmitButton/SubmitButton'
 import { Redirect } from 'react-router-dom'
 import App from '../../App'

@@ -1,10 +1,9 @@
 import React from 'react';
-import '../Login.css';
-import InputField from '../components/InputField/InputField'
+import InputField from '../components/InputField'
 import SubmitButton from '../components/SubmitButton/SubmitButton'
-import ProductManagement from '../pages/ProductManagement'
-import LoginForm from '../components/LoginForm/LoginForm';
-import './Admin.css'
+import ProductManagement from './productManagement'
+import LoginForm from '../components/LoginForm';
+import './admin.css'
 
 export const isAuthenticated = {
   // SET TO TRUE TO SIMULATE LOGGED IN

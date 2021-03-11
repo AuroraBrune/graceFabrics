@@ -1,11 +1,11 @@
 import React from "react";
 import { Paper, TextField, FormControl, FormGroup, Button } from '@material-ui/core'
-import "./contact.css";
+import "./orderForm.css";
 import * as emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 init("user_RRLMrFKCJPv8XqiyFRHKM");
 
-class ContactForm extends React.Component {
+class CustomOrderForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,4 +98,4 @@ class ContactForm extends React.Component {
 
 }
 
-export default ContactForm;
+export default CustomOrderForm;

@@ -1,36 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Product from '../components/Product';
-import { Grid, AppBar, Toolbar } from '@material-ui/core/';
+import { Grid } from '@material-ui/core/';
 import API from '../utils/API';
-import Button from '@material-ui/core/Button';
-import './Shop.css'
+import './shop.css'
 
-const Shop = () => {
+const Shop = (props) => {
     let [productsList, setProducts] = useState({
         products: []
     });
 
     useEffect(() => {
-        API.getProducts().then(results => {
+        console.log(props)
+        API.getSortedStoles(props.type).then(function (res) {
+            console.log("it worked!")
             setProducts({
-                ...productsList,
-                products: results.data
-            });
-            console.log(productsList.products)
-        });
+                products: res.data
+            })
+        })
     }, []);
 
 
-    const renderSortedNav = (event) => {
-        API.getSortedStoles(event).then(function (res) {
-            console.log("it worked!")
-            setProducts({
-                ...productsList,
-                products: res.data
-            })
 
-        })
-    }
     let productsMaped = productsList.products.map(product => {
 
         return (
@@ -46,7 +36,7 @@ const Shop = () => {
 
     return (
         <Grid container>
-            <AppBar id="ShopNav" position="static" >
+            {/* <AppBar id="ShopNav" position="static" >
                 <Toolbar>
                     <Button color="inherit" onClick={renderSortedNav}>All Products</Button>
                     <Button color="inherit" value="banners" onClick={renderSortedNav}>Banners</Button>
@@ -58,7 +48,7 @@ const Shop = () => {
                     <Button color="inherit" value="lenten-stoles" onClick={renderSortedNav}>Lenten</Button>
                     <Button color="inherit" value="advent-stoles" onClick={renderSortedNav}>Advent</Button>
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
 
             {productsMaped}
         </Grid>
