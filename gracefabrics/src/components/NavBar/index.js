@@ -68,7 +68,7 @@ export default function Navbar() {
                 </Menu>
 
                 <Typography variant="h6" id="title" >
-                    Grace Fabrics
+                    Color for the Journey
                 </Typography>
 
                 <Button id="cartBtn">

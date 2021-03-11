@@ -12,7 +12,7 @@ class CustomOrderForm extends React.Component {
       name: '',
       email: '',
       message: '',
-      price: '',
+      commissionType: props.type,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,7 +51,7 @@ class CustomOrderForm extends React.Component {
       name: '',
       email: '',
       message: '',
-      price: '',
+      commissionType: '',
     });
   }
 
@@ -83,10 +83,10 @@ class CustomOrderForm extends React.Component {
                 placeholder="  Description of desired commission..."
                 value={this.state.message}
                 onChange={this.handleChange} />
-              <TextField name="price"
+              <TextField name="commissionType"
                 type="text"
-                placeholder="  Your desired price range..."
-                value={this.state.price}
+                placeholder={"  Your are ordering a " + this.state.commissionType}
+                value={this.state.commissionType}
                 onChange={this.handleChange} />
               <Button type="submit" variant="outlined">Send</Button>
             </FormControl>
