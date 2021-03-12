@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button, Menu, MenuItem} from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from '@material-ui/core';
 import './navBar.css';
 
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [anchorEl2, setAnchorEl2] = React.useState(null);
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
+    const handleClose = () => {
+        setAnchorEl(null);
+
+    };
+
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
     const handleClick2 = (event) => {
         setAnchorEl2(event.currentTarget)
-      };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    
     };
     const handleClose2 = () => {
         setAnchorEl2(null);
-      };
+    };
     return (
         <AppBar id="ShopNav">
             <Toolbar>
@@ -40,8 +40,11 @@ export default function Navbar() {
                         Banners
                     </Link>
                 </Button>
+
                 <Button aria-controls="commission-menu" aria-haspopup="true" onClick={handleClick}>
-                    Commissions
+                    <Link to="/commissions" className={window.location.pathname === "/commissions" ? "nav-link active" : "nav-link"}>
+                        Commissions
+                    </Link>
                 </Button>
                 <Menu
                     id="commission-menu"
@@ -50,9 +53,9 @@ export default function Navbar() {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <MenuItem onClick={handleClose}>Stole / Decon-Stoles</MenuItem>
-                    <MenuItem onClick={handleClose}>Scapulars / Chasables</MenuItem>
-                    <MenuItem onClick={handleClose}>Paraments / Banners</MenuItem>
+                    <MenuItem onClick={handleClose}><a href="#commissionStoles">Stoles &#38; Decon-Stoles</a></MenuItem>
+                    <MenuItem onClick={handleClose}><a href="#commissionScapulars">Scapulars &#38; Chasables</a></MenuItem>
+                    <MenuItem onClick={handleClose}><a href="#commissionBanners">Paraments &#38; Banners</a></MenuItem>
                 </Menu>
 
                 <Button aria-controls="services-menu" aria-haspopup="true" onClick={handleClick2}>
@@ -65,9 +68,21 @@ export default function Navbar() {
                     open={Boolean(anchorEl2)}
                     onClose={handleClose2}
                 >
-                    <MenuItem onClick={handleClose2}>Hands-On Workshops</MenuItem>
-                    <MenuItem onClick={handleClose2}>Events</MenuItem>
-                    <MenuItem onClick={handleClose2}>Consultations</MenuItem>
+                    <MenuItem onClick={handleClose2}>
+                        <Link to="/workshops" className={window.location.pathname === "/workshops" ? "nav-link active" : "nav-link"}>
+                            Hands-On Workshops
+                        </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose2}>
+                        <Link to="/events" className={window.location.pathname === "/events" ? "nav-link active" : "nav-link"}>
+                            Events
+                        </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose2}>
+                        <Link to="/consultations" className={window.location.pathname === "/consultations" ? "nav-link active" : "nav-link"}>
+                            Consultations
+                        </Link>
+                    </MenuItem>
                 </Menu>
 
                 <Typography variant="h6" id="title" >
