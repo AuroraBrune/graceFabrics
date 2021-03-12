@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Product from '../components/Product';
 import { Grid } from '@material-ui/core/';
 import API from '../utils/API';
-import './shop.css';
 
 const Shop = (props) => {
 

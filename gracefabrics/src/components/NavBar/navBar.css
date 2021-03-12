@@ -1,6 +1,8 @@
 
 #ShopNav{
     background-color: rgb(164, 132, 194);
+    border-radius: 0px !important;
+    width: 100%;
 }
 #title{
   align-self: center;
