@@ -5,18 +5,21 @@ import './navBar.css';
 
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [anchorEx, setAnchorEx] = React.useState(null);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
     const handleClick2 = (event) => {
-        setAnchorEx(event.currentTarget)
+        setAnchorEl2(event.currentTarget)
       };
   
     const handleClose = () => {
       setAnchorEl(null);
-      setAnchorEx(null)
+    
     };
+    const handleClose2 = () => {
+        setAnchorEl2(null);
+      };
     return (
         <AppBar id="ShopNav">
             <Toolbar>
@@ -57,14 +60,14 @@ export default function Navbar() {
                 </Button>
                 <Menu
                     id="services-menu"
-                    anchorEx={anchorEx}
+                    anchorEl={anchorEl2}
                     keepMounted
-                    open={Boolean(anchorEx)}
-                    onClose={handleClose}
+                    open={Boolean(anchorEl2)}
+                    onClose={handleClose2}
                 >
-                    <MenuItem onClick={handleClose}>Hands-On Workshops</MenuItem>
-                    <MenuItem onClick={handleClose}>Events</MenuItem>
-                    <MenuItem onClick={handleClose}>Consultations</MenuItem>
+                    <MenuItem onClick={handleClose2}>Hands-On Workshops</MenuItem>
+                    <MenuItem onClick={handleClose2}>Events</MenuItem>
+                    <MenuItem onClick={handleClose2}>Consultations</MenuItem>
                 </Menu>
 
                 <Typography variant="h6" id="title" >
