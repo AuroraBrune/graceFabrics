@@ -1,26 +1,23 @@
-ul {
-    list-style-type: none;
-  }
-  a:link {
-    text-decoration: none;
-  }
-  a:visited {
-    text-decoration: none;
-    color: rgb(137, 51, 235);
-  }
-  /* .nav{
-    background: #251738;
-    border-radius: 20px;
-  } */
-  #cartBtn{
-    color: white;
-    text-align:left;
-  }
-  #title{
-    text-align:center;
-    margin-left: 50px;
-  }
-  #toolbar{
+
+#ShopNav{
     background-color: rgb(164, 132, 194);
-    border:none;
-  }
+}
+#title{
+  align-self: center;
+}
+#cartBtn{
+   justify-self: flex-end;
+}
+#ShopNav a{
+    color:white;
+    text-decoration: none;
+}
+#ShopNav a:visited {
+  text-decoration: none;
+}
+#toolbar{
+  background-color: rgb(164, 132, 194);
+  border:none;
+  display:flex;
+  flex-direction:column;
+}
