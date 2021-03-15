@@ -1,6 +1,6 @@
 import React from "react";
 import CustomOrderForm from "../components/CustomOrderForm";
-import "../components/CustomOrderForm/orderForm.css";
+
 
 function CustomOrder(props) {
     return (

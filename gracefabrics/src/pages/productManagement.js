@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ProductTemplate from '../components/ProductTemplate';
-import { Grid } from '@material-ui/core/';
+import ManageProduct from '../components/ManageProduct';
+import { Grid, Button, makeStyles, TextField } from '@material-ui/core';
 import API from '../utils/API';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 
 const ProductManagement = () => {
     const [productsList, setProducts] = useState({
@@ -47,7 +44,7 @@ const ProductManagement = () => {
         console.log(product)
         return (
             <Grid item xs={12} sm={12} md={12} key={product.id}>
-                <ProductTemplate
+                <ManageProduct
                     renderProducts={productsList.renderProducts}
                     productinfo={product}
                 />
@@ -124,7 +121,6 @@ const ProductManagement = () => {
                         <tr>
                             <td><TextField id="Image" label="URL to Image" variant="outlined" onChange={defineImg} /></td>
                             <td><Button id="CreateButton" onClick={createRender} value={JSON.stringify(Products)}>Create New Item</Button></td>
-                            {/* //onclick=api,create/submitform */}
                         </tr>
                     </tbody>
                 </table>

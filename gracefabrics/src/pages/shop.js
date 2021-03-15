@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Product from '../components/Product';
-import { Grid } from '@material-ui/core/';
+import ShopProduct from '../components/ShopProduct';
+import { Grid } from '@material-ui/core';
 import API from '../utils/API';
 
 const Shop = (props) => {
@@ -20,7 +20,7 @@ const Shop = (props) => {
     let productsMaped = productsList.products.map(product => {
         return (
             <Grid item xs={9} sm={4} md={3} key={product.id}>
-                <Product
+                <ShopProduct
                     productinfo={product}
                 />
             </Grid>

@@ -1,12 +1,12 @@
 import { HashRouter, Route } from 'react-router-dom';
-import About from "./pages/about";
+import About from "./pages/About";
 import Shop from "./pages/shop";
 import CustomOrder from './pages/customOrder';
 import CommissionPage from './pages/commissions'
 import Basket from './components/Basket';
 import React from "react";
 import Navbar from './components/NavBar';
-import Admin from './pages/admin';
+import Admin from './pages/Admin';
 import { CartProvider } from './utils/CartContext';
 
 function App() {

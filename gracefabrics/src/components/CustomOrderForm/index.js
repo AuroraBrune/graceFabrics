@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, TextField, FormControl, FormGroup, Button } from '@material-ui/core'
+import { TextField, FormControl, FormGroup, Button } from '@material-ui/core';
 import "./orderForm.css";
 import * as emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
@@ -63,35 +63,35 @@ class CustomOrderForm extends React.Component {
     const { name, email, message, sentMessage } = this.state;
     return (
       <form id="contactForm" onSubmit={this.handleSubmit}>
-        
-          <div className="contact-paper-hdr">
-            <h3>Custom Order</h3>
-          </div>
-          <FormGroup>
-            <FormControl noValidate autoComplete="off">
-              <TextField name="name"
-                type="text"
-                placeholder="  Your first and last name"
-                value={this.state.name}
-                onChange={this.handleChange} />
-              <TextField name="email"
-                type="email"
-                placeholder="  Your email"
-                value={this.state.email}
-                onChange={this.handleChange} />
-              <TextField name="message"
-                placeholder="  Description of desired commission..."
-                value={this.state.message}
-                onChange={this.handleChange} />
-              <TextField name="commissionType"
-                type="text"
-                placeholder={"  Your are ordering a " + this.state.commissionType}
-                value={this.state.commissionType}
-                onChange={this.handleChange} />
-              <Button type="submit" variant="outlined">Send</Button>
-            </FormControl>
-          </FormGroup>
-       
+
+        <div className="contact-paper-hdr">
+          <h3>Custom Order</h3>
+        </div>
+        <FormGroup>
+          <FormControl noValidate autoComplete="off">
+            <TextField name="name"
+              type="text"
+              placeholder="  Your first and last name"
+              value={this.state.name}
+              onChange={this.handleChange} />
+            <TextField name="email"
+              type="email"
+              placeholder="  Your email"
+              value={this.state.email}
+              onChange={this.handleChange} />
+            <TextField name="message"
+              placeholder="  Description of desired commission..."
+              value={this.state.message}
+              onChange={this.handleChange} />
+            <TextField name="commissionType"
+              type="text"
+              placeholder={"  Your are ordering a " + this.state.commissionType}
+              value={this.state.commissionType}
+              onChange={this.handleChange} />
+            <Button type="submit" variant="outlined">Send</Button>
+          </FormControl>
+        </FormGroup>
+
       </form>
     );
   }

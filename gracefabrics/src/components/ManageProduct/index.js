@@ -1,10 +1,10 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
 import API from '../../utils/API';
-import UpdateForm from '../UpdateForm'
-import './productTemplate.css'
+import UpdateForm from '../UpdateForm';
+import './manageProduct.css';
 
-const ProductTemplate = (props) => {
+const ManageProduct = (props) => {
   function deleteRender(event) {
     API.deleteProduct(event).then(() => {
       alert("The Product has been deleted")
@@ -14,12 +14,10 @@ const ProductTemplate = (props) => {
   function updateForm(event) {
   let id = event.currentTarget.value
   let form = document.getElementById(id)
-  console.log(form)
   form.setAttribute("style", "display:block")
   }
 
   const product = props.productinfo;
-  console.log(parseInt(product.id))
   return (
 
     <div id="productId" value={product.id}>
@@ -48,12 +46,13 @@ const ProductTemplate = (props) => {
         <strong>Delete</strong>
       </Button>
       </table>
-      {/* <Button onClick={API.updateItem} value={ JSON.stringify({product}) }> */}
       <UpdateForm
         id={product.id}
+        //pass other product info so that update form can be auto filled
+        //and can update without the user needing to reinput all product info
         renderProducts={props.renderProducts} />
     </div>
   );
 }
 
-export default ProductTemplate;
+export default ManageProduct;

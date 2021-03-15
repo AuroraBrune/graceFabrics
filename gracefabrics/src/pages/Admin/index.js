@@ -1,8 +1,7 @@
 import React from 'react';
-import InputField from '../components/InputField'
-import SubmitButton from '../components/SubmitButton/SubmitButton'
-import ProductManagement from './productManagement'
-import LoginForm from '../components/LoginForm';
+import InputField from '../../components/InputField';
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
+import ProductManagement from '../productManagement';
 import './admin.css'
 
 export const isAuthenticated = {
