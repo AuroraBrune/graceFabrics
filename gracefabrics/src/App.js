@@ -9,13 +9,28 @@ import Navbar from './components/NavBar';
 import Admin from './pages/Admin';
 import { CartProvider } from './utils/CartContext';
 
+        // function PrivateRoute ({component: Component, authed, ...rest}) { 
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) => authed === true
+//         ? <Component {...props} />
+//         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+//     />
+//   )
+// }
+// Now your Routes can look something like this
+
+// <Route path='/' exact component={Home} />
+// <Route path='/login' component={Login} />
+// <Route path='/register' component={Register} />
+// <PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
 function App() {
 
   return (
     <HashRouter>
       <Navbar />
       <CartProvider>
-
         <Route exact path="/" component={About} />
         <Route path="/Banners" render={() => { return <Shop type="banners" /> }} />
         <Route path="/Stoles" render={() => { return <Shop type="stoles" /> }} />
@@ -26,7 +41,7 @@ function App() {
         <Route path="/commissions" component={CommissionPage}/>
                 {/* <Route path="/workshops" component={WorkShops}/>
                 <Route path="/events" component={Events}/>
-                <Route path="/consultations" component={Consultations}/> */}
+  <Route path="/consultations" component={Consultations}/> */}
         <Route path="/cart" component={Basket} />
 
       </CartProvider>
