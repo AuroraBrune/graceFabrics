@@ -30,18 +30,17 @@ const ProductManagement = () => {
     function createRender(event){
         
         API.createProduct(event).then( () => {
-            document.getElementById("Name").value = "" 
-            document.getElementById("Type").value = ""
-            document.getElementById("Price").value = ""
-            document.getElementById("Description").value = ""
-            document.getElementById("Image").value = ""
+            document.getElementById("name").value = "" 
+            document.getElementById("type").value = ""
+            document.getElementById("price").value = ""
+            document.getElementById("description").value = ""
+            document.getElementById("img1").value = ""
             alert("New Product Created --Scroll to the bottom to see :)")
             productsList.renderProducts()
         }) 
     }
 
     const productsToMap = productsList.products.map(product => {
-        console.log(product)
         return (
             <Grid item xs={12} sm={12} md={12} key={product.id}>
                 <ManageProduct
@@ -71,55 +70,25 @@ const ProductManagement = () => {
         description: "",
         img1: ""
     }
-    function defineName() {
-        let newName = document.getElementById("Name").value
-        Products.name = newName
-        let button = document.getElementById("CreateButton")
-        button.value = JSON.stringify(Products)
+    function updateProductsObj(e){
+        Products[e.target.id] = e.target.value
+        document.getElementById("CreateButton").value = JSON.stringify(Products)
     }
-    function defineType() {
-        let newType = document.getElementById("Type").value
-        Products.type = newType
-        let button = document.getElementById("CreateButton")
-        button.value = JSON.stringify(Products)
-
-    }
-    function definePrice() {
-        let newPrice = document.getElementById("Price").value
-        Products.price = newPrice
-        let button = document.getElementById("CreateButton")
-        button.value = JSON.stringify(Products)
-
-    }
-    function defineDescription() {
-        let newDescription = document.getElementById("Description").value
-        Products.description = newDescription
-        let button = document.getElementById("CreateButton")
-        button.value = JSON.stringify(Products)
-    }
-    function defineImg() {
-        let newImg = document.getElementById("Image").value
-        Products.img1 = newImg
-        let button = document.getElementById("CreateButton")
-        button.value = JSON.stringify(Products)
-        console.log(button.value)
-    }
-
     return (
         <div>
             <form className={classes.root} noValidate autoComplete="off">
                 <table>
                     <tbody>
                         <tr>
-                            <td><TextField id="Name" label="Name" variant="outlined" onChange={defineName} /></td>
-                            <td><TextField id="Type" label="Category" variant="outlined" onChange={defineType} /></td>
+                            <td><TextField id="name" label="Name" variant="outlined" onChange={updateProductsObj} /></td>
+                            <td><TextField id="type" label="Category" variant="outlined" onChange={updateProductsObj} /></td>
                         </tr>
                         <tr>
-                            <td><TextField id="Price" label="Price" variant="outlined" onChange={definePrice} /></td>
-                            <td><TextField id="Description" label="Description" variant="outlined" onChange={defineDescription} /></td>
+                            <td><TextField id="price" label="Price" variant="outlined" onChange={updateProductsObj} /></td>
+                            <td><TextField id="description" label="Description" variant="outlined" onChange={updateProductsObj} /></td>
                         </tr>
                         <tr>
-                            <td><TextField id="Image" label="URL to Image" variant="outlined" onChange={defineImg} /></td>
+                            <td><TextField id="img1" label="URL to Image" variant="outlined" onChange={updateProductsObj} /></td>
                             <td><Button id="CreateButton" onClick={createRender} value={JSON.stringify(Products)}>Create New Item</Button></td>
                         </tr>
                     </tbody>

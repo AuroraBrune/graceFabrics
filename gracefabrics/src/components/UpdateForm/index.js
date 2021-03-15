@@ -58,7 +58,7 @@ export default function UpdateForm(props) {
 
     }
     return (
-        <form class="updateForm" id={props.id}>
+        <form className="updateForm" id={props.id}>
             <table >
                 <tbody>
                     <tr><td> <TextField onChange={updateName} label="Name" id={props.id + "Name"} placeholder="Updated Name" /></td></tr>
