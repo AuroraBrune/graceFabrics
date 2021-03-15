@@ -11,10 +11,8 @@ const ManageProduct = (props) => {
       props.renderProducts()
     })
   }
-  function updateForm(event) {
-  let id = event.currentTarget.value
-  let form = document.getElementById(id)
-  form.setAttribute("style", "display:block")
+  function updateForm(e) {
+  document.getElementById(e.currentTarget.value).setAttribute("style", "display:block")
   }
 
   const product = props.productinfo;
@@ -47,9 +45,7 @@ const ManageProduct = (props) => {
       </Button>
       </table>
       <UpdateForm
-        id={product.id}
-        //pass other product info so that update form can be auto filled
-        //and can update without the user needing to reinput all product info
+        productinfo={product}
         renderProducts={props.renderProducts} />
     </div>
   );

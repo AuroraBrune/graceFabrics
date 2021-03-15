@@ -28,13 +28,10 @@ const ProductManagement = () => {
 
 
     function createRender(event){
-        
         API.createProduct(event).then( () => {
-            document.getElementById("name").value = "" 
-            document.getElementById("type").value = ""
-            document.getElementById("price").value = ""
-            document.getElementById("description").value = ""
-            document.getElementById("img1").value = ""
+            document.querySelectorAll("input").forEach(function (input){
+                    input.value = ""
+            })
             alert("New Product Created --Scroll to the bottom to see :)")
             productsList.renderProducts()
         }) 
