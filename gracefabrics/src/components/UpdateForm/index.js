@@ -4,7 +4,9 @@ import './updateForm.css';
 import API from '../../utils/API';
 
 export default function UpdateForm(props) {
+
     let updatedProduct = props.productinfo;
+
     function updateRender(event) {
         document.getElementById((updatedProduct.id)).setAttribute("style", "display:none") 
         API.updateItem(event).then(() => {
@@ -12,13 +14,16 @@ export default function UpdateForm(props) {
           props.renderProducts()
         })
       }
+
     function updateProductsObj(e){
         updatedProduct[e.target.name] = e.target.value
         document.getElementById((updatedProduct.id +"updateBtn")).value = JSON.stringify(updatedProduct)
     }
+
     function nevermind(e){
        document.getElementById(e.currentTarget.value).setAttribute("style", "display:none")
     }
+    
     return (
         <form className="updateForm" id={updatedProduct.id}>
             <table >

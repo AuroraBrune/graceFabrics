@@ -17,15 +17,8 @@ const ProductManagement = () => {
     });
 
     useEffect(() => {
-        API.getProducts().then(results => {
-            setProducts({
-                ...productsList,
-                products: results.data
-            });
-        });
+       productsList.renderProducts()
     }, []);
-
-
 
     function createRender(event){
         API.createProduct(event).then( () => {

@@ -5,12 +5,22 @@ import UpdateForm from '../UpdateForm';
 import './manageProduct.css';
 
 const ManageProduct = (props) => {
+  
   function deleteRender(event) {
-    API.deleteProduct(event).then(() => {
-      alert("The Product has been deleted")
-      props.renderProducts()
-    })
+    if(window.confirm("Are you sure you want to delete this Product?")){
+      API.deleteProduct(event).then((err) => {
+        if(err){
+          alert("Something went wrong! Product may not have been deleted :(")
+        }
+          alert("The Product has been deleted")
+          props.renderProducts()
+      })
+    }
+    else{
+      return
+    }
   }
+
   function updateForm(e) {
   document.getElementById(e.currentTarget.value).setAttribute("style", "display:block")
   }
