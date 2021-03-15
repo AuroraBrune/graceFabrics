@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ShopProduct from '../components/ShopProduct';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core/';
 import API from '../utils/API';
+
 
 const Shop = (props) => {
 
@@ -12,24 +13,24 @@ const Shop = (props) => {
     useEffect(() => {
         API.getSortedStoles(props.type).then(function (res) {
             setProducts({
-                products: res.data
-            })
-        })
-    }, []);
+                ...productsList,
+                products: res.data.map(product => {
+                    return (
+                        <Grid item xs={9} sm={4} md={3} key={product.id}>
+                            <ShopProduct
+                                productinfo={product}
+                            />
+                        </Grid>
+                    )
+                })
+            });
 
-    let productsMaped = productsList.products.map(product => {
-        return (
-            <Grid item xs={9} sm={4} md={3} key={product.id}>
-                <ShopProduct
-                    productinfo={product}
-                />
-            </Grid>
-        )
-    })
+        })
+    }, [])
 
     return (
         <Grid container>
-            {productsMaped}
+            {productsList.products}
         </Grid>
     )
 }

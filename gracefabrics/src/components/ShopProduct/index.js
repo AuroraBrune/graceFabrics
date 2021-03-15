@@ -37,9 +37,9 @@ const useStyles = makeStyles({
   }
 });
 
-export default function ShopProduct(productinfo) {
+export default function ShopProduct(props) {
   const classes = useStyles();
-  const product = productinfo.productinfo;
+  const product = props.productinfo;
   const [state, dispatch] = useCartContext();
 
   return (
