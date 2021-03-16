@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import { TextField, FormControl, FormGroup, Button } from '@material-ui/core';
-import "./orderForm.css";
+import './orderForm.css';
 import * as emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 init("user_RRLMrFKCJPv8XqiyFRHKM");

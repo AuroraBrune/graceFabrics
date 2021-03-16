@@ -22,7 +22,7 @@ export default function Navbar() {
     };
     return (
         <AppBar id="ShopNav">
-            <Toolbar>
+            <Toolbar id="toolbar">
                 <Button color="primary">
                     <Link to="/about" className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}>
                         About
