@@ -22,9 +22,8 @@ class CustomOrderForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { name, email, message, price } = this.state;
-    const ourName = "Grace Fabrics";
-    const totalmessage = message + " Price range: " + price + " You can contact the customer at " + email;
+    const { name, email, message, commissionType } = this.state;
+    const totalmessage = message + commissionType +  " You can contact the customer at " + email;
     const data = {
       service_id: 'service_2j7t01m',
       template_id: 'template_hz588ig',
@@ -34,7 +33,7 @@ class CustomOrderForm extends React.Component {
         email: email,
         from_name: name,
         from_email: email,
-        to_name: ourName,
+        to_name: "Color for the Journey",
       }
     }
     emailjs.send(
@@ -57,10 +56,8 @@ class CustomOrderForm extends React.Component {
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-
   }
   render() {
-    const { name, email, message, sentMessage } = this.state;
     return (
       <form id="contactForm" onSubmit={this.handleSubmit}>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, TextField } from '@material-ui/core';
 import ProductManagement from '../productManagement';
-import './admin.css'
+import './login.css'
 
 export const isAuthenticated = {
   // SET TO TRUE TO SIMULATE LOGGED IN
@@ -24,7 +24,7 @@ const inlineStyle = {
   marginTop: '80px'
 }
 
-class Admin extends React.Component {
+class Login extends React.Component {
 
   constructor(props) {
     super(props);
@@ -159,4 +159,4 @@ class Admin extends React.Component {
   }
 }
 
-export default (Admin);
+export default (Login);
