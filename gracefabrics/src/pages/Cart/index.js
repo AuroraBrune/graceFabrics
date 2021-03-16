@@ -1,8 +1,8 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext } from 'react';
 import { CartProvider, useCartContext } from '../../utils/CartContext';
 import ShopProduct from '../../components/ShopProduct';
-import { Grid } from '@material-ui/core';
-const Basket = () => {
+import { Grid, Button } from '@material-ui/core';
+const Cart = () => {
   const [state, dispatch] = useCartContext();
 
   const shoppingList = [];
@@ -23,13 +23,13 @@ const Basket = () => {
 
                 {state.cart.map((product) => (
                     <Grid item xs={9} sm={4} md={3} key={product.id}>
+                      {/* <Button onClick={() => dispatch({ type: 'removeItem', product: product })}>
+                        X
+                      </Button> */}
                       <ShopProduct
                         productinfo={product}
                         buttonTxt="Delete"
                         btnType="removeItem" />
-                      <button onClick={() => dispatch({ type: 'removeItem', product: product })}>
-                        X
-                      </button>
                     </Grid>
                     
                   )
@@ -45,4 +45,4 @@ const Basket = () => {
 }
 
 
-export default Basket;
+export default Cart;

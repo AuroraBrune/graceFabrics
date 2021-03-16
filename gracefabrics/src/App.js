@@ -3,13 +3,14 @@ import About from './pages/About';
 import Shop from './pages/Shop';
 import CustomOrder from './pages/CustomOrder';
 import CommissionPage from './pages/Commissions'
-import Basket from './pages/Basket';
+import Cart from './pages/Cart';
 import React from "react";
 import Navbar from './components/NavBar';
 import Login from './pages/Login';
 import Service from './pages/Services';
 import { CartProvider } from './utils/CartContext';
 import './App.css';
+import { CardTravelTwoTone } from '@material-ui/icons';
 
 // function PrivateRoute ({component: Component, authed, ...rest}) { 
 //   return (
@@ -52,7 +53,7 @@ function App() {
         <Route path="/consultations" render={() => {
           return <Service name="Consultations" />
         }} />
-        <Route path="/cart" component={Basket} />
+        <Route path="/cart" component={Cart} />
 
       </CartProvider>
     </HashRouter>
