@@ -6,8 +6,8 @@ function CustomOrder(props) {
     return (
         <div>
             <div className="blurb" style={{ marginTop: 80 }}>
-                <header class="header-about">You are ordering a {props.item}</header>
-                <br></br>
+                {/* <header class="header-about">You are ordering a {props.item}</header>
+                <br></br> */}
                 <p>
                     Please fill out the form below with your email, best way to contact you,
                     and a description of your desired commission and

@@ -1,5 +1,21 @@
-.App {
-  text-align: center;
+.main{
+  text-align:center;
+  color:rgb(208, 177, 236);
+  background-color: rgba(91, 53, 122, 0.815);
+  padding:20px;
+  border-radius: 80px;
+  margin-top: 80px;
+}
+.blurb{
+  background-color: rgba(91, 53, 122, 0.815);
+  padding:30px;
+  border-radius: 30px;
+  margin:20px;
+  color: rgb(215, 181, 238);
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+  align-items: center;
+  justify-content: center;
 }
 
 
