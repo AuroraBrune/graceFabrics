@@ -8,10 +8,7 @@ const ManageProduct = (props) => {
   
   function deleteRender(event) {
     if(window.confirm("Are you sure you want to delete this Product?")){
-      API.deleteProduct(event).then((err) => {
-        if(err){
-          alert("Something went wrong! Product may not have been deleted :(")
-        }
+      API.deleteProduct(event).then(() => {
           alert("The Product has been deleted")
           props.renderProducts()
       })
@@ -35,7 +32,7 @@ const ManageProduct = (props) => {
             <td><strong> Current Name: {product.name} </strong></td>
           </tr>
           <tr>
-            <td> <img src={product.img1}></img> </td>
+            <td> <img src={product.img1} alt="product image"></img> </td>
           </tr>
           <tr>
             <td> Current Price: ${product.price} </td>

@@ -113,7 +113,7 @@ class Login extends React.Component {
       return (
 
         <div>
-          <h1>
+          <h1 className="blurb">
             Product Management
          </h1>
           <ProductManagement />

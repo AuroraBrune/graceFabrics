@@ -10,7 +10,6 @@ import Login from './pages/Login';
 import Service from './pages/Services';
 import { CartProvider } from './utils/CartContext';
 import './App.css';
-import { CardTravelTwoTone } from '@material-ui/icons';
 
 // function PrivateRoute ({component: Component, authed, ...rest}) { 
 //   return (
