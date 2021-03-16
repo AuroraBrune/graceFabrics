@@ -58,7 +58,7 @@ export default function ShopProduct(props) {
         </CardContent>
         <div className={classes.priceTag}><strong>Price: ${product.price}</strong></div>
         <CardActions>
-          <Button className={classes.addToCart} onClick={() => dispatch({ type: 'addItem', product: product })} size="small" ><strong>Add to cart</strong></Button><br />
+          <Button className={classes.addToCart} onClick={() => dispatch({ type: props.btnType, product: product })} size="small" ><strong>{props.buttonTxt}</strong></Button><br />
         </CardActions>
       </Card>
     </CartProvider>

@@ -22,6 +22,8 @@ const Shop = (props) => {
             <Grid item xs={9} sm={4} md={3} key={product.id}>
                 <ShopProduct
                     productinfo={product}
+                    buttonTxt="Add to Cart"
+                    btnType="addItem"
                 />
             </Grid>
         )

@@ -1,5 +1,5 @@
 import React from "react";
-import CustomOrderForm from "../components/CustomOrderForm";
+import CustomOrderForm from "../../components/CustomOrderForm";
 
 
 function CustomOrder(props) {

@@ -1,9 +1,9 @@
 import { HashRouter, Route } from 'react-router-dom';
 import About from './pages/About';
 import Shop from './pages/Shop';
-import CustomOrder from './pages/customOrder';
+import CustomOrder from './pages/CustomOrder';
 import CommissionPage from './pages/Commissions'
-import Basket from './components/Basket';
+import Basket from './pages/Basket';
 import React from "react";
 import Navbar from './components/NavBar';
 import Login from './pages/Login';
