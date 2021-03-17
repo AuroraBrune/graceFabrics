@@ -22,3 +22,16 @@
   border:none;
   display:flex;
 }
+#servicesBtn{
+  color:white !important;
+}
+.dropdown a{
+  text-decoration: none;
+  color: rgb(164, 132, 194);
+}
+.dropdown:hover{
+  background-color: rgb(164, 132, 194);
+}
+.dropdown a:hover{
+  color:white !important;
+}
