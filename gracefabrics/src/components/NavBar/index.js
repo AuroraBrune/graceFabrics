@@ -10,7 +10,6 @@ export default function Navbar() {
     };
     const handleClose = () => {
         setAnchorEl(null);
-
     };
 
     const [anchorEl2, setAnchorEl2] = React.useState(null);
@@ -53,9 +52,9 @@ export default function Navbar() {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <MenuItem  class="dropdown" onClick={handleClose}><a href="#commissionStoles">Stoles &#38; Decon-Stoles</a></MenuItem>
-                    <MenuItem  class="dropdown" onClick={handleClose}><a href="#commissionScapulars">Scapulars &#38; Chasables</a></MenuItem>
-                    <MenuItem class="dropdown"  onClick={handleClose}><a href="#commissionBanners">Paraments &#38; Banners</a></MenuItem>
+                    <MenuItem  class="dropdown" onClick={() => {handleClose(); document.getElementById('commissionStoles').scrollIntoView() }}>Stoles &#38; Decon-Stoles</MenuItem>
+                    <MenuItem  class="dropdown" onClick={() => {handleClose(); document.getElementById('commissionScapulars').scrollIntoView() }}>Scapulars &#38; Chasables</MenuItem>
+                    <MenuItem class="dropdown"  onClick={() => {handleClose(); document.getElementById('commissionBanners').scrollIntoView() }}>Paraments &#38; Banners</MenuItem>
                 </Menu>
 
                 <Button id="servicesBtn" aria-controls="services-menu" aria-haspopup="true" onClick={handleClick2}>

@@ -97,19 +97,19 @@ class Login extends React.Component {
     }
   }
 
-//   render () {
-//     const { redirect } = this.state;
+  //   render () {
+  //     const { redirect } = this.state;
 
-//      if (redirect) {
-//        return <Redirect to='/somewhere'/>;
-//      }
+  //      if (redirect) {
+  //        return <Redirect to='/somewhere'/>;
+  //      }
 
-//      return <RenderYourForm/>;
-// }
+  //      return <RenderYourForm/>;
+  // }
   render() {
 
     if (this.state.redirect) {
-
+      // <Redirect to="/admin/dashboard"
       return (
 
         <div>

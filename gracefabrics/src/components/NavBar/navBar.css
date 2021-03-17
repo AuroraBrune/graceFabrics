@@ -25,13 +25,12 @@
 #servicesBtn{
   color:white !important;
 }
-.dropdown a{
-  text-decoration: none;
+.dropdown{
   color: rgb(164, 132, 194);
 }
 .dropdown:hover{
   background-color: rgb(164, 132, 194);
 }
-.dropdown a:hover{
+.dropdown:hover{
   color:white !important;
 }
