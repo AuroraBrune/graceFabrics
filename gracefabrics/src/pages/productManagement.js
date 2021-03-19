@@ -66,6 +66,9 @@ const ProductManagement = () => {
     }
     return (
         <div>
+             <h1 className="blurb">
+            Product Management
+         </h1>
             <form className={classes.root} noValidate autoComplete="off">
                 <table>
                     <tbody>
