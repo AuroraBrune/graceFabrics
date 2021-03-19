@@ -40,7 +40,7 @@ function App() {
           return <Shop type="banners" /> }} />
         <Route path="/Stoles" render={() => { 
           return <Shop type="stoles" /> }} />
-           <Route path="/admin" component={ProductManagement}/>
+        <Route path="/admin" component={ProductManagement}/>
         <Route path="/login" component={Login} />
         <Route path="/about" component={About} />
         <Route path="/custom-order" component={CustomOrder} />
