@@ -1,5 +1,7 @@
 let db = require("../models");
 let passport = require('../config/passport')
+const isAuthenticated = require('../config/middleware/isAuthenticated');
+
 module.exports = function (app) {
 
     app.get("/api/products", async function (req, res) {
@@ -139,6 +141,9 @@ module.exports = function (app) {
             console.log(user)
              res.json(user);
         })
+    })
+    app.get('/api/product-manage', isAuthenticated, function(req, res){
+        res.json({authed:true})
     })
 
 

@@ -1,26 +1,34 @@
-import { HashRouter, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Redirect} from 'react-router-dom';
+import {React, useState, useEffect} from 'react'
 import About from './pages/About';
 import Shop from './pages/Shop';
 import CustomOrder from './pages/CustomOrder';
 import CommissionPage from './pages/Commissions'
 import Cart from './pages/Cart';
-import React from "react";
 import Navbar from './components/NavBar';
 import Login from './pages/Login';
 import ProductManagement from './pages/productManagement';
 import Service from './pages/Services';
 import { CartProvider } from './utils/CartContext';
+import API from './utils/API'
 import './App.css';
 
 
-function PrivateRoute({ component: Component, authed, ...rest }) {
-  console.log(authed)
+function PrivateRoute({ component: Component, ...rest }) {
+  let [auth, setAuth] = useState({authed: false});
+ useEffect(()=>{
+    API.authenticate().then(function (res) {
+      console.log(res)
+      setAuth(res.data)
+    })
+  },[])
+  console.log(auth.authed)
   return (
     <Route
       {...rest}
-      render={(props) => authed === true
+      render={(props) => auth.authed === true
         ? <Component {...props} />
-        : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
+        : <Redirect to={{ pathname: '/admin', state: { from: props.location } }} />}
     />
   )
 }
@@ -40,7 +48,7 @@ function App() {
           return <Shop type="stoles" />
         }} />
 
-        <PrivateRoute authed={true} path='/admin' component={ProductManagement} />
+        <PrivateRoute path='/admin' component={ProductManagement} />
         <Route path="/login" component={Login} />
         <Route path="/about" component={About} />
         <Route path="/custom-order" component={CustomOrder} />

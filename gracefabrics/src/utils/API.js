@@ -5,6 +5,9 @@ const API = {
   login: function (credentials) {
     return axios.post('/api/login', credentials);
   },
+  authenticate: function(){
+    return axios.get('/api/product-manage')
+  },
   logout: function () {
     return axios.get('/api/logout');
   },
