@@ -35,7 +35,7 @@ export default function Login() {
   }
   if(loginStatus.isAuthenticated === true){
     return(
-      <Redirect to="/admin"/>
+      <Redirect  to={{pathname:"/admin", authed: true}}/>
      ) 
   }
   else{

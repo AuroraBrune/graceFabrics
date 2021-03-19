@@ -1,4 +1,4 @@
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Redirect } from 'react-router-dom';
 import About from './pages/About';
 import Shop from './pages/Shop';
 import CustomOrder from './pages/CustomOrder';
@@ -13,22 +13,19 @@ import { CartProvider } from './utils/CartContext';
 import './App.css';
 
 
-// function PrivateRoute ({component: Component, authed, ...rest}) { 
-//   return (
-//     <Route
-//       {...rest}
-//       render={(props) => authed === true
-//         ? <Component {...props} />
-//         : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
-//     />
-//   )
-// }
+function PrivateRoute({ component: Component, authed, ...rest }) {
+  console.log(authed)
+  return (
+    <Route
+      {...rest}
+      render={(props) => authed === true
+        ? <Component {...props} />
+        : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
+    />
+  )
+}
 // Now your Routes can look something like this
 
-// <Route path='/' exact component={Home} />
-// <Route path='/login' component={Login} />
-// <Route path='/register' component={Register} />
-// <PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
 function App() {
 
   return (
@@ -36,11 +33,14 @@ function App() {
       <Navbar />
       <CartProvider>
         <Route exact path="/" component={About} />
-        <Route path="/Banners" render={() => { 
-          return <Shop type="banners" /> }} />
-        <Route path="/Stoles" render={() => { 
-          return <Shop type="stoles" /> }} />
-        <Route path="/admin" component={ProductManagement}/>
+        <Route path="/Banners" render={() => {
+          return <Shop type="banners" />
+        }} />
+        <Route path="/Stoles" render={() => {
+          return <Shop type="stoles" />
+        }} />
+
+        <PrivateRoute authed={true} path='/admin' component={ProductManagement} />
         <Route path="/login" component={Login} />
         <Route path="/about" component={About} />
         <Route path="/custom-order" component={CustomOrder} />
