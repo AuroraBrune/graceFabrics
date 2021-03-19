@@ -2,6 +2,11 @@ let db = require("../models");
 let passport = require('../config/passport')
 module.exports = function (app) {
 
+    app.get("/api/getdb", function(req, res){
+        console.log("routehit")
+        res.json(console.log(db.Model))
+    })
+
     app.get("/api/products", async function (req, res) {
        let dbProduct = await db.Products.findAll({})
 

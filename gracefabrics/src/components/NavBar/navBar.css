@@ -1,0 +1,24 @@
+
+#ShopNav{
+    background-color: rgb(164, 132, 194);
+    border-radius: 0px !important;
+    width: 100%;
+}
+#title{
+  align-self: center;
+}
+#cartBtn{
+   justify-self: flex-end;
+}
+#ShopNav a{
+    color:white;
+    text-decoration: none;
+}
+#ShopNav a:visited {
+  text-decoration: none;
+}
+#toolbar{
+  background-color: rgb(164, 132, 194);
+  border:none;
+  display:flex;
+}

@@ -1,0 +1,16 @@
+table {
+    background-color: rgba(91, 53, 122, 0.815);
+    color: rgb(215, 181, 238);
+    font-size:22px;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60ch;
+}
+table img{
+    height: 200px;
+    width:100px;
+}
+table strong{
+    color: rgb(215, 181, 238);
+    font-size:22px;
+}

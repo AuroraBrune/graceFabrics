@@ -17,8 +17,9 @@ const API = {
   getAdmin: function() {
     return axios.get('/api/admin')
   },
-  getSortedStoles: function(event) {
-     let stoleName = event.currentTarget.value
+  getSortedStoles: function(props) {
+     let stoleName = props
+      // event.currentTarget.value
     return axios.get(`/api/products/${stoleName}`)
   },
   updateItem: function(event) {

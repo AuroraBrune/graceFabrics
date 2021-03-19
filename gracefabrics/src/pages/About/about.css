@@ -1,0 +1,16 @@
+.about{
+  padding:15px;
+  background-color: transparent;
+}
+.header-about{
+  text-align:center;
+  color:rgb(208, 177, 236);
+}
+ul li::before {
+  content: "\2022";
+  color: rgb(215, 181, 238);
+  font-weight: 32px;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}

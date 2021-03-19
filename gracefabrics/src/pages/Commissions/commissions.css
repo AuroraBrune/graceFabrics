@@ -1,0 +1,18 @@
+section{
+    display:flex;
+    flex-wrap: wrap;
+}
+.custOrderBtns{
+    display:flex;
+    width:100%;
+    justify-content: space-around;
+    color:white;
+}
+.orderBtn{
+    color:white !important;
+    font-size:22px !important;
+}
+.orderBtn a{
+    color:white !important;
+    text-decoration: none !important;
+}
