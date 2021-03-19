@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, TextField } from '@material-ui/core';
 import ProductManagement from '../productManagement';
-import './login.css'
+import './login.css';
 
 export const isAuthenticated = {
   // SET TO TRUE TO SIMULATE LOGGED IN
