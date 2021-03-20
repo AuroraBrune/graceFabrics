@@ -2,10 +2,12 @@ import { React, useState, useEffect } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
+import ProductManagement from '../productManagement';
 import './login.css';
 
 export default function Login() {
   let [loginStatus, setLoginStatus] = useState({
+    isAuthenticated: false,
     username: "",
     password: "",
   });
@@ -24,15 +26,19 @@ export default function Login() {
       password: val.password
     })
       .then((res) => {
+          console.log(res)
         if (res.status === 200) {
-          console.log("hit")
-          return(
-            <Redirect to="/admin" />
-          )
+          setLoginStatus({
+            ...loginStatus,
+            isAuthenticated: true,
+            username: "",
+            password: "",
+          })
         }
       })
   }
 
+  if(loginStatus.isAuthenticated !== true) {
     return (
       <div className="loginForm">
         <h3>This page is for Administrative purposes...</h3>
@@ -55,6 +61,13 @@ export default function Login() {
           <Button onClick={(e) => goLogin(loginStatus)}>Login</Button>
         </div>
       </div>
-
+  
     )
+  }
+  else{
+    return(
+      //  <Redirect to="/admin" />
+       <ProductManagement/>
+     ) 
+  }
 }

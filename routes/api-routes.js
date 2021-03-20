@@ -142,10 +142,12 @@ module.exports = function (app) {
         })
     })
     app.get('/api/check-authenticate', isAuthenticated, function(req, res){
-        // console.log(req)
-        // console.log(isAuthenticated)
         res.json({authed:true})
     })
+    app.get('/api/logout', function (req, res) {
+        req.logout();
+        res.json({authed:false})
+      });
 
 
     app.put("/api/admin/products", function (req, res) {

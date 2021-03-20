@@ -52,9 +52,9 @@ export default function Navbar() {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <MenuItem  class="dropdown" onClick={() => {handleClose(); document.getElementById('commissionStoles').scrollIntoView() }}>Stoles &#38; Decon-Stoles</MenuItem>
-                    <MenuItem  class="dropdown" onClick={() => {handleClose(); document.getElementById('commissionScapulars').scrollIntoView() }}>Scapulars &#38; Chasables</MenuItem>
-                    <MenuItem class="dropdown"  onClick={() => {handleClose(); document.getElementById('commissionBanners').scrollIntoView() }}>Paraments &#38; Banners</MenuItem>
+                    <MenuItem  className="dropdown" onClick={() => {handleClose(); document.getElementById('commissionStoles').scrollIntoView() }}>Stoles &#38; Decon-Stoles</MenuItem>
+                    <MenuItem  className="dropdown" onClick={() => {handleClose(); document.getElementById('commissionScapulars').scrollIntoView() }}>Scapulars &#38; Chasables</MenuItem>
+                    <MenuItem className="dropdown"  onClick={() => {handleClose(); document.getElementById('commissionBanners').scrollIntoView() }}>Paraments &#38; Banners</MenuItem>
                 </Menu>
 
                 <Button id="servicesBtn" aria-controls="services-menu" aria-haspopup="true" onClick={handleClick2}>
@@ -67,17 +67,17 @@ export default function Navbar() {
                     open={Boolean(anchorEl2)}
                     onClose={handleClose2}
                 >
-                    <MenuItem class="dropdown" onClick={handleClose2}>
+                    <MenuItem className="dropdown" onClick={handleClose2}>
                         <Link to="/workshops" className={window.location.pathname === "/workshops" ? "nav-link active" : "nav-link"}>
                             Hands-On Workshops
                         </Link>
                     </MenuItem>
-                    <MenuItem class="dropdown" onClick={handleClose2}>
+                    <MenuItem className="dropdown" onClick={handleClose2}>
                         <Link to="/events" className={window.location.pathname === "/events" ? "nav-link active" : "nav-link"}>
                             Events
                         </Link>
                     </MenuItem>
-                    <MenuItem  class="dropdown" onClick={handleClose2}>
+                    <MenuItem  className="dropdown" onClick={handleClose2}>
                         <Link to="/consultations" className={window.location.pathname === "/consultations" ? "nav-link active" : "nav-link"}>
                             Consultations
                         </Link>
