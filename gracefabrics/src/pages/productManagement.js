@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { React, useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom'
 import ManageProduct from '../components/ManageProduct';
 import { Grid, Button, makeStyles, TextField } from '@material-ui/core';
 import API from '../utils/API';
 
 const ProductManagement = () => {
+    // let auth = null
+
+    // useEffect(() => {
+    //     API.authenticate().then(results => {
+    //         auth = results.data.authed   
+    //     })
+    // }, []);
+    // console.log(auth)
+
     const [productsList, setProducts] = useState({
         products: [],
         renderProducts: () => {
@@ -17,17 +27,18 @@ const ProductManagement = () => {
     });
 
     useEffect(() => {
-       productsList.renderProducts()
+        productsList.renderProducts()
     }, []);
 
-    function createRender(event){
-        API.createProduct(event).then( () => {
-            document.querySelectorAll("input").forEach(function (input){
-                    input.value = ""
+
+    function createRender(event) {
+        API.createProduct(event).then(() => {
+            document.querySelectorAll("input").forEach(function (input) {
+                input.value = ""
             })
             alert("New Product Created --Scroll to the bottom to see :)")
             productsList.renderProducts()
-        }) 
+        })
     }
 
     const productsToMap = productsList.products.map(product => {
@@ -60,15 +71,28 @@ const ProductManagement = () => {
         description: "",
         img1: ""
     }
-    function updateProductsObj(e){
+    function updateProductsObj(e) {
         Products[e.target.id] = e.target.value
         document.getElementById("CreateButton").value = JSON.stringify(Products)
     }
+    
+    // API.authenticate().then(results => {
+    //     let newAuth = results.data.authed
+    //     console.log(newAuth)
+    //     if (newAuth !== true) {
+    //         return (
+    //             <Redirect to="/login" />
+    //         )
+    //     }
+
+    // })
+
+
     return (
-        <div>
-             <h1 className="blurb">
-            Product Management
-         </h1>
+        <div >
+            <h1 className="blurb">
+                Product Management
+            </h1>
             <form className={classes.root} noValidate autoComplete="off">
                 <table>
                     <tbody>

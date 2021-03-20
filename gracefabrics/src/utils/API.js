@@ -6,7 +6,7 @@ const API = {
     return axios.post('/api/login', credentials);
   },
   authenticate: function(){
-    return axios.get('/api/product-manage')
+    return axios.get('/api/check-authenticate')
   },
   logout: function () {
     return axios.get('/api/logout');
@@ -28,7 +28,7 @@ const API = {
   },
   createProduct: function (event) {
     let products = event.currentTarget.value;
-    return axios.post('/api/admin', JSON.parse(products));
+    return axios.post('/api/create', JSON.parse(products));
   },
 }
 export default API;

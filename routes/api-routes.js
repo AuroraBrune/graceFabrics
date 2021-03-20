@@ -111,7 +111,7 @@ module.exports = function (app) {
         })
     })
 
-    app.post("/api/admin", function (req, res) {
+    app.post("/api/create", function (req, res) {
         console.log(req.body)
         const newPrice = req.body.price;
         const newImg1 = req.body.img1;
@@ -138,11 +138,12 @@ module.exports = function (app) {
                 username: req.body.username,
             },
         }).then(function (user) { 
-            console.log(user)
              res.json(user);
         })
     })
-    app.get('/api/product-manage', isAuthenticated, function(req, res){
+    app.get('/api/check-authenticate', isAuthenticated, function(req, res){
+        // console.log(req)
+        // console.log(isAuthenticated)
         res.json({authed:true})
     })
 
