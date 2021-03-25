@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react';
+import React, { Component, useContext, useEffect } from 'react';
 import { CartProvider, useCartContext } from '../../utils/CartContext';
 import ShopProduct from '../../components/ShopProduct';
 import { Grid, Button } from '@material-ui/core';

@@ -4,7 +4,6 @@
   background-color: rgba(91, 53, 122, 0.815);
   padding:20px;
   border-radius: 80px;
-  margin-top: 80px;
 }
 .blurb{
   background-color: rgba(91, 53, 122, 0.815);
@@ -17,5 +16,7 @@
   align-items: center;
   justify-content: center;
 }
-
+#generalContainer{
+  margin-top: 100px;
+}
 

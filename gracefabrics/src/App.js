@@ -29,6 +29,7 @@ function App() {
   return (
     <HashRouter>
       <Navbar />
+      <div id="generalContainer">
       <CartProvider>
         <Switch>
         <Route exact path="/" component={About} />
@@ -56,6 +57,7 @@ function App() {
         <Route path="*" component={PageNotFound}/>
         </Switch>
       </CartProvider>
+      </div>
     </HashRouter>
   );
 }
