@@ -4,8 +4,7 @@ import { Grid } from '@material-ui/core';
 import API from '../../utils/API';
 
 const Shop = (props) => {
-
-    let [productsList, setProducts] = useState({
+    const [productsList, setProducts] = useState({
         products: []
     });
 
@@ -15,9 +14,9 @@ const Shop = (props) => {
                 products: res.data
             })
         })
-    }, []);
+    }, [props.type]);
 
-    let productsMaped = productsList.products.map(product => {
+    const productsMaped = productsList.products.map(product => {
         return (
             <Grid item xs={9} sm={4} md={3} key={product.id}>
                 <ShopProduct
