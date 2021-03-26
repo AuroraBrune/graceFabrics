@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import { CartProvider, useCartContext } from '../../utils/CartContext';
 
 const useStyles = makeStyles({
   root: {
@@ -40,10 +39,8 @@ const useStyles = makeStyles({
 export default function ShopProduct(props) {
   const classes = useStyles();
   const product = props.productinfo;
-  const [state, dispatch] = useCartContext();
 
   return (
-    <CartProvider>
       <Card className={classes.root} variant="outlined">
         <Typography className={classes.title} color="textPrimary" gutterBottom>
           {product.name}
@@ -61,6 +58,5 @@ export default function ShopProduct(props) {
           <button className={classes.addToCart} value={JSON.stringify(product)} name={product.id} onClick={(e)=>{props.interactCart(e)}} size="small" >{props.buttonTxt}</button><br />
         </CardActions>
       </Card>
-    </CartProvider>
   );
 }

@@ -12,7 +12,7 @@ export default function Shop (props){
             let cartArr = cartState.cart
             for (let i = 0; i < cartArr.length; i++) {
                 if (cartArr[i].id === newobj.id) {
-                    alert("You already have this item in your cart :)")
+                    alert(newobj.name + " is already in your cart :)")
                     return;
                 }
             }

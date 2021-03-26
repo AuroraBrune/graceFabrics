@@ -1,3 +1,4 @@
+import './App.css';
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { React, useState, useEffect } from 'react'
 import About from './pages/About';
@@ -8,39 +9,11 @@ import Cart from './pages/Cart';
 import Navbar from './components/NavBar';
 import Login from './pages/Login';
 import Service from './pages/Services';
-import PageNotFound from './components/PageNotFound';
-import { CartProvider } from './utils/CartContext';
-import ProductManagement from './pages/productManagement';
-import API from './utils/API';
-import './App.css';
+import PageNotFound from './components/PageNotFound';;
+// import ProductManagement from './pages/productManagement';
+// import API from './utils/API';
+
 function App() {
-  // let retrieved = JSON.parse(localStorage.getItem("cart"))
-  // let [cart, setCart] = useState({
-  //   cart: retrieved,
-  //   updateCart:(arg)=>{
-  //     setCart({
-  //       ...cart,
-  //       cart: arg
-  //     })
-  //     localStorage.setItem("cart", JSON.stringify(cart.cart))
-  //   }
-  // })
-  // useEffect(()=>{
-  //   retrieved = JSON.parse(localStorage.getItem("cart"))
-  //   console.log(JSON.parse(localStorage.getItem("cart")))
-  //   if(retrieved !== null){
-  //     setCart({
-  //       ...cart,
-  //       cart: retrieved
-  //     })
-  //   }
-  //   else{
-  //     setCart({
-  //       ...cart,
-  //       cart: []
-  //     })
-  //   }
-  // },[])
   //TODO figure out how to change this state 
   //depending on the whether or not the user is currently logged in
   // const PrivateRoute =  ({ component: Component, ...rest }) => (
@@ -54,7 +27,6 @@ function App() {
     <HashRouter>
       <Navbar />
       <div id="generalContainer">
-      <CartProvider>
         <Switch>
         <Route exact path="/" component={About} />
         <Route path="/Banners" render={() => {
@@ -82,7 +54,6 @@ function App() {
         }} />
         <Route path="*" component={PageNotFound}/>
         </Switch>
-      </CartProvider>
       </div>
     </HashRouter>
   );
