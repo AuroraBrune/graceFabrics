@@ -6,7 +6,7 @@ import API from '../../utils/API';
 export default function Shop (props){
     let retrieved = JSON.parse(localStorage.getItem("cart"))
     let [cartState, setCartState] = useState({
-        cart: retrieved,
+        cart: [],
         addCart: (e) => {
             let newobj = JSON.parse(e.target.value)
             let cartArr = cartState.cart
