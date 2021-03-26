@@ -4,7 +4,14 @@ import { Grid } from '@material-ui/core';
 import API from '../../utils/API';
 
 export default function Shop (props){
-    let retrieved = JSON.parse(localStorage.getItem("cart"))
+    let retrieved;
+    if(JSON.parse(localStorage.getItem("cart"))!== null){
+        retrieved = JSON.parse(localStorage.getItem("cart"))
+    }
+    else{
+        retrieved =[]
+    }
+    
     let [cartState, setCartState] = useState({
         cart: [],
         addCart: (e) => {

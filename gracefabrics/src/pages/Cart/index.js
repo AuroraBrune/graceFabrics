@@ -3,8 +3,13 @@ import ShopProduct from '../../components/ShopProduct';
 import { Grid } from '@material-ui/core';
 
 export default function Cart() {
-    let retrieved = JSON.parse(localStorage.getItem("cart"));
-
+    let retrieved;
+    if(JSON.parse(localStorage.getItem("cart"))!== null){
+        retrieved = JSON.parse(localStorage.getItem("cart"))
+    }
+    else{
+        retrieved =[]
+    }
     let [cartState, setCartState] = useState({
         cart: retrieved,
         removeCart: (e) => {
