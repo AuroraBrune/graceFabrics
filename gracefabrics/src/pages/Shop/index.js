@@ -1,14 +1,15 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState } from 'react';
 import ShopProduct from '../../components/ShopProduct';
 import { Grid } from '@material-ui/core';
 import API from '../../utils/API';
 
-const Shop = (props) => {
-    let [savedProducts, setSavedProducts] = useState({
-        cart: props.cart,
+export default function Shop (props){
+    let retrieved = JSON.parse(localStorage.getItem("cart"))
+    let [cartState, setCartState] = useState({
+        cart: retrieved,
         addCart: (e) => {
             let newobj = JSON.parse(e.target.value)
-            let cartArr = savedProducts.cart
+            let cartArr = cartState.cart
             for (let i = 0; i < cartArr.length; i++) {
                 if (cartArr[i].id === newobj.id) {
                     alert("You already have this item in your cart :)")
@@ -16,15 +17,30 @@ const Shop = (props) => {
                 }
             }
             let newcart = cartArr.push(newobj)
-            setSavedProducts({
-                ...savedProducts,
+            setCartState({
+                ...cartState,
                 cart: newcart
             })
+            localStorage.setItem("cart", JSON.stringify(cartState.cart))
+            alert(newobj.name + " has been added to your cart :)")
         }
-    })
-    useEffect(() => {
-        props.updateCart(savedProducts.cart)
-    }, [savedProducts.cart])
+    });
+    useEffect(()=>{
+        retrieved = JSON.parse(localStorage.getItem("cart"))
+        if(retrieved !== null){
+            setCartState({
+                ...cartState,
+                cart: retrieved
+            })
+        }
+        else{
+          setCartState({
+            ...cartState,
+            cart: []
+          })
+        }
+      },[]);
+
     const [productsList, setProducts] = useState({
         products: []
     });
@@ -45,11 +61,11 @@ const Shop = (props) => {
                     productinfo={product}
                     buttonTxt="Add to Cart"
                     btnType="addItem"
-                    interactCart={savedProducts.addCart}
+                    interactCart={cartState.addCart}
                 />
             </Grid>
         )
-    })
+    });
 
     return (
         <Grid container>
@@ -57,4 +73,3 @@ const Shop = (props) => {
         </Grid>
     )
 }
-export default Shop;

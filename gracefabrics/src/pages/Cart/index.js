@@ -1,51 +1,61 @@
 import { React, useState, useEffect } from 'react';
 import ShopProduct from '../../components/ShopProduct';
-import { Grid, Button } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-export default function Cart(props) {
-    let [savedProducts, setSavedProducts] = useState({
-        cart: props.cart,
+export default function Cart() {
+    let retrieved = JSON.parse(localStorage.getItem("cart"));
+
+    let [cartState, setCartState] = useState({
+        cart: retrieved,
         removeCart: (e) => {
-            for (let i = 0; i < savedProducts.cart.length; i++) {
-                let cartArr = savedProducts.cart
+            let cartArr = cartState.cart
+            for (let i = 0; i < cartArr.length; i++) {
                 if (cartArr[i].id == e.target.name) {
-                    let newcart = savedProducts.cart.splice(i, 1)
-                    setSavedProducts({
-                        ...savedProducts,
-                        cart: newcart
+                    cartArr.splice(i, 1)
+                    localStorage.setItem("cart", JSON.stringify(cartArr))
+                    setCartState({
+                        ...cartState,
+                        cart: cartArr
                     })
                     return;
                 }
             }
-           
         }
-    })
+    });
+
     useEffect(() => {
-        props.updateCart(savedProducts.cart)
-    }, [savedProducts.cart])
-    useEffect(() => {
-        setSavedProducts({
-            ...savedProducts,
-            cart: props.cart
-        })
-    }, [props.cart])
-    
-    let cartItems = savedProducts.cart.map(product => {
-     return (
+        retrieved = JSON.parse(localStorage.getItem("cart"))
+        if (retrieved !== null) {
+            setCartState({
+                ...cartState,
+                cart: retrieved
+            })
+        }
+        else {
+            setCartState({
+                ...cartState,
+                cart: []
+            })
+        }
+    }, [])
+
+    let cartItems = cartState.cart.map(product => {
+        return (
             <Grid item xs={9} sm={4} md={3} key={product.id}>
                 <ShopProduct
                     productinfo={product}
                     buttonTxt="Delete"
                     btnType="removeItem"
-                    interactCart={savedProducts.removeCart}
+                    interactCart={cartState.removeCart}
                 />
             </Grid>
         )
-    })
+    });
+
     return (
         <div>
             <p className="main">
-                There are {savedProducts.cart.length} items in your cart.
+                There are {cartState.cart.length} items in your cart.
             </p>
             <Grid container>
                 {cartItems}

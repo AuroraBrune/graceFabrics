@@ -59,7 +59,6 @@ export default function ShopProduct(props) {
         <div className={classes.priceTag}><strong>Price: ${product.price}</strong></div>
         <CardActions>
           <button className={classes.addToCart} value={JSON.stringify(product)} name={product.id} onClick={(e)=>{props.interactCart(e)}} size="small" >{props.buttonTxt}</button><br />
-          {/* // onClick={() => dispatch({ type: props.btnType, product: product })}  */}
         </CardActions>
       </Card>
     </CartProvider>

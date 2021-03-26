@@ -14,34 +14,33 @@ import ProductManagement from './pages/productManagement';
 import API from './utils/API';
 import './App.css';
 function App() {
-  let retrieved = JSON.parse(localStorage.getItem("cart"))
-  let [cart, setCart] = useState({
-    cart: retrieved,
-    updateCart:(arg)=>{
-      setCart({
-        ...cart,
-        cart: arg
-      })
-      localStorage.setItem("cart", JSON.stringify(cart.cart))
-    }
-  })
-  useEffect(()=>{
-    retrieved = JSON.parse(localStorage.getItem("cart"))
-    console.log(JSON.parse(localStorage.getItem("cart")))
-    if(retrieved !== null){
-      setCart({
-        ...cart,
-        cart: retrieved
-      })
-    }
-    else{
-      setCart({
-        ...cart,
-        cart: []
-      })
-      localStorage.setItem("cart", JSON.stringify(cart.cart))
-    }
-  },[])
+  // let retrieved = JSON.parse(localStorage.getItem("cart"))
+  // let [cart, setCart] = useState({
+  //   cart: retrieved,
+  //   updateCart:(arg)=>{
+  //     setCart({
+  //       ...cart,
+  //       cart: arg
+  //     })
+  //     localStorage.setItem("cart", JSON.stringify(cart.cart))
+  //   }
+  // })
+  // useEffect(()=>{
+  //   retrieved = JSON.parse(localStorage.getItem("cart"))
+  //   console.log(JSON.parse(localStorage.getItem("cart")))
+  //   if(retrieved !== null){
+  //     setCart({
+  //       ...cart,
+  //       cart: retrieved
+  //     })
+  //   }
+  //   else{
+  //     setCart({
+  //       ...cart,
+  //       cart: []
+  //     })
+  //   }
+  // },[])
   //TODO figure out how to change this state 
   //depending on the whether or not the user is currently logged in
   // const PrivateRoute =  ({ component: Component, ...rest }) => (
@@ -59,10 +58,10 @@ function App() {
         <Switch>
         <Route exact path="/" component={About} />
         <Route path="/Banners" render={() => {
-          return <Shop type="banners" cart={cart.cart} updateCart={cart.updateCart}/>
+          return <Shop type="banners" />
         }} />
         <Route path="/Stoles" render={() => {
-          return <Shop type="stoles" cart={cart.cart} updateCart={cart.updateCart} />
+          return <Shop type="stoles" />
         }} />
         {/* <PrivateRoute path='/admin' component={ProductManagement}/> */}
         <Route path="/login" component={Login} />
@@ -79,7 +78,7 @@ function App() {
           return <Service name="Consultations" />
         }} />
         <Route path="/cart" render={()=>{
-          return <Cart cart={cart.cart} updateCart={cart.updateCart}/>
+          return <Cart />
         }} />
         <Route path="*" component={PageNotFound}/>
         </Switch>
