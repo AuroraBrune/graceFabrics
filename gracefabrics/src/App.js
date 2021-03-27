@@ -9,7 +9,8 @@ import Cart from './pages/Cart';
 import Navbar from './components/NavBar';
 import Login from './pages/Login';
 import Service from './pages/Services';
-import PageNotFound from './components/PageNotFound';;
+import PageNotFound from './components/PageNotFound';
+import ForgotPassword from './pages/ForgotPassword';
 // import ProductManagement from './pages/productManagement';
 // import API from './utils/API';
 
@@ -37,6 +38,7 @@ function App() {
         }} />
         {/* <PrivateRoute path='/admin' component={ProductManagement}/> */}
         <Route path="/login" component={Login} />
+        <Route path="/forgot-password" component={ForgotPassword} />
         <Route path="/about" component={About} />
         <Route path="/custom-order" component={CustomOrder} />
         <Route path="/commissions" component={CommissionPage} />

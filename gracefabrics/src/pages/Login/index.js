@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { Button, TextField } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
@@ -60,6 +61,9 @@ export default function Login() {
         <div className="submitButton">
           <Button onClick={(e) => goLogin(loginStatus)}>Login</Button>
         </div>
+        <Link to="/forgot-password" className={window.location.pathname === "/forgot-password" ? "nav-link active" : "nav-link"}>
+          forgot password?
+        </Link>
       </div>
   
     )
