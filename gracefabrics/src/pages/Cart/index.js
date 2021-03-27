@@ -12,18 +12,14 @@ export default function Cart() {
         cart: retrieved,
         removeCart: (e) => {
             let cartArr = cartState.cart
-            console.log(cartArr)
             for (let i = 0; i < cartArr.length; i++) {
-                console.log(cartArr)
                 if (cartArr[i].id == e.target.name) {
                     cartArr.splice(i, 1)
-                    console.log(cartArr)
                     localStorage.setItem("cart", JSON.stringify(cartArr))
                     setCartState({
                         ...cartState,
                         cart: cartArr
                     })
-                    console.log(cartState.cart)
                     return;
                 }
             }
