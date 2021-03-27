@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
-    const ResetTokens = sequelize.define("Token", {
+    const ResetToken = sequelize.define("Token", {
       email: {
         type: DataTypes.STRING(250),
       },
-      experiation: {
+      expiration: {
         type: DataTypes.DATE, 
       },
       token: {
@@ -16,5 +16,5 @@ module.exports = function(sequelize, DataTypes) {
       }
 
     });
-return ResetTokens;
+return ResetToken;
 }

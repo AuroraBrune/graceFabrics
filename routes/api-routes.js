@@ -1,5 +1,6 @@
 let db = require("../models");
 let passport = require('../config/passport')
+let crypto = require("crypto")
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 module.exports = function (app) {
@@ -137,17 +138,51 @@ module.exports = function (app) {
             where: {
                 username: req.body.username,
             },
-        }).then(function (user) { 
-             res.json(user);
+        }).then(function (user) {
+            res.json(user);
         })
     })
-    app.get('/api/check-authenticate', isAuthenticated, function(req, res){
-        res.json({authed:true})
+    app.get('/api/check-authenticate', isAuthenticated, function (req, res) {
+        res.json({ authed: true })
     })
     app.get('/api/logout', function (req, res) {
         req.logout();
-        res.json({authed:false})
-      });
+        res.json({ authed: false })
+    });
+
+    app.post('/api/forgot-password', async function (req, res) {
+        console.log(req.body.email);
+        let email = await db.User.findOne({ where: { username: req.body.email} });
+        if (email == null) {
+            console.log("inentional null")
+            return res.json({ status: 'ok' });
+        }
+        await db.Token.update({
+            used: 1
+        },
+            {
+                where: {
+                    email: req.body.email
+                }
+            });
+        //Create a random reset token
+        let token = crypto.randomBytes(64).toString('base64');
+
+        //token expires after one hour
+        let expireDate = new Date();
+        expireDate.setDate(expireDate.getDate());
+        let hour = expireDate.getHours() + 1;
+        expireDate.setHours(hour)
+        console.log(expireDate)
+        //insert token data into DB
+        await db.Token.create({
+            email: req.body.email,
+            expiration: expireDate,
+            token: token,
+            used: 0
+        });
+        return res.json({ status: 'ok' });
+    })
 
 
     app.put("/api/admin/products", function (req, res) {

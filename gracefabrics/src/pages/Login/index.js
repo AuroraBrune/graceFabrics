@@ -27,7 +27,7 @@ export default function Login() {
       password: val.password
     })
       .then((res) => {
-          console.log(res)
+        console.log(res)
         if (res.status === 200) {
           setLoginStatus({
             ...loginStatus,
@@ -39,7 +39,7 @@ export default function Login() {
       })
   }
 
-  if(loginStatus.isAuthenticated !== true) {
+  if (loginStatus.isAuthenticated !== true) {
     return (
       <div className="loginForm">
         <h3>This page is for Administrative purposes...</h3>
@@ -61,17 +61,17 @@ export default function Login() {
         <div className="submitButton">
           <Button onClick={(e) => goLogin(loginStatus)}>Login</Button>
         </div>
-        <Link to="/forgot-password" className={window.location.pathname === "/forgot-password" ? "nav-link active" : "nav-link"}>
-          forgot password?
-        </Link>
+          <Link to="/forgot-password" className={window.location.pathname === "/forgot-password" ? "nav-link active" : "nav-link"}>
+            forgot password?
+         </Link>
       </div>
-  
+
     )
   }
-  else{
-    return(
+  else {
+    return (
       //  <Redirect to="/admin" />
-       <ProductManagement/>
-     ) 
+      <ProductManagement />
+    )
   }
 }

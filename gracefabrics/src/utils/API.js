@@ -5,6 +5,9 @@ const API = {
   login: function (credentials) {
     return axios.post('/api/login', credentials);
   },
+  forgotPassword: function(email){
+    return axios.post('/api/forgot-password', email)
+  },
   authenticate: function(){
     return axios.get('/api/check-authenticate')
   },
