@@ -29,10 +29,10 @@ function App() {
       <div id="generalContainer">
         <Switch>
         <Route exact path="/" component={About} />
-        <Route path="/Banners" render={() => {
+        <Route path="/banners" render={() => {
           return <Shop type="banners" />
         }} />
-        <Route path="/Stoles" render={() => {
+        <Route path="/stoles" render={() => {
           return <Shop type="stoles" />
         }} />
         {/* <PrivateRoute path='/admin' component={ProductManagement}/> */}
