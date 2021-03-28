@@ -208,6 +208,9 @@ module.exports = function (app) {
               console.log('Email sent: ' + info.response);
             }
           });
+          process.on('uncaughtException', function (err) {
+            console.log(err);
+        }); 
 
         return res.json({ status: 'ok' });
     })
