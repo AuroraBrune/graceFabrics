@@ -1,6 +1,8 @@
-let db = require("../models");
-let passport = require('../config/passport')
-let crypto = require("crypto")
+let db = require('../models');
+let passport = require('../config/passport');
+let crypto = require('crypto');
+let nodemailer = require('nodemailer');
+
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 module.exports = function (app) {
@@ -181,6 +183,29 @@ module.exports = function (app) {
             token: token,
             used: 0
         });
+        let transporter = nodemailer.createTransport({
+            service: process.env.SENDER_SERVER,
+            auth: {
+              user: process.env.SENDER_ADDRESS,
+              pass: process.env.SENDER_PASS
+            }
+          });
+          
+          let mailOptions = {
+            from: process.env.SENDER_ADDRESS,
+            to:  req.body.email,
+            subject: 'Password Reset Color for The Journey',
+            text: 'To reset your password, please click the link below.\n\nhttps://'+process.env.DOMAIN+'?token='+encodeURIComponent(token)+'&email='+req.body.email
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+
         return res.json({ status: 'ok' });
     })
 
