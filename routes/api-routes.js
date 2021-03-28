@@ -3,7 +3,7 @@ let passport = require('../config/passport');
 let crypto = require('crypto');
 let nodemailer = require('nodemailer');
 let dotenv = require('dotenv');
-dotenv.config();
+dotenv.config(); 
 
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 

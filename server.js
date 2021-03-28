@@ -4,6 +4,8 @@ const passport = require("./config/passport");
 const db = require("./models");
 const app = express();
 const path = require('path')
+let dotenv = require('dotenv');
+dotenv.config(); 
 const PORT = process.env.PORT || 3001;
 
 
