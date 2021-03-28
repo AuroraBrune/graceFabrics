@@ -195,6 +195,7 @@ module.exports = function (app) {
           
           let mailOptions = {
             from: process.env.SENDER_ADDRESS,
+            //req.body.env
             to:  process.env.TEMP_EMAIL,
             subject: 'Password Reset Color for The Journey',
             text: 'To reset your password, please click the link below.\n\nhttps://'+process.env.DOMAIN+'reset-password/?token='+encodeURIComponent(token)+'&email='+req.body.email
