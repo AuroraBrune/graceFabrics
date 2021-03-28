@@ -9,7 +9,7 @@ export default function ForgotPassword() {
         alert("Check your email for a password reset link :)")
     }
     return (
-    <div>
+    <div id="forgotPassForm">
         <input id="emailPassReset" placeholder="email"></input>
         <button onClick={emailSubmit}>sumbit</button>
     </div>
