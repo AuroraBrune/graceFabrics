@@ -9,7 +9,6 @@ const API = {
     return axios.post('/api/forgot-password', email)
   },
   resetPassword: function(tokenEmail){
-   console.log(tokenEmail)
     return axios.post('/api/reset-password', tokenEmail)
   },
   authenticate: function(){

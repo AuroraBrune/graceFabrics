@@ -222,8 +222,24 @@ module.exports = function (app) {
               expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
             }
           });
-        console.log(req.body)
-        return res.json(req.body)
+          let record = await db.Token.findOne({
+            where: {
+              email: req.body.email,
+              expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+              token: req.body.token,
+              used: 0
+            }
+          });
+          if (record == null) {
+            return res.json( {
+              message: 'Token has expired. Please try password reset again.',
+              showForm: false
+            });
+          }
+        return res.json({
+            showForm: true,
+            record: record
+          })
     })
 
     app.put("/api/admin/products", function (req, res) {

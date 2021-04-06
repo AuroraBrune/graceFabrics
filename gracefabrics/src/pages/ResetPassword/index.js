@@ -6,17 +6,21 @@ export default function ResetPassword() {
     useEffect(() => {
         let paramArr =  window.location.href.split('?token=')[1].split('&email=');
         let params = {
-            token: paramArr[0],
+            token: decodeURIComponent(paramArr[0]),
             email: paramArr[1]
         };
-        console.log(params)
-        API.resetPassword({token:params.token, email: params.email}).then((res) => {
-            console.log(res)
+        API.resetPassword(params).then((res) => {
+            if(res.data.showForm === false){
+                document.getElementById("resetMessage").innerText = res.data.message
+            }
+            else{
+                console.log(res.data.record)
+            }
         })
-    }
-        , [])
+    } , [])
+
     return (
-        <div>
+        <div id="resetMessage">
             reset password
         </div>
     )
