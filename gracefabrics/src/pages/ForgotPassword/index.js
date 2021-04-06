@@ -5,7 +5,9 @@ export default function ForgotPassword() {
     function emailSubmit() {
         let userEmail = document.getElementById("emailPassReset").value
         console.log(userEmail)
-        API.forgotPassword({email: userEmail})
+        API.forgotPassword({email: userEmail}).then((res)=>{
+            console.log(res)
+        })
         alert("Check your email for a password reset link :)")
     }
     return (
