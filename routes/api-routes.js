@@ -1,4 +1,6 @@
 let db = require('../models');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 let passport = require('../config/passport');
 let crypto = require('crypto');
 let nodemailer = require('nodemailer');
@@ -214,7 +216,9 @@ module.exports = function (app) {
 
         return res.json({ status: 'ok' });
     })
-
+    app.get('/api/reset-password', async function (req, res, next) {
+        console.log(req.query)
+    })
 
     app.put("/api/admin/products", function (req, res) {
         let product = req.body
