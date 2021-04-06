@@ -12,11 +12,14 @@ export default function ResetPassword() {
         API.resetPassword(params).then((res) => {
             if (res.data.showForm === false) {
                 document.getElementById("resetMessage").innerText = res.data.message
-            }
-            console.log(res.data.record)
-            setUserRecordState(res.data.record)
+                document.getElementById("newPassForm").setAttribute("style", "display:none");
+            };
+            console.log(res.data.record);
+            setUserRecordState(res.data.record);
+            document.getElementById("newPassForm").setAttribute("style", "display:block");
         })
-    }, [])
+    }, []);
+
     function passwordCheck(){
         let newPass = document.getElementById("newPass").value;
         let verifyPass = document.getElementById("newPassVerify").value;
@@ -36,7 +39,7 @@ export default function ResetPassword() {
                 reset password
             </p>
 
-            <div>
+            <div id="newPassForm" style="display:none">
                 <input id="newPass"label="password" placeholder="New Password"></input>
                 <br></br>
                 <input id="newPassVerify" label="verify password" placeholder="Verify Password"></input>
