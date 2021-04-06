@@ -220,7 +220,7 @@ module.exports = function (app) {
     })
     app.get('/api/reset-password', async function (req, res, next) {
         console.log(req.query)
-        return(re.query)
+        return(req.query)
     })
 
     app.put("/api/admin/products", function (req, res) {
