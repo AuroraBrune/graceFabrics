@@ -265,12 +265,12 @@ module.exports = function (app) {
             return res.json({status: 'error', message: 'Token not found. Please try the reset password process again.'});
           }
           //updates the token to show it has been used
-        await ResetToken.update({
+        await db.Token.update({
             used: 1
           },
           {
             where: {
-              email: user.email
+             email: user.email
             }
         });
         //hashes new password
@@ -280,9 +280,10 @@ module.exports = function (app) {
             password: newPassword
         },{
             where:{
-                email: user.email
+                username: user.email
             }
-        })
+        });
+        return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
     })
 
     app.put("/api/admin/products", function (req, res) {

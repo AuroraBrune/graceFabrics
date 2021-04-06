@@ -30,7 +30,10 @@ export default function ResetPassword() {
             password: newPass,
             userRecord: userRecordState
         }
-        // API.updatePassword(updatedPass)
+        API.updatePassword(updatedPass).then((res)=>{
+            console.log(res)
+            document.getElementById("resetMessage").innerText = res.message
+        })
     }
 
     return (
@@ -39,11 +42,11 @@ export default function ResetPassword() {
                 reset password
             </p>
 
-            <div id="newPassForm" style="display:none">
+            <div id="newPassForm" >
                 <input id="newPass"label="password" placeholder="New Password"></input>
                 <br></br>
                 <input id="newPassVerify" label="verify password" placeholder="Verify Password"></input>
-                <button onClick={()=>{passwordCheck}}>submit</button>
+                <button onClick={passwordCheck}>submit</button>
             </div>
         </div>
     )
