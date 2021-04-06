@@ -3,7 +3,11 @@ import API from '../../utils/API';
 
 export default function ResetPassword(){
     useEffect(()=>{
-        API.resetPassword()
+        console.log("hit")
+        API.resetPassword().then((res)=>{
+            console.log("hit2")
+            console.log(res)
+        })
     }
     ,[])
     return(

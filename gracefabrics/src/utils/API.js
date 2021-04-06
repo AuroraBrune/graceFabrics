@@ -8,8 +8,8 @@ const API = {
   forgotPassword: function(email){
     return axios.post('/api/forgot-password', email)
   },
-  resetPassword: function(email){
-    return axios.post('/api/reset-password', email)
+  resetPassword: function(){
+    return axios.post('/api/reset-password')
   },
   authenticate: function(){
     return axios.get('/api/check-authenticate')
