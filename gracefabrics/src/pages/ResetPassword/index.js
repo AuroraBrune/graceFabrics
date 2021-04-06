@@ -31,11 +31,10 @@ export default function ResetPassword() {
             userRecord: userRecordState
         }
         API.updatePassword(updatedPass).then((res)=>{
-            console.log(res)
-            document.getElementById("resetMessage").innerText = res.message
+            document.getElementById("resetMessage").innerText = res.data.message
         })
     }
-
+    //make it so that inputs are hidden
     return (
         <div>
             <p id="resetMessage">
