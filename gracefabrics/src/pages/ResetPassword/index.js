@@ -26,11 +26,11 @@ export default function ResetPassword() {
         if(newPass !== verifyPass){
             document.getElementById("resetMessage").innerText = "Passwords do not match! Please try again :)"
         }
-        let updatePass = {
+        let updatedPass = {
             password: newPass,
             userRecord: userRecordState
         }
-        // API.updatePasss(updatePass)
+        // API.updatePassword(updatedPass)
     }
 
     return (

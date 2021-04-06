@@ -11,6 +11,9 @@ const API = {
   resetPassword: function(tokenEmail){
     return axios.post('/api/reset-password', tokenEmail)
   },
+  updatePassword: function(updatedPass){
+    return axios.post('/api/update-password', updatedPass)
+  },
   authenticate: function(){
     return axios.get('/api/check-authenticate')
   },

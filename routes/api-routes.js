@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 let passport = require('../config/passport');
 let crypto = require('crypto');
+let bcrypt = require("bcryptjs");
 let nodemailer = require('nodemailer');
 let dotenv = require('dotenv');
 dotenv.config(); 
@@ -187,6 +188,7 @@ module.exports = function (app) {
             token: token,
             used: 0
         });
+        //set up nodemailer
         let transporter = nodemailer.createTransport({
             service: process.env.SENDER_SERVER,
             auth: {
@@ -194,7 +196,7 @@ module.exports = function (app) {
               pass: process.env.SENDER_PASS
             }
           });
-          
+          //body of email
           let mailOptions = {
             from: process.env.SENDER_ADDRESS,
             //req.body.env
@@ -202,7 +204,7 @@ module.exports = function (app) {
             subject: 'Password Reset Color for The Journey',
             text: 'To reset your password, please click the link below.\n\nhttps://'+process.env.DOMAIN+'reset-password/?token='+encodeURIComponent(token)+'&email='+req.body.email
           };
-          
+          //sends email
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
               console.log(error);
@@ -216,12 +218,15 @@ module.exports = function (app) {
 
         return res.json({ status: 'ok' });
     })
+
     app.post('/api/reset-password', async function (req, res) {
+        //deletes any tokens that are not from today
         await db.Token.destroy({
             where: {
               expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
             }
           });
+          //find a token that matches the email, token and is not expired
           let record = await db.Token.findOne({
             where: {
               email: req.body.email,
@@ -230,16 +235,54 @@ module.exports = function (app) {
               used: 0
             }
           });
+          //error message if not found
           if (record == null) {
             return res.json( {
               message: 'Token has expired. Please try password reset again.',
               showForm: false
             });
           }
+          //send info about that token to the browser
         return res.json({
             showForm: true,
             record: record
           })
+    })
+
+    app.post('/api/update-password', async function (req, res) {
+        let user = req.body.userRecord
+        //checks to make sure the token has not expired
+        let record = await db.Token.findOne({
+            where: {
+              email: user.email,
+              expiration: { [Op.gt]: Sequelize.fn('CURDATE')},
+              token: user.token,
+              used: 0
+            }
+          });
+         //sends an error message if no token is found
+          if (record == null) {
+            return res.json({status: 'error', message: 'Token not found. Please try the reset password process again.'});
+          }
+          //updates the token to show it has been used
+        await ResetToken.update({
+            used: 1
+          },
+          {
+            where: {
+              email: user.email
+            }
+        });
+        //hashes new password
+        let newPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null); 
+        //updates the password for the associated user
+        await db.User.update({
+            password: newPassword
+        },{
+            where:{
+                email: user.email
+            }
+        })
     })
 
     app.put("/api/admin/products", function (req, res) {
