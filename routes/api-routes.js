@@ -206,21 +206,24 @@ module.exports = function (app) {
           transporter.sendMail(mailOptions, function(error, info){
             if (error) {
               console.log(error);
-              return res.json(error)
             } else {
               console.log('Email sent: ' + info.response);
             }
           });
           process.on('uncaughtException', function (err) {
             console.log(err);
-            return res.json(err)
         }); 
 
         return res.json({ status: 'ok' });
     })
-    app.get('/api/reset-password', async function (req, res, next) {
-        console.log(req.query)
-        return(req.query)
+    app.post('/api/reset-password', async function (req, res) {
+        await db.Token.destroy({
+            where: {
+              expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
+            }
+          });
+        console.log(req.body)
+        return res.json(req.body)
     })
 
     app.put("/api/admin/products", function (req, res) {
