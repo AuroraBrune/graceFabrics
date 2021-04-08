@@ -18,8 +18,8 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'sey9cy5nr0kszxab',
-    database: 'mjttwjb3bte9uxqa'
+    password: process.env.PASS,
+    database: process.env.DB
   })
 }
 // Sets up the Express app to handle data parsing
