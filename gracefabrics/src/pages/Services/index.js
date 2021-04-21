@@ -63,7 +63,7 @@ export default function Service(props) {
             <div id="container">
                 {images.length > 0 ? (
                     images.map(image => {
-                        return (<img src={"http://localhost:3001/" + image} key={image} alt={image} />)
+                        return (<img src={"https://gracefabrics.herokuapp.com/" + image} key={image} alt={image} />)
                     })
                 ) :
                     <h1>{defaultMsg}</h1>
