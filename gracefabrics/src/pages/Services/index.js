@@ -29,7 +29,7 @@ export default function Service(props) {
     }
     let getImages = async () => {
         try {
-            let res = await axios.get(process.env.SERVER_URL + '/api/images');
+            let res = await axios.get('/api/images');
             console.log(res)
             if (!res.data.files) {
                 setDefaultMsg(res.data.msg);
