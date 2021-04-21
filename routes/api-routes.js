@@ -5,12 +5,45 @@ let passport = require('../config/passport');
 let crypto = require('crypto');
 let bcrypt = require("bcryptjs");
 let nodemailer = require('nodemailer');
+const path = require("path");
+const fs = require("fs");
+const multer = require("multer");
 let dotenv = require('dotenv');
 dotenv.config(); 
 
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 module.exports = function (app) {
+    const storage = multer.diskStorage({
+        destination:function(req, file, cb){
+            cb(null, 'uploads')
+        },
+        filename: function(req, file, cb){
+            cb(null, file.originalname)
+        }
+    });
+    
+    let uploads = multer({storage});
+    
+    app.post("/api/upload" , uploads.single('image'), async (req, res)=>{
+        let image = req.file.path;
+        res.json({msg:'image successfully created'})
+    })
+
+    app.get("/api/images", (req, res) =>{
+        let uploadsDirectory = path.join('uploads')
+        fs.readdir(uploadsDirectory, (err, files) =>{
+            if(err){
+                return res.json({msg: err})
+            }
+    
+            if(files.length === 0){
+                return res.json({msg: "No Images Uploaded!"})
+            }
+    
+            return res.json({files})
+        })
+    } )
 
     app.get("/api/products", async function (req, res) {
         let dbProduct = await db.Products.findAll({})
@@ -226,6 +259,7 @@ module.exports = function (app) {
               expiration: { [Op.lt]: Sequelize.fn('CURDATE')},
             }
           });
+          
           //find a token that matches the email, token and is not expired
           let record = await db.Token.findOne({
             where: {
