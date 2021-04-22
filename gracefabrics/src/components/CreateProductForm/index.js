@@ -22,7 +22,7 @@ export default function CreateProductForm(props) {
             img1: newImage.name
         })
     }
-    let handleSubmit = async (image) => {
+    let handleImgSubmit = async (image) => {
         let fd = new FormData()
         fd.append('image', image)
         const config = {
@@ -79,8 +79,8 @@ export default function CreateProductForm(props) {
                         <td> {preview ?
                             <>
                                 <button onClick={() => { setNewImage(''); setPreview(false); }}>X</button>
-                                <img src={URL.createObjectURL(newImage)} alt="preview" />
-                                <button onClick={() => { handleSubmit(newImage) }}>Upload!</button>
+                                <img src={URL.createObjectURL(newImage)} alt={newImage} />
+                                <button onClick={() => { handleImgSubmit(newImage) }}>Upload!</button>
                             </>
                             :
                             <>
