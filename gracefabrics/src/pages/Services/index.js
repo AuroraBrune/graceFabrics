@@ -58,13 +58,12 @@ export default function Service(props) {
             :
             <>
                 <input type="file" onChange={handleNewImage} accept="png jpg jpeg" />
-                <button>Delete Photo</button>
             </>
             }
             <div id="container">
                 {images.length > 0 ? (
                     images.map(image => {
-                        return (<img src={"https://gracefabrics.herokuapp.com/" + image} key={image} alt={image} />)
+                        return (<><img src={"https://gracefabrics.herokuapp.com/" + image} key={image} alt={image} /> <button>Delete Photo</button></>)
                     })
                 ) :
                     <h1>{defaultMsg}</h1>
