@@ -58,6 +58,7 @@ export default function Service(props) {
             :
             <>
                 <input type="file" onChange={handleNewImage} accept="png jpg jpeg" />
+                <button>Delete Photo</button>
             </>
             }
             <div id="container">

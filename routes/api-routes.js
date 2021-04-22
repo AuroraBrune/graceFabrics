@@ -111,22 +111,23 @@ module.exports = function (app) {
         }
     })
 
-    app.delete("/api/products/:id", function (req, res) {
+    app.delete("/api/products/:id", (req, res) => {
         const id = req.params.id;
+        //fs.unlink('../uploads/' + req.body.img, (err) =>{if(err){console.log(err) return}})
         db.Products.destroy({
             where: {
                 id: id
             }
-        }).then(function (dbProducts) {
+        }).then(dbProducts => {
             res.json(dbProducts)
         })
     })
-    app.get("/api/products/stoles", function (req, res) {
+    app.get("/api/products/stoles", (req, res) => {
         db.Products.findAll({
             where: {
                 type: "stole"
             }
-        }).then(function (dbProducts) {
+        }).then(dbProducts => {
             res.json(dbProducts)
         })
     })
@@ -142,30 +143,24 @@ module.exports = function (app) {
     //     })
     // })
 
-    app.get("/api/products/banners", function (req, res) {
+    app.get("/api/products/banners", (req, res) => {
         db.Products.findAll({
             where: {
                 type: "banner"
             }
-        }).then(function (dbProducts) {
+        }).then(dbProducts => {
             res.json(dbProducts)
         })
     })
 
-    app.post("/api/create", function (req, res) {
-        console.log(req.body)
-        const newPrice = req.body.price;
-        const newImg1 = req.body.img1;
-        const newType = req.body.type;
-        const newName = req.body.name;
-        const newDescription = req.body.description;
-
+    app.post("/api/create",(req, res) => {
+        const {name, type, price,  description, img1} = req.body
         db.Products.create({
-            price: newPrice,
-            img1: newImg1,
-            type: newType,
-            name: newName,
-            description: newDescription
+            price: price,
+            img1: img1,
+            type: type,
+            name: name,
+            description: description
         })
             .then(newProduct => {
                 res.json(newProduct)
@@ -173,19 +168,19 @@ module.exports = function (app) {
     })
 
 
-    app.post('/api/login', passport.authenticate('local'), function (req, res) {
+    app.post('/api/login', passport.authenticate('local'), (req, res) => {
         db.User.findOne({
             where: {
                 username: req.body.username,
             },
-        }).then(function (user) {
+        }).then(user => {
             res.json(user);
         })
     })
-    app.get('/api/check-authenticate', isAuthenticated, function (req, res) {
+    app.get('/api/check-authenticate', isAuthenticated, (req, res) => {
         res.json({ authed: true })
     })
-    app.get('/api/logout', function (req, res) {
+    app.get('/api/logout', (req, res) => {
         req.logout();
         res.json({ authed: false })
     });
@@ -213,7 +208,7 @@ module.exports = function (app) {
         expireDate.setDate(expireDate.getDate());
         let hour = expireDate.getHours() + 1;
         expireDate.setHours(hour)
-        console.log(expireDate)
+    
         //insert token data into DB
         await db.Token.create({
             email: req.body.email,
@@ -238,14 +233,14 @@ module.exports = function (app) {
             text: 'Hi Grace, To reset your password, please click the link below.\n\nhttps://'+process.env.DOMAIN+'reset-password/?token='+encodeURIComponent(token)+'&email='+req.body.email
           };
           //sends email
-          transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-              console.log(error);
+          transporter.sendMail(mailOptions, (err, info) =>{
+            if (err) {
+              console.log(err);
             } else {
               console.log('Email sent: ' + info.response);
             }
           });
-          process.on('uncaughtException', function (err) {
+          process.on('uncaughtException', err => {
             console.log(err);
         }); 
 
@@ -320,7 +315,7 @@ module.exports = function (app) {
         return res.json({status: 'ok', message: 'Password reset. Please login with your new password.'});
     })
 
-    app.put("/api/admin/products", function (req, res) {
+    app.put("/api/admin/products", (req, res) =>{
         let product = req.body
         db.Products.update(product,
             {
@@ -328,7 +323,7 @@ module.exports = function (app) {
                     id: product.id
                 }
             }
-        ).then(function (updatedProduct) {
+        ).then(updatedProduct => {
             res.json(updatedProduct)
         })
     })
