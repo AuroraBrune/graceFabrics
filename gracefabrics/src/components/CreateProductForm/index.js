@@ -21,6 +21,11 @@ export default function CreateProductForm(props) {
     let handleSubmit = async (image) => {
         console.log(image)
         console.log(newImage)
+        setNewProduct({
+            ...newProduct,
+            img1: newImage.name
+        })
+        console.log(newProduct)
         let fd = new FormData()
         fd.append('image', image)
         const config = {
@@ -34,17 +39,11 @@ export default function CreateProductForm(props) {
         } catch(err){
             console.log(err)
         }
-        setNewProduct({
-            ...newProduct,
-            img1: image
-        })
-        console.log(newProduct)
     }
     function updateProductsObj(e) {
-        let change = e.target.id
         setNewProduct({
             ...newProduct,
-            [change]: e.target.value
+            [e.target.id]: e.target.value
         })
         document.getElementById("CreateButton").value = JSON.stringify(newProduct)
     }
@@ -80,7 +79,6 @@ export default function CreateProductForm(props) {
                         <td><TextField id="description" label="Description" variant="outlined" onChange={updateProductsObj} /></td>
                     </tr>
                     <tr>
-                        <td><TextField id="img1" label="URL to Image" variant="outlined" onChange={updateProductsObj} /></td>
                         <td> {preview ?
                             <>
                                 <button onClick={() => { setNewImage(''); setPreview(false); }}>X</button>
