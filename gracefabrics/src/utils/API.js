@@ -33,7 +33,9 @@ const API = {
   },
   deleteProduct: function (event) {
     const id = event.currentTarget.dataset.pid;
+    //event.currentTarget.value.id
     return axios.delete(`/api/products/${id}/`);
+    //, JSON.parse(event.currentTarget.value.img)
   },
   createProduct: function (event) {
     let products = event.currentTarget.value;

@@ -47,7 +47,7 @@ const ManageProduct = (props) => {
       <Button value={product.id} onClick={updateForm}>
         <strong>Update</strong>
       </Button>
-      <Button onClick={deleteRender} data-pid={product.id}>
+      <Button onClick={deleteRender} value={{id:product.id, img:product.img1}}data-pid={product.id}>
         <strong>Delete</strong>
       </Button>
       </table>
