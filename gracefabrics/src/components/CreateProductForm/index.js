@@ -17,12 +17,13 @@ export default function CreateProductForm(props) {
     let handleNewImage = e => {
         setNewImage(e.target.files[0])
         setPreview(true)
-        setNewProduct({
-            ...newProduct,
-            img1: newImage.name
-        })
+       
     }
     let handleImgSubmit = async (image) => {
+        setNewProduct({
+            ...newProduct,
+            img1: image.name
+        })
         let fd = new FormData()
         fd.append('image', image)
         const config = {
