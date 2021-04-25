@@ -17,7 +17,6 @@ export default function CreateProductForm(props) {
     let handleNewImage = e => {
         setNewImage(e.target.files[0])
         setPreview(true)
-       
     }
     let handleImgSubmit = async (image) => {
         setNewProduct({
@@ -50,6 +49,7 @@ export default function CreateProductForm(props) {
             document.querySelectorAll("input").forEach(function (input) {
                 input.value = ""
             })
+            setPreview(false)
             alert("New Product Created --Scroll to the bottom to see :)")
             props.renderProducts()
         })

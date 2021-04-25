@@ -111,16 +111,23 @@ module.exports = function (app) {
         }
     })
 
-    app.delete("/api/products/:id", (req, res) => {
-        const id = req.params.id;
-        //fs.unlink('../uploads/' + req.body.img, (err) =>{if(err){console.log(err) return}})
+    app.post("/api/delete", (req, res) => {
+        console.log(req.body)
+        const id = req.body.id;
+        console.log(id)
+        fs.unlink('./uploads/' + req.body.img1, (err) =>{
+            if(err){
+                console.log(err) 
+            }
+        });
         db.Products.destroy({
             where: {
                 id: id
             }
         }).then(dbProducts => {
             res.json(dbProducts)
-        })
+            
+        });
     })
     app.get("/api/products/stoles", (req, res) => {
         db.Products.findAll({
