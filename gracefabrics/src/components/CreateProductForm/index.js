@@ -15,6 +15,7 @@ export default function CreateProductForm(props) {
     }
     )
     let handleNewImage = e => {
+        e.preventDefault()
         setNewImage(e.target.files[0])
         setPreview(true)
     }
@@ -81,7 +82,7 @@ export default function CreateProductForm(props) {
                             <>
                                 <button onClick={() => { setNewImage(''); setPreview(false); }}>X</button>
                                 <img src={URL.createObjectURL(newImage)} alt={newImage} />
-                                <button onClick={() => { handleImgSubmit(newImage) }}>Upload!</button>
+                                <button onClick={(e) => {e.preventDefault(); handleImgSubmit(newImage); }}>Upload!</button>
                             </>
                             :
                             <>
