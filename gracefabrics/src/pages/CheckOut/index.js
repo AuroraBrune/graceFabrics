@@ -29,11 +29,12 @@ const ProductDisplay = ({ handleClick }) => (
         const [message, setMessage] = useState("");
         useEffect(() => {
           // Check to see if this is a redirect back from Checkout
-          const query = new URLSearchParams(window.location.search);
-          if (query.get("success")) {
+          const query = window.location.href.split("?");
+          console.log(query[1])
+          if (query[1]=== "success=true") {
             setMessage("Order placed! You will receive an email confirmation.");
           }
-          if (query.get("canceled")) {
+          if (query[1]=== "canceled=true") {
             setMessage(
               "Order canceled -- continue to shop around and checkout when you're ready."
             );
@@ -41,7 +42,9 @@ const ProductDisplay = ({ handleClick }) => (
         }, []);
         const handleClick = async function (event) {
           const stripe = await stripePromise;
-          const response = await axios.get("/create-checkout-session");
+          const response = await fetch("/create-checkout-session", {
+            method: "POST",
+          });
           const session = await response.json();
           // When the customer clicks on the button, redirect them to Checkout.
           const result = await stripe.redirectToCheckout({

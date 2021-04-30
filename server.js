@@ -1,8 +1,8 @@
 const express = require("express");
+const app = express();
 const session = require("express-session");
 const passport = require("./config/passport");
 const db = require("./models");
-const app = express();
 let cors = require("cors");
 app.use(cors())
 const path = require('path')
@@ -27,6 +27,7 @@ if (process.env.JAWSDB_URL) {
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(express.static("uploads"));
 app.use(express.static("uploads"));
 
 if (process.env.NODE_ENV === "production") {
