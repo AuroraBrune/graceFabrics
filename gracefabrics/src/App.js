@@ -12,6 +12,7 @@ import Service from './pages/Services';
 import PageNotFound from './components/PageNotFound';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
+import Checkout from "./pages/CheckOut";
 // import ProductManagement from './pages/productManagement';
 // import API from './utils/API';
 
@@ -30,33 +31,34 @@ function App() {
       <Navbar />
       <div id="generalContainer">
         <Switch>
-        <Route exact path="/" component={About} />
-        <Route path="/banners" render={() => {
-          return <Shop type="banners" />
-        }} />
-        <Route path="/stoles" render={() => {
-          return <Shop type="stoles" />
-        }} />
-        {/* <PrivateRoute path='/admin' component={ProductManagement}/> */}
-        <Route path="/login" component={Login} />
-        <Route path="/forgot-password" component={ForgotPassword} />
-        <Route path="/reset-password" component={ResetPassword} />
-        <Route path="/about" component={About} />
-        <Route path="/custom-order" component={CustomOrder} />
-        <Route path="/commissions" component={CommissionPage} />
-        <Route path="/workshops" render={() => {
-          return <Service name="Hands-On Workshops" />
-        }} />
-        <Route path="/events" render={() => {
-          return <Service name="Events" />
-        }} />
-        <Route path="/consultations" render={() => {
-          return <Service name="Consultations" />
-        }} />
-        <Route path="/cart" render={()=>{
-          return <Cart />
-        }} />
-        <Route path="*" component={PageNotFound}/>
+          <Route exact path="/" component={About} />
+          <Route path="/banners" render={() => {
+            return <Shop type="banners" />
+          }} />
+          <Route path="/stoles" render={() => {
+            return <Shop type="stoles" />
+          }} />
+          <Route path="/checkout" component={Checkout} />
+          {/* <PrivateRoute path='/admin' component={ProductManagement}/> */}
+          <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <Route path="/reset-password" component={ResetPassword} />
+          <Route path="/about" component={About} />
+          <Route path="/custom-order" component={CustomOrder} />
+          <Route path="/commissions" component={CommissionPage} />
+          <Route path="/workshops" render={() => {
+            return <Service name="Hands-On Workshops" />
+          }} />
+          <Route path="/events" render={() => {
+            return <Service name="Events" />
+          }} />
+          <Route path="/consultations" render={() => {
+            return <Service name="Consultations" />
+          }} />
+          <Route path="/cart" render={() => {
+            return <Cart />
+          }} />
+          <Route path="*" component={PageNotFound} />
         </Switch>
       </div>
     </HashRouter>
