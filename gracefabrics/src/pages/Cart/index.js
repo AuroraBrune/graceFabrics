@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from 'react';
 import ShopProduct from '../../components/ShopProduct';
 import { Grid, Button } from '@material-ui/core';
+import { Link } from "react-router-dom";
+import './cart.css'
 
 export default function Cart() {
-    
-    if(JSON.parse(localStorage.getItem("cart")) === null){
-       localStorage.setItem("cart", JSON.stringify([]))
+
+    if (JSON.parse(localStorage.getItem("cart")) === null) {
+        localStorage.setItem("cart", JSON.stringify([]))
     }
     let retrieved = JSON.parse(localStorage.getItem("cart"))
     let [cartState, setCartState] = useState({
@@ -23,27 +25,27 @@ export default function Cart() {
                     return;
                 }
             }
-           
+
         }
     })
-    useEffect(()=>{
+    useEffect(() => {
         retrieved = JSON.parse(localStorage.getItem("cart"))
         console.log(retrieved)
-        if(retrieved !== null){
-          setCartState({
-            ...cartState,
-            cart: retrieved
-          })
-          console.log(cartState.cart)
+        if (retrieved !== null) {
+            setCartState({
+                ...cartState,
+                cart: retrieved
+            })
+            console.log(cartState.cart)
         }
-        else{
+        else {
             console.log("null")
-          setCartState({
-            ...cartState,
-            cart: []
-          })
+            setCartState({
+                ...cartState,
+                cart: []
+            })
         }
-      },[])
+    }, [])
     // useEffect(() => {
     //     props.updateCart(savedProducts.cart)
     // }, [cartState.cart])
@@ -53,9 +55,9 @@ export default function Cart() {
     //         cart: props.cart
     //     })
     // }, [props.cart])
-    
+
     let cartItems = cartState.cart.map(product => {
-     return (
+        return (
             <Grid item xs={9} sm={4} md={3} key={product.id}>
                 <ShopProduct
                     productinfo={product}
@@ -67,13 +69,16 @@ export default function Cart() {
         )
     })
     return (
-        <div>
+        <div id="cart">
             <p className="main">
                 There are {cartState.cart.length} items in your cart.
             </p>
             <Grid container>
                 {cartItems}
             </Grid>
+            <Button id="toCheckout">
+              <Link to="/checkout">Checkout</Link> 
+            </Button>
         </div>
     )
-} 
+}

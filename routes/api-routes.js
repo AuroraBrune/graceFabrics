@@ -17,7 +17,7 @@ const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 module.exports = function (app) {
     app.post('/create-checkout-session', async function (req, res){
-        console.log("hit")
+        console.log(req.body)
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [
@@ -25,10 +25,11 @@ module.exports = function (app) {
                     price_data: {
                         currency: 'usd',
                         product_data: {
-                            name: 'Stubborn Attachments',
-                            images: ['https://i.imgur.com/EHyR2nP.png'],
+                            name: req.body[0].name,
+                            images: [req.body[0].img1],
+                            // 'http://localhost:3000/' +
                         },
-                        unit_amount: 2000,
+                        unit_amount: req.body[0].price,
                     },
                     quantity: 1,
                 },
@@ -37,6 +38,7 @@ module.exports = function (app) {
             success_url: 'http://localhost:3000/#/checkout?success=true',
             cancel_url: 'http://localhost:3000/#/checkout?canceled=true',
         });
+        console.log(session)
         res.json({ id: session.id });
       });
     const storage = multer.diskStorage({

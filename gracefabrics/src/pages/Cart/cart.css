@@ -1,0 +1,13 @@
+#cart a{
+    color:white;
+    text-decoration: none;
+    background-color: rgb(189, 116, 189);
+    padding: 10px;
+    font-weight: 400;
+    font-size: 35px;
+    border-radius: 8px;
+}
+#cart a:hover{
+    color:rgb(189, 116, 189);
+    background-color: rgb(71, 28, 114);
+}

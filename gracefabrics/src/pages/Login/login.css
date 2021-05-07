@@ -5,3 +5,7 @@
     font-size: 25px;
     margin:30px;
 }
+.loginForm a{
+    color:white;
+    text-decoration: none;
+}
