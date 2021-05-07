@@ -16,31 +16,31 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const isAuthenticated = require('../config/middleware/isAuthenticated');
 
 module.exports = function (app) {
-    app.post('/create-checkout-session', async function (req, res){
-        console.log(req.body)
+    app.post('/create-checkout-session', async function (req, res) {
+        let items = req.body
+        const lineItems = await items.map(item => {
+            return {
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: item.name,
+                        images: [item.img1],
+                        // 'http://localhost:3000/' +
+                    },
+                    unit_amount: item.price,
+                },
+                quantity: 1,
+            }
+        })
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            line_items: [
-                {
-                    price_data: {
-                        currency: 'usd',
-                        product_data: {
-                            name: req.body[0].name,
-                            images: [req.body[0].img1],
-                            // 'http://localhost:3000/' +
-                        },
-                        unit_amount: req.body[0].price,
-                    },
-                    quantity: 1,
-                },
-            ],
+            line_items: lineItems,
             mode: 'payment',
             success_url: 'http://localhost:3000/#/checkout?success=true',
             cancel_url: 'http://localhost:3000/#/checkout?canceled=true',
         });
-        console.log(session)
         res.json({ id: session.id });
-      });
+    });
     const storage = multer.diskStorage({
         destination: function (req, file, cb) {
             cb(null, 'uploads')
