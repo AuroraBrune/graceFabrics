@@ -27,13 +27,17 @@ module.exports = function (app) {
                         images: [item.img1],
                         // 'http://localhost:3000/' +
                     },
-                    unit_amount: item.price,
+                    unit_amount: item.price * 100,
                 },
                 quantity: 1,
             }
         })
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
+            // shipping_rates: [Grace shipping code],
+            shipping_address_collection:{
+                allowed_countries:[ 'US', 'CA'],
+            },
             line_items: lineItems,
             mode: 'payment',
             success_url: 'http://localhost:3000/#/checkout?success=true',

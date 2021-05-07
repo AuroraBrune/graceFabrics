@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cart from '../Cart';
 import './checkout.css'
-import axios from 'axios';
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
@@ -28,6 +27,7 @@ export default function Checkout() {
     const query = window.location.href.split("?");
     console.log(query[1])
     if (query[1] === "success=true") {
+      localStorage.setItem("cart", JSON.stringify([]))
       setMessage("Order placed! You will receive an email confirmation.");
     }
     if (query[1] === "canceled=true") {
